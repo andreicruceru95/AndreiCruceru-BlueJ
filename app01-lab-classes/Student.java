@@ -15,6 +15,9 @@ public class Student
     private String id;
     // the amount of credits for study taken so far
     private int credits;
+    // add a course to a student out of a list of courses
+    private ArrayList<Course> courses;
+    
     
     /**
      * Create a new student with a given name and ID number.
@@ -24,8 +27,21 @@ public class Student
         name = fullName;
         id = studentID;
         credits = 0;
+        courses = new ArrayList<Course>();
     }
-
+    
+    
+/**This method will enroll the student to a course
+ * 
+ * 
+ */
+    public void enrollCourse(Course newCourse){
+        
+    courses.add(newCourse);
+   
+    }
+    
+    
     /**
      * Return the full name of this student.
      */
