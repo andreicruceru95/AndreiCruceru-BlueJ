@@ -20,7 +20,7 @@ public class Course
     public String showCourse()
     
     {
-        // put your code here
+        // Return "G400 Computing"
         return code+""+title;
     }
 }
