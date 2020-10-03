@@ -16,7 +16,7 @@ public class Student
     // the amount of credits for study taken so far
     private int credits;
     // add a course to a student out of a list of courses
-    private ArrayList<Course> courses;
+    private Course courses;
     
     
     /**
@@ -27,7 +27,7 @@ public class Student
         name = fullName;
         id = studentID;
         credits = 0;
-        courses = new ArrayList<Course>();
+      
     }
     
     
@@ -37,7 +37,7 @@ public class Student
  */
     public void enrollCourse(Course newCourse){
         
-    courses.add(newCourse);
+    courses=newCourse;
    
     }
     

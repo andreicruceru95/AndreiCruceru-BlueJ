@@ -1,0 +1,19 @@
+LabClass co452 = new LabClass(3);
+co452.setInstructor("Nicholas Day");
+co452.setRoom("G100");
+co452.setTime("Tuesday, 29 September");
+Student Andrei = new Student("Andrei Crucerus", "12121");
+Student Yamin = new Student("Yamin", "12122");
+Student Jacob = new Student("Jacob", "12123");
+co452.enrollStudent(Andrei);
+co452.enrollStudent(Yamin);
+co452.enrollStudent(Jacob);
+Andrei.changeName("Andrei Cruceru");
+Andrei.getCredits()
+    returned int 0
+Andrei.addCredits(20);
+Yamin.addCredits(20);
+Jacob.addCredits(20);
+Course dataScience = new Course();
+Student Andrei = new Student("Andrei Cruceru", "2121");
+Andrei.enrollCourse(dataScience);
