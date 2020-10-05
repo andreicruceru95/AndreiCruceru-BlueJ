@@ -38,8 +38,7 @@ public class Student
     public void enrollCourse(Course course){
         
     courses = course;
-    System.out.println("This student is now enrolled in "+courses + "!");
-   
+       
     }
     
     
