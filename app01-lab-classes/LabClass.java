@@ -14,7 +14,6 @@ public class LabClass
     private String instructor;
     private String room;
     private String timeAndDay;
-    
     private ArrayList<Student> students;
     private int capacity;
     
@@ -27,7 +26,6 @@ public class LabClass
         instructor = "unknown";
         room = "unknown";
         timeAndDay = "unknown";
-        
         students = new ArrayList<Student>();
         capacity = maxNumberOfStudents;
     }

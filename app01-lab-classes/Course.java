@@ -11,18 +11,18 @@ public class Course
     public String code;
     public String title;
     
-     /**
-     * constructor method
-     */
+    /**
+    * constructor method
+    */
     public Course(String courseCode, String courseTitle)
     {
         code = courseCode;
         title = courseTitle;
     }
     
-        /**
-     * This method will return the name and code of the course
-     */
+    /**
+    * This method will return the name and code of the course
+    */
     public String toString()
     
     {

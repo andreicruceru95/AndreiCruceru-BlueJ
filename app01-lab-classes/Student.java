@@ -18,7 +18,7 @@ public class Student
     // add a course to a student through class Course
     public Course course;
     
-        /**
+     /**
      * Create a new student with a given name and ID number.
      */
     public Student(String fullName, String studentID)
@@ -26,62 +26,61 @@ public class Student
         name = fullName;
         id = studentID;
         credits = 0;
-     }
+    }
     
-    /**This method will enroll the student to a course
-    * 
-    * 
+    /**
+    * This method will enroll the student to a course 
     */
     public void enrollCourse(Course course)
     {
         this.course = course;
     }
     
-        /**
-     * Return the full name of this student.
-     */
+    /**
+    * Return the full name of this student.
+    */
     public String getName()
     {
         return name;
     }
 
     /**
-     * Set a new name for this student.
-     */
+    * Set a new name for this student.
+    */
     public void changeName(String replacementName)
     {
         name = replacementName;
     }
 
     /**
-     * Return the student ID of this student.
-     */
+    * Return the student ID of this student.
+    */
     public String getStudentID()
     {
         return id;
     }
 
     /**
-     * Add some credit points to the student's accumulated credits.
-     */
+    * Add some credit points to the student's accumulated credits.
+    */
     public void addCredits(int additionalPoints)
     {
         credits += additionalPoints;
     }
 
-        /**
-     * Return the number of credit points this student has accumulated.
-     */
+    /**
+    * Return the number of credit points this student has accumulated.
+    */
     public int getCredits()
     {
         return credits;
     }
 
     /**
-     * Return the login name of this student. The login name is a combination
-     * of the first four characters of the student's name and the first three
-     * characters of the student's ID number.
-     */
+    * Return the login name of this student. The login name is a combination
+    * of the first four characters of the student's name and the first three
+    * characters of the student's ID number.
+    */
     public String getLoginName()
     
     {
@@ -89,8 +88,8 @@ public class Student
     }
     
     /**
-     * Print the student's name, course and ID number to the output terminal.
-     */
+    * Print the student's name, course and ID number to the output terminal.
+    */
     public void print()
     
     {
