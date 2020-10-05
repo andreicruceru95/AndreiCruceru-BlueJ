@@ -11,28 +11,23 @@ public class Course
     public String code;
     public String title;
     
-  
-
-    /**constructor method
+     /**
+     * constructor method
      */
-    
-    public Course(String courseCode, String courseTitle){
-        code=courseCode;
-        title=courseTitle;
-    
-    
+    public Course(String courseCode, String courseTitle)
+    {
+        code = courseCode;
+        title = courseTitle;
     }
     
-    
-    /**
+        /**
      * This method will return the name and code of the course
      */
-    public String returnCourse()
+    public String toString()
     
     {
         // Return code and title separated by a space
-        return code+" "+title;
+        return code + " " + title;
     }
     
-   
-}
+   }
