@@ -2,19 +2,18 @@
 /**
  * The class Course will create a course for students to attend.
  *
- * Andrei Cruceru
- * 02/10/20
+ * @author:Andrei Cruceru
+ * @version 05/10/20
  */
 public class Course
 {
-    // variables 'code' and 'title' takes 'g400' and 'computing'
-    private String code;
-    private String title;
-    private String fullName=code+title;
+    // defining variables code and title
+    public String code;
+    public String title;
+    
   
 
-    /**constructor method for class Course
-     * 
+    /**constructor method
      */
     
     public Course(String courseCode, String courseTitle){
@@ -27,13 +26,13 @@ public class Course
     
     /**
      * This method will return the name and code of the course
-     *
-     * 
      */
-    public String getCourse()
+    public String returnCourse()
     
     {
-        // Return ""
+        // Return code and title separated by a space
         return code+" "+title;
     }
+    
+   
 }

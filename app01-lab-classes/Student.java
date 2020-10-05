@@ -15,8 +15,8 @@ public class Student
     private String id;
     // the amount of credits for study taken so far
     private int credits;
-    // add a course to a student out of a list of courses
-    private Course courses;
+    // add a course to a student through class Course
+    public Course courses;
     
     
     /**
@@ -35,9 +35,10 @@ public class Student
  * 
  * 
  */
-    public void enrollCourse(Course newCourse){
+    public void enrollCourse(Course course){
         
-    courses=newCourse;
+    courses = course;
+    System.out.println("This student is now enrolled in "+courses + "!");
    
     }
     
@@ -89,22 +90,27 @@ public class Student
      * characters of the student's ID number.
      */
     public String getLoginName()
-    {
-        return name.substring(0,4) + id.substring(0,3);
-    }
     
-    /**
-     * Print the student's name, course, course ID and ID number to the output terminal.
-     */
-    public void print()
     {
-        System.out.println(name +  ", student ID: " + id + ", credits: " + credits);
+        
+        return name.substring(0,4) + id.substring(0,3);
         
     }
     
-    public void printCourse(){
-        System.out.println(courses);
+    /**
+     * Print the student's name, course and ID number to the output terminal.
+     */
+    public void print()
     
+    {
+        
+        System.out.println("Student name: "+name +" Course: " +courses+ ", student ID: " + id + ", credits: " + credits);
+       
     }
+    
+    
+    
+    
+    
     
 }
