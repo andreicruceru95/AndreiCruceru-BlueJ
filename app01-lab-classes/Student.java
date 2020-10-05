@@ -103,7 +103,7 @@ public class Student
     
     {
         
-        System.out.println("Student name: "+name +" Course: " +courses+ ", student ID: " + id + ", credits: " + credits);
+        System.out.println("Student name: "+name +"| Course: " +courses+ "| student ID: " + id + "| credits: " + credits);
        
     }
     
