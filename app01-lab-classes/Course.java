@@ -8,19 +8,32 @@
 public class Course
 {
     // variables 'code' and 'title' takes 'g400' and 'computing'
-    private String code="G400";
-    private String title="Computing";
+    private String code;
+    private String title;
+    private String fullName=code+title;
   
 
+    /**constructor method for class Course
+     * 
+     */
+    
+    public Course(String courseCode, String courseTitle){
+        code=courseCode;
+        title=courseTitle;
+    
+    
+    }
+    
+    
     /**
      * This method will return the name and code of the course
      *
      * 
      */
-    public String showCourse()
+    public String getCourse()
     
     {
-        // Return "G400 Computing"
-        return code+""+title;
+        // Return ""
+        return code+" "+title;
     }
 }
