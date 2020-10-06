@@ -7,7 +7,7 @@
  */
 public class Course
 {
-    // defining variables code and title
+    //defining variables code and title
     public String code;
     public String title;
     
@@ -23,8 +23,7 @@ public class Course
     /**
     * This method will return the name and code of the course
     */
-    public String toString()
-    
+    public String toString()    
     {
         // Return code and title separated by a space
         return code + " " + title;
