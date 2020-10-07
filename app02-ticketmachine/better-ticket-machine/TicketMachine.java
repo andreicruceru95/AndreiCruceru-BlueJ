@@ -1,8 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.lang.management.*;
-import java.text.*;
-import java.util.*;
 /**
  * TicketMachine models a ticket machine that issues
  * flat-fare tickets.
@@ -16,55 +13,66 @@ import java.util.*;
  */
 public class TicketMachine
 {
-    // The amount of money entered by a customer so far.
-    private int price;
-    private int balance;
+    // 
+    private double price;
+    // The amount of money inside this machine
+    private double balance;
     // The total amount of money collected by this machine.
-    private int total;
-    // The list of tickets
+    private double total;
+    // 
     private Ticket ticket;
     private ArrayList<Ticket> aListTicket = new ArrayList<Ticket>();
-    private Coin coin;
+    public Coin coin;
 
     /**
-     * Create a machine that issues tickets of the given price.
+     * Create a machine that issues tickets
      */
-    public TicketMachine()
+    public TicketMachine(Coin coin)
     {
+        this.coin=coin;
         balance = 0;
         total = 0;
     }
     
-    public void selectTicketToBuy(Ticket newTicket)
-    {
-        
-    }
-    
-    public ArrayList getTickets()
+        public ArrayList getTickets()
     {
         return aListTicket;
     }
     
-     /**
+    /**
      * Return The amount of money already inserted for the
      * next ticket.
      */
-    public int getBalance()
+    public double getBalance()
     {
         return balance;
     }
 
     /**
      * Receive an amount of money from a customer.
-     * Check that the amount is sensible.
+     * 
      */
     public void insertMoney(Coin coin)
     {
-        this.coin=coin;
-        balance = balance + coin;
-        System.out.println("You just inserted " + coin + "!");
-        System.out.println("You need another " + price - balance + "!");
-        
+        price = this.ticket.getPrice();
+        if (coin == Coin.P10) {
+            
+            System.out.println("You just inserted £" + coin.P10 + "!");
+            balance = balance + coin;
+            System.out.println("You need another £" + price - balance + "!");
+        }
+        else if (coin == Coin.P20) {
+            //similar condition
+        }
+        else if (coin == Coin.P100) {
+            //condition
+        }
+        else if (coin == Coin.P200) {
+            //condition
+        }
+        else {
+            System.out.println ("You can only insert £0.10, £0.20, £1.00 and £2.00 coins");
+        }
     }
     
     /**
