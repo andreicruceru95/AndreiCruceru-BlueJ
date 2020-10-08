@@ -13,14 +13,14 @@ public enum Coin
     P100 (100),
     P200 (200);
 
-    public final double value;
+    public final int value;
 
-    private Coin(double value)
+    private Coin(int value)
     {
         this.value = value;
     }
 
-    public double getValue()
+    public int getValue()
     {
         return value;
     }
