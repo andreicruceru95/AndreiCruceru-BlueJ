@@ -1,19 +1,26 @@
-LabClass co452 = new LabClass(3);
-co452.setInstructor("Nicholas Day");
-co452.setRoom("G100");
-co452.setTime("Tuesday, 29 September");
-Student Andrei = new Student("Andrei Crucerus", "12121");
-Student Yamin = new Student("Yamin", "12122");
-Student Jacob = new Student("Jacob", "12123");
-co452.enrollStudent(Andrei);
-co452.enrollStudent(Yamin);
-co452.enrollStudent(Jacob);
-Andrei.changeName("Andrei Cruceru");
-Andrei.getCredits()
-    returned int 0
-Andrei.addCredits(20);
-Yamin.addCredits(20);
-Jacob.addCredits(20);
-Course dataScience = new Course();
-Student Andrei = new Student("Andrei Cruceru", "2121");
-Andrei.enrollCourse(dataScience);
+LabClass co452Lab = new LabClass(3);
+Student andrei = new Student("Andrei", "12313");
+Student yamin = new Student("Yamin", "12311");
+Student james = new Student("James", "123112");
+andrei.changeName("Andrew");
+co452Lab.setInstructor("Nickholas Day");
+co452Lab.setRoom("G100");
+co452Lab.setTime("Tuesday 29th September 2020, 10:30am");
+andrei.addCredits(20);
+yamin.addCredits(20);
+james.addCredits(20);
+Course computing = new Course("G400", "Computing");
+co452Lab.enrollStudent(andrei);
+co452Lab.enrollStudent(yamin);
+co452Lab.enrollStudent(james);
+andrei.enrollCourse(computing);
+yamin.enrollCourse(computing);
+james.enrollCourse(computing);
+co452Lab.printList();
+Lab class Tuesday 29th September 2020, 10:30am
+Instructor: Nickholas Day   Room: G100
+Class list:
+Student name: Andrew| Course: G400 Computing| student ID: 12313| credits: 20
+Student name: Yamin| Course: G400 Computing| student ID: 12311| credits: 20
+Student name: James| Course: G400 Computing| student ID: 123112| credits: 20
+Number of students: 3
