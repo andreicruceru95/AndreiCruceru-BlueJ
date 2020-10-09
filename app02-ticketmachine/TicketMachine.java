@@ -33,7 +33,7 @@ public class TicketMachine
         System.out.println("Your balance is "+ balance + " pences");
     } 
     // Select your destination and print the ticket at the same time
-    public void printTicket(String destination)
+    public void buyTicket(String destination)
     {
         if (destination.equals("Aylesbury")){
              if (balance<220){

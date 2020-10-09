@@ -24,8 +24,8 @@ public class Ticket
       public void printTicket()
       {
            System.out.println("##############################");
-           System.out.println("  " + destination + "  ");
-           System.out.println("#            " + price + "pence        #");
+           System.out.println("Destination:  " + destination + "  ");
+           System.out.println("#Price:        " + price + "pence        #");
            System.out.println("#" + timeStamp + "#");
            System.out.println("##############################");      
       }
