@@ -1,0 +1,53 @@
+TicketMachine TicketMachine = new TicketMachine();
+Ticket aylesbury = new Ticket("Aylesbury", 220);
+Ticket amersham = new Ticket("Amersham", 300);
+Ticket highWycombe = new Ticket("High Wycombe", 330);
+TicketMachine.insertCoin(Coin.P200);
+You have inserted: P200 pences
+Your balance is 200 pences
+TicketMachine.printTicket("Aylesbury");
+Insert 20 more pences!
+TicketMachine.insertCoin(Coin.P200);
+You have inserted: P200 pences
+Your balance is 400 pences
+TicketMachine.insertCoin(Coin.P200);
+You have inserted: P200 pences
+Your balance is 600 pences
+TicketMachine.checkBalance()
+    returned int 600
+TicketMachine.insertCoin(Coin.P200);
+You have inserted: P200 pences
+Your balance is 800 pences
+TicketMachine.printTicket("Aylesbury");
+##############################
+  Aylesbury  
+#            220pence        #
+#Fri Oct 09 14:27:38 BST 2020#
+##############################
+Your can get a refund of 580pences!
+TicketMachine.printTicket("Slough");
+We only offer ticket to:
+#Aylesbury, #Amersham or #High Wycombe!
+Please select a destination between:
+Aylesbury, Amersham or High Wycombe
+TicketMachine.printTicket("Amersham");
+##############################
+  Amersham  
+#            300pence        #
+#Fri Oct 09 14:27:38 BST 2020#
+##############################
+Your can get a refund of 280pences!
+TicketMachine.printTicket("High Wycombe");
+Insert more £50 pences!
+TicketMachine.insertCoin(Coin.P100);
+You have inserted: P100 pences
+Your balance is 380 pences
+TicketMachine.printTicket("High Wycombe");
+##############################
+  High Wycombe  
+#            330pence        #
+#Fri Oct 09 14:27:38 BST 2020#
+##############################
+Your can get a refund of 50pences!
+TicketMachine.askForRefund();
+You have been refunded: 50 pences!
