@@ -1,4 +1,3 @@
-
 /**
  * The class Course will create a course for students to attend.
  *
