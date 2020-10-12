@@ -56,11 +56,14 @@ public class TicketMachine
      */
     public void buyTicket(String destination)
     {
-        if (destination.equals("Aylesbury")) {
-            if (balance<220){
+        if (destination.equals("Aylesbury")) 
+        {
+            if (balance<220)
+            {
                 System.out.println("Insert " + (220 - balance) + " more pences!");
             }
-            else{
+            else
+            {
                 System.out.println("Transaction aproved");
                 System.out.println("Here is your ticket");
                 aylesburyTicket.printTicket();
@@ -69,11 +72,14 @@ public class TicketMachine
             }
             
         }
-        else if(destination.equals("Amersham")) {
-            if (balance < 300) {
+        else if(destination.equals("Amersham")) 
+        {
+            if (balance < 300) 
+            {
                 System.out.println("Insert " + (300 - balance) + "pences!");
             }
-            else {
+            else 
+            {
                 System.out.println("Transaction aproved");
                 System.out.println("Here is your ticket");
                 amershamTicket.printTicket();
@@ -82,11 +88,14 @@ public class TicketMachine
             }
             
         }
-        else if(destination.equals("High Wycombe")) {
-            if (balance<330) {
+        else if(destination.equals("High Wycombe"))
+        {
+            if (balance<330) 
+            {
                 System.out.println("Insert more £" + (330 - balance) + " pences!");
             }
-            else {
+            else 
+            {
                 System.out.println("Transaction aproved");
                 System.out.println("Here is your ticket");
                 highWycombeTicket.printTicket();
@@ -95,7 +104,8 @@ public class TicketMachine
             }
             
         }
-        else {
+        else 
+        {
             System.out.println("We only offer ticket to:");
             System.out.println("#Aylesbury, #Amersham or #High Wycombe!");
             System.out.println("Please select a destination between:");
