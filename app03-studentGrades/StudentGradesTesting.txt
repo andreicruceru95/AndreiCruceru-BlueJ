@@ -1,0 +1,63 @@
+Module webDevelopment = new Module("Web Development", 10001);
+Module programmingConcepts = new Module("Programming Concepts", 10002);
+Module computerArchitecture = new Module("Computer Architecture", 10003);
+Module databaseDesign = new Module("Database Design", 10004);
+Course dataScience = new Course("Data Science", "BSc13213");
+webDevelopment.giveMark(78);
+Web Development 10001 recieves 78%
+programmingConcepts.giveMark(98);
+Programming Concepts 10002 recieves 98%
+computerArchitecture.giveMark(65);
+Computer Architecture 10003 recieves 65%
+databaseDesign.getMark()
+    returned int 0
+databaseDesign.giveMark(43);
+Database Design 10004 recieves 43%
+databaseDesign.getMark()
+    returned int 43
+computerArchitecture.getMark()
+    returned int 65
+programmingConcepts.printModuleDetails();
+Module name: Programming Concepts Code: 10002 Marks: 98%
+dataScience.addModuleOne(webDevelopment);
+dataScience.addModuleTwo(programmingConcepts);
+dataScience.addModuleThree(computerArchitecture);
+dataScience.addModuleFour(databaseDesign);
+dataScience.calculateCredits();
+dataScience.calculateFinalGrades();
+Your final marks are: 71%
+Your final grades are: A
+dataScience.printCourseDetails();
+Course: Data Science Course code BSc13213 Credits: 60
+Modules and mark:
+Module name: Web Development Code: 10001 Marks: 78%
+Module name: Programming Concepts Code: 10002 Marks: 98%
+Module name: Computer Architecture Code: 10003 Marks: 65%
+Module name: Database Design Code: 10004 Marks: 43%
+Student andrei = new Student("Andrei Cruceru", 23213218);
+andrei.enrolOnCourse(dataScience);
+andrei.getStudentDetails();
+Name: Andrei Cruceru Student ID: 23213218
+andrei.getCourse();
+Course: Data Science Course code BSc13213 Credits: 60
+Modules and mark:
+Module name: Web Development Code: 10001 Marks: 78%
+Module name: Programming Concepts Code: 10002 Marks: 98%
+Module name: Computer Architecture Code: 10003 Marks: 65%
+Module name: Database Design Code: 10004 Marks: 43%
+webDevelopment.printModuleDetails();
+Module name: Web Development Code: 10001 Marks: 78%
+programmingConcepts.printModuleDetails();
+Module name: Programming Concepts Code: 10002 Marks: 98%
+computerArchitecture.printModuleDetails();
+Module name: Computer Architecture Code: 10003 Marks: 65%
+databaseDesign.printModuleDetails();
+Module name: Database Design Code: 10004 Marks: 43%
+webDevelopment.isCompleted()
+    returned boolean true
+programmingConcepts.isCompleted()
+    returned boolean true
+computerArchitecture.isCompleted()
+    returned boolean true
+databaseDesign.getMark()
+    returned int 43
