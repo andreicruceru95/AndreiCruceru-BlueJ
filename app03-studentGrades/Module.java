@@ -6,14 +6,19 @@
  */
 public class Module
 {
+    // Title and code for this course
     public String title;
     public int code;
+    // The marks and credits for this module
     public int mark = 0;
     public int credits = 0;
+    // The comfirmation that the course has been completed and marked
     public boolean isCompleted;
     public boolean isMarked;
     
-    //Constructor method for Module
+    /**
+     * Constructor method for this module.
+    */
     public Module (String title, int code)
     {
         this.title = title;
@@ -49,6 +54,7 @@ public class Module
             System.out.println(title + " " + code + " recieves " + mark + "%");
         }
     }
+    
     /**
      * This method will return the credits for a module.
      * It will return 15 if the module has a mark over 39% and 0 if the module has a mark less than 39%.
@@ -67,7 +73,7 @@ public class Module
     }
     
     /**
-     * 
+     * This will return if the module has been marked.
      */
     public boolean isMarked()
     {
