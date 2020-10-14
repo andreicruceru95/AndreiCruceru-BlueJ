@@ -69,16 +69,8 @@ public class Course
      */
     public void calculateCredits()
     {
-        if (moduleOne.isCompleted == true && moduleTwo.isCompleted == true
-            && moduleThree.isCompleted == true && moduleFour.isCompleted == true)
-        {
-            credits = credits + 60;
-        }
-        else
-        {
-            System.out.println("We can only calculate the final grades when ");
-            System.out.println("the student have completed all four modules.");
-        }
+        credits = moduleOne.getCredits() + moduleTwo.getCredits() + moduleThree.getCredits() + moduleFour.getCredits();
+        System.out.println("This course has acumulated " + credits + " credits");
     }
     
     /**
@@ -115,6 +107,7 @@ public class Course
         
             System.out.println("Your final marks are: " + mark + "%");
             System.out.println("Your final grades are: " + finalGrades);
+            System.out.println("your final credits are: " + credits);
         }
         else 
         {

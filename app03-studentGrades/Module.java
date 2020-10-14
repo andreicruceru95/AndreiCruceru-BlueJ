@@ -9,6 +9,7 @@ public class Module
     public String title;
     public int code;
     public int mark = 0;
+    public int credits = 0;
     public boolean isCompleted;
     public boolean isMarked;
     
@@ -29,6 +30,7 @@ public class Module
             isCompleted = true;
             isMarked = true;
             this.mark = mark;
+            this.credits = 15;
             System.out.println(title + " " + code + " recieves " + mark + "%");
         }
         else if (mark > 100) 
@@ -46,6 +48,14 @@ public class Module
             this.mark = mark;
             System.out.println(title + " " + code + " recieves " + mark + "%");
         }
+    }
+    /**
+     * This method will return the credits for a module.
+     * It will return 15 if the module has a mark over 39% and 0 if the module has a mark less than 39%.
+     */
+    public int getCredits()
+    {
+        return credits;
     }
     
     /**
