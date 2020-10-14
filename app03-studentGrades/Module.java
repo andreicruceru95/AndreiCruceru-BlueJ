@@ -10,6 +10,7 @@ public class Module
     public int code;
     public int mark = 0;
     public boolean isCompleted;
+    public boolean isMarked;
     
     //Constructor method for Module
     public Module (String title, int code)
@@ -23,10 +24,12 @@ public class Module
      */
     public void giveMark(int mark)
     {
-        this.mark = mark;
         if (mark > 39 && mark <= 100) 
         {
             isCompleted = true;
+            isMarked = true;
+            this.mark = mark;
+            System.out.println(title + " " + code + " recieves " + mark + "%");
         }
         else if (mark > 100) 
         {
@@ -39,8 +42,10 @@ public class Module
         else
         {
             isCompleted = false;
+            isMarked = true;
+            this.mark = mark;
+            System.out.println(title + " " + code + " recieves " + mark + "%");
         }
-        System.out.println(title + " " + code + " recieves " + mark + "%"); 
     }
     
     /**
@@ -49,6 +54,14 @@ public class Module
     public boolean isCompleted()
     {
         return isCompleted;
+    }
+    
+    /**
+     * 
+     */
+    public boolean isMarked()
+    {
+        return isMarked;
     }
     
     /**

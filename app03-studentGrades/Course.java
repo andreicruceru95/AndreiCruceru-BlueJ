@@ -70,7 +70,7 @@ public class Course
     public void calculateCredits()
     {
         if (moduleOne.isCompleted == true && moduleTwo.isCompleted == true
-        && moduleThree.isCompleted == true && moduleFour.isCompleted == true)
+            && moduleThree.isCompleted == true && moduleFour.isCompleted == true)
         {
             credits = credits + 60;
         }
@@ -87,30 +87,40 @@ public class Course
      */
     public void calculateFinalGrades()
     {
-        mark = moduleOne.getMark() + moduleTwo.getMark() + moduleThree.getMark() + moduleFour.getMark();
-        mark = mark / 4;
-        if (mark <= 39)
+        if (moduleOne.isMarked == true && moduleTwo.isMarked == true
+            && moduleThree.isMarked == true && moduleFour.isMarked == true)
         {
-            finalGrades = "F";
+            mark = moduleOne.getMark() + moduleTwo.getMark() + moduleThree.getMark() + moduleFour.getMark();
+            mark = mark / 4;
+            if (mark <= 39)
+            {
+                finalGrades = "F";
+            }
+            else if (mark > 39 && mark <= 49)
+            {
+                finalGrades = "D";
+            }
+            else if (mark > 49 && mark <= 59)
+            {
+                finalGrades = "C";
+            }
+            else if (mark > 59 && mark <= 69)
+            {
+                finalGrades = "B";
+            }
+            else
+            {
+                finalGrades = "A";
+            }
+        
+            System.out.println("Your final marks are: " + mark + "%");
+            System.out.println("Your final grades are: " + finalGrades);
         }
-        else if (mark > 39 && mark <= 49)
+        else 
         {
-            finalGrades = "D";
+            System.out.println("You can calculate the final mark and grades");
+            System.out.println("once all the modules have been marked");
         }
-        else if (mark > 49 && mark <= 59)
-        {
-            finalGrades = "C";
-        }
-        else if (mark > 59 && mark <= 69)
-        {
-            finalGrades = "B";
-        }
-        else
-        {
-            finalGrades = "A";
-        }
-        System.out.println("Your final marks are: " + mark + "%");
-        System.out.println("Your final grades are: " + finalGrades);
     }
         
     /**
