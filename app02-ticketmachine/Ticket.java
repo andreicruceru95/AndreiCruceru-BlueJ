@@ -18,8 +18,8 @@ public class Ticket
     public Ticket(String destination, int price)
     {
         this.destination=destination;
-          this.price = price;
-          timeStamp = new Date();
+        this.price = price;
+        timeStamp = new Date();
     }
       
     /**

@@ -7,11 +7,11 @@
 public class Module
 {
     // Title and code for this course
-    public String title;
-    public int code;
+    public String moduleTitle;
+    public int moduleCode;
     // The marks and credits for this module
-    public int mark = 0;
-    public int credits = 0;
+    public int moduleMark = 0;
+    public int moduleCredits = 0;
     // The comfirmation that the course has been completed and marked
     public boolean isCompleted;
     public boolean isMarked;
@@ -19,30 +19,30 @@ public class Module
     /**
      * Constructor method for this module.
     */
-    public Module (String title, int code)
+    public Module (String moduleTitle, int moduleCode)
     {
-        this.title = title;
-        this.code = code;
+        this.moduleTitle = moduleTitle;
+        this.moduleCode = moduleCode;
     }
     
     /**
      * This method will add points for this module
      */
-    public void giveMark(int mark)
+    public void giveMark(int moduleMark)
     {
-        if (mark > 39 && mark <= 100) 
+        if (moduleMark > 39 && moduleMark <= 100) 
         {
             isCompleted = true;
             isMarked = true;
-            this.mark = mark;
-            this.credits = 15;
-            System.out.println(title + " " + code + " recieves " + mark + "%");
+            this.moduleMark = moduleMark;
+            this.moduleCredits = 15;
+            System.out.println(moduleTitle + " " + moduleCode + " recieves " + moduleMark + "%");
         }
-        else if (mark > 100) 
+        else if (moduleMark > 100) 
         {
             System.out.println("Maximum mark you can give is 100");
         }
-        else if (mark < 0) 
+        else if (moduleMark < 0) 
         {
             System.out.println("Please insert a positive number");
         }
@@ -50,8 +50,8 @@ public class Module
         {
             isCompleted = false;
             isMarked = true;
-            this.mark = mark;
-            System.out.println(title + " " + code + " recieves " + mark + "%");
+            this.moduleMark = moduleMark;
+            System.out.println(moduleTitle + " " + moduleCode + " recieves " + moduleMark + "%");
         }
     }
     
@@ -61,7 +61,7 @@ public class Module
      */
     public int getCredits()
     {
-        return credits;
+        return moduleCredits;
     }
     
     /**
@@ -85,7 +85,7 @@ public class Module
      */
     public int getMark()
     {
-        return mark;
+        return moduleMark;
     }
     
     /**
@@ -93,6 +93,6 @@ public class Module
      */
     public void printModuleDetails()
     {
-        System.out.println("Module name: " + title + " Code: " + code + " Marks: " + mark +"%");
+        System.out.println("Module name: " + moduleTitle + " Code: " + moduleCode + " Marks: " + moduleMark +"%");
     }
 }

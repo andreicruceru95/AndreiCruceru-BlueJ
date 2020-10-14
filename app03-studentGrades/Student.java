@@ -4,7 +4,6 @@
  * @author Andrei Cruceru
  * @version 12102020
  */
-
 public class Student
 {
     // Student name
