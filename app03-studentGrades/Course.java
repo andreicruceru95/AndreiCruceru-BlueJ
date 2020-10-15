@@ -82,8 +82,10 @@ public class Course
         if (moduleOne.isMarked == true && moduleTwo.isMarked == true
             && moduleThree.isMarked == true && moduleFour.isMarked == true)
         {
+            // We calculate the average mark of the four modules
             mark = moduleOne.getMark() + moduleTwo.getMark() + moduleThree.getMark() + moduleFour.getMark();
             mark = mark / 4;
+            // We convert the mark into grades
             if (mark <= 39)
             {
                 finalGrades = "F";

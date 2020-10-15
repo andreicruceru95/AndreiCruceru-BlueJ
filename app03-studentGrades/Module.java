@@ -17,8 +17,8 @@ public class Module
     public boolean isMarked;
     
     /**
-     * Constructor method for this module.
-    */
+     * Give a title and a code to this module
+     */
     public Module (String moduleTitle, int moduleCode)
     {
         this.moduleTitle = moduleTitle;
@@ -30,6 +30,7 @@ public class Module
      */
     public void giveMark(int moduleMark)
     {
+        // The module is completed and recieves 15 credits if it recieves over 39 marks
         if (moduleMark > 39 && moduleMark <= 100) 
         {
             isCompleted = true;
@@ -38,14 +39,17 @@ public class Module
             this.moduleCredits = 15;
             System.out.println(moduleTitle + " " + moduleCode + " recieves " + moduleMark + "%");
         }
+        // Setting the maximum number of marks for module
         else if (moduleMark > 100) 
         {
             System.out.println("Maximum mark you can give is 100");
         }
+        // Making sure the marks will be a positive number
         else if (moduleMark < 0) 
         {
             System.out.println("Please insert a positive number");
         }
+        // If the module gets a mark of less then 40 it will get 0 credits
         else
         {
             isCompleted = false;

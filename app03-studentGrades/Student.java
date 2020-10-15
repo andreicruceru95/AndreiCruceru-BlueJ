@@ -36,6 +36,8 @@ public class Student
     public void getStudentDetails()
     {
         System.out.println("Name: " + name + " Student ID: " + studentId);
+        System.out.println("This student is enrolled in the following course:");
+        course.printCourseDetails();
     }
     
     /**
