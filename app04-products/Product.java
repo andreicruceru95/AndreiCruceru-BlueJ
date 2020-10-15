@@ -3,6 +3,9 @@
  * 
  * @author David J. Barnes and Michael Kölling.
  * @version 2016.02.29
+ * Modified by
+ * @author Andrei Cruceru  
+ * @version 15102020
  */
 public class Product
 {
