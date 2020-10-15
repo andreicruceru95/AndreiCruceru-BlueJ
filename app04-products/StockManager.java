@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-
+ 
 /**
  * Manage the stock in a business.
  * The stock is described by zero or more Products.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Andrei Cruceru 
+ * @version 15102020
  */
 public class StockManager
 {
@@ -30,6 +30,22 @@ public class StockManager
     }
     
     /**
+     * Rename a product based on it's id.
+     */
+    public void renameProduct(int id, String replacement)
+    {
+       for(Product product : stock)
+           { 
+            if(product.getID() == id) 
+                {
+                    //replace the name of the product
+                    product.replaceName(replacement);
+                } 
+            }
+ 
+    }
+    
+    /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
      * @param id The ID of the product.
@@ -37,6 +53,13 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        for(Product product : stock)
+        { 
+            if(product.getID() == id) 
+            {
+                product.increaseQuantity(amount);
+            } 
+        }
     }
     
     /**
@@ -46,6 +69,13 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
+        for(Product product : stock)
+        { 
+            if(product.getID() == id) 
+            {
+                product.getProduct();
+            }
+        }
         return null;
     }
     
@@ -56,9 +86,15 @@ public class StockManager
      * @param id The ID of the product.
      * @return The quantity of the given product in stock.
      */
-    public int numberInStock(int id)
+    public void numberInStock(int id)
     {
-        return 0;
+        for(Product product : stock)
+        { 
+            if(product.getID() == id) 
+            {
+                System.out.println(product.getQuantity());
+            }
+        }
     }
 
     /**
@@ -66,5 +102,41 @@ public class StockManager
      */
     public void printProductDetails()
     {
+        for (int i = 0; i < stock.size(); i++)
+        {
+            System.out.println("Product: ");
+            stock.get(i).getProduct();
+        }
+    }
+    
+    /**
+     * Search for a product
+     */
+    public void searchProduct(String word)
+    {
+        for (int i = 0; i < stock.size(); i++)
+        {
+            if (stock.get(i).getName().contains(word))
+            {
+                stock.get(i).getProduct();
+            }
+            else
+            {
+                System.out.println("There is no product with this name");
+            }
+        }
+    }
+    
+    /**
+     * Remove a product out of the stock
+     */
+    public void removeProduct(int id)
+    {
+        for (int i = 0; i < stock.size(); i++)
+        {
+            stock.remove(stock.get(i));
+            System.out.println("You have removed ");
+            stock.get(i).getProduct();
+        }
     }
 }

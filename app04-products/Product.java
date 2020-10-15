@@ -88,12 +88,28 @@ public class Product
     {
         if(quantity > 0) 
         {
-            quantity--;
+            quantity = quantity - 1;
         }
         else 
         {
             System.out.println(
                 "Attempt to sell an out of stock item: " + name);
         }
+    }
+    
+    /**
+     * Replace the name of this product.
+     */
+    public void replaceName(String replacement)
+    {
+        name = replacement;
+    }
+    
+    /**
+     * Get product details
+     */
+    public void getProduct()
+    {
+        System.out.println("Product name: " + name + " Product ID: " + id + " Stock Level: " + quantity); 
     }
 }

@@ -1,8 +1,8 @@
-import java.util.*;
 import java.io.*;
 import java.lang.management.*;
 import java.text.*;
 import java.util.*;
+
 /**
  * TicketMachine models a ticket machine that issues
  * flat-fare tickets.

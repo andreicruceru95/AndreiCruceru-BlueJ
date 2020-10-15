@@ -3,8 +3,8 @@
  * The demonstration becomes properly functional as
  * the StockManager class is completed.
  * 
- * @author David J. Barnes and Michael Kölling.
- * @version 2016.02.29
+ * @author Andrei Cruceru.
+ * @version 15102020
  */
 public class StockDemo
 {
@@ -18,9 +18,20 @@ public class StockDemo
     public StockDemo()
     {
         manager = new StockManager();
-        manager.addProduct(new Product(132, "Clock Radio"));
-        manager.addProduct(new Product(37,  "Mobile Phone"));
-        manager.addProduct(new Product(23,  "Microwave Oven"));
+        manager.addProduct(new Product(21, "Clock Radio"));
+        manager.addProduct(new Product(22,  "Mobile Phone"));
+        manager.addProduct(new Product(23,  "TV"));
+        manager.addProduct(new Product(24,  "Desk"));
+        manager.addProduct(new Product(25,  "Bed"));
+        manager.addProduct(new Product(26,  "Microwave Oven"));
+        manager.addProduct(new Product(27,  "Lamp"));
+        manager.addProduct(new Product(28,  "Washing Mashine"));
+        manager.addProduct(new Product(29,  "Tumble Dryer"));
+        manager.addProduct(new Product(30,  "Cooker"));
+        manager.addProduct(new Product(31,  "Sofa"));
+        manager.addProduct(new Product(32,  "Curtains"));
+        manager.addProduct(new Product(33,  "Sink"));
+        
     }
     
     /**
@@ -33,7 +44,19 @@ public class StockDemo
         // Show details of all of the products.
         manager.printProductDetails();
         // Take delivery of 5 items of one of the products.
-        manager.delivery(132, 5);
+        manager.delivery(21, 5);
+        manager.delivery(22, 15);
+        manager.delivery(23, 53);
+        manager.delivery(24, 51);
+        manager.delivery(25, 51);
+        manager.delivery(26, 215);
+        manager.delivery(27, 4);
+        manager.delivery(28, 64);
+        manager.delivery(29, 5);
+        manager.delivery(30, 5);
+        manager.delivery(31, 5);
+        manager.delivery(32, 5);
+        manager.delivery(33, 5);
         manager.printProductDetails();
     }
     
