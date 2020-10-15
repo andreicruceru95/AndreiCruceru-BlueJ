@@ -1,6 +1,7 @@
 /**
  * This class will create a student with a student ID.
  * It will enroll the student to a course and print the details of this course.
+ * 
  * @author Andrei Cruceru
  * @version 12102020
  */
@@ -47,5 +48,4 @@ public class Student
     {
         course.printCourseDetails();
     }
-
 }

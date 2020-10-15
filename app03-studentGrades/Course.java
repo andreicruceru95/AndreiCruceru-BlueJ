@@ -1,6 +1,7 @@
 /**
  * This class will create a course with four modules.
  * It will calculate the credits for the course and the overall grade of the four modules.
+ * 
  * @author Andrei Cruceru
  * @version 12102020
  */
@@ -131,5 +132,4 @@ public class Course
         moduleThree.printModuleDetails();
         moduleFour.printModuleDetails();
     }
-    
 }

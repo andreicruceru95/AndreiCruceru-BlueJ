@@ -1,6 +1,7 @@
 /**
  * This class will create modules for a course.
  * Each module will be given a mark and it will be considered completed if the mark is over 39%.
+ * 
  * @author Andrei Cruceru
  * @version 12102020
  */
