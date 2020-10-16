@@ -1,6 +1,7 @@
 /**
  * This class will create modules for a course.
  * Each module will be given a mark and it will be considered completed if the mark is over 39%.
+ * Each module recieves 15 credits if it has been completed.
  * 
  * @author Andrei Cruceru
  * @version 12102020
@@ -8,56 +9,32 @@
 public class Module
 {
     // Title and code for this course
-    public String moduleTitle;
-    public int moduleCode;
+    public String title;
+    public String code;
     // The marks and credits for this module
-    public int moduleMark = 0;
-    public int moduleCredits = 0;
+    public int mark = 0;
+    public int credits = 0;
     // The comfirmation that the course has been completed and marked
     public boolean isCompleted;
     public boolean isMarked;
     
     /**
-     * Give a title and a code to this module
+     * Give a title and a code to this module.
+     * The code should be Year followd by Semester (ex Y1S1);
      */
-    public Module (String moduleTitle, int moduleCode)
+    public Module (String title, String code, int mark)
     {
-        this.moduleTitle = moduleTitle;
-        this.moduleCode = moduleCode;
+        this.title = title;
+        this.code = code;
+        this.mark = mark;
     }
     
     /**
-     * This method will add points for this module
+     * Award marks to a module.
      */
-    public void giveMark(int moduleMark)
+    public void awardMark(int mark)
     {
-        // The module is completed and recieves 15 credits if it recieves over 39 marks
-        if (moduleMark > 39 && moduleMark <= 100) 
-        {
-            isCompleted = true;
-            isMarked = true;
-            this.moduleMark = moduleMark;
-            this.moduleCredits = 15;
-            System.out.println(moduleTitle + " " + moduleCode + " recieves " + moduleMark + "%");
-        }
-        // Setting the maximum number of marks for module
-        else if (moduleMark > 100) 
-        {
-            System.out.println("Maximum mark you can give is 100");
-        }
-        // Making sure the marks will be a positive number
-        else if (moduleMark < 0) 
-        {
-            System.out.println("Please insert a positive number");
-        }
-        // If the module gets a mark of less then 40 it will get 0 credits
-        else
-        {
-            isCompleted = false;
-            isMarked = true;
-            this.moduleMark = moduleMark;
-            System.out.println(moduleTitle + " " + moduleCode + " recieves " + moduleMark + "%");
-        }
+        this.mark = mark;
     }
     
     /**
@@ -66,23 +43,15 @@ public class Module
      */
     public int getCredits()
     {
-        return moduleCredits;
-    }
-    
-    /**
-     * This method will tell us if the course is completed or not
-     */
-    public boolean isCompleted()
-    {
-        return isCompleted;
-    }
-    
-    /**
-     * This will return if the module has been marked.
-     */
-    public boolean isMarked()
-    {
-        return isMarked;
+        if(mark > 39)
+        {
+            credits = 15;
+        }
+        else
+        {
+            credits = 0;
+        }
+        return credits;
     }
     
     /**
@@ -90,7 +59,23 @@ public class Module
      */
     public int getMark()
     {
-        return moduleMark;
+        return mark;
+    }
+    
+    /**
+     * Get module Title
+     */
+    public String getTitle()
+    {
+        return "Module title: " + title;
+    }
+    
+    /**
+     * Get module code.
+     */
+    public String getCode()
+    {
+        return "Module code: " + code;
     }
     
     /**
@@ -98,6 +83,6 @@ public class Module
      */
     public void printModuleDetails()
     {
-        System.out.println("Module name: " + moduleTitle + " Code: " + moduleCode + " Marks: " + moduleMark +"%");
+        System.out.println("Name: " + title + " Code: " + code + " Marks: " + mark +"%" + "Credits " + credits);
     }
 }
