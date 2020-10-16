@@ -13,7 +13,7 @@ public class Student
     private int studentId;
     // The course the student attends
     private Course course;
-    
+       
     /**
      * Give a name to this student
      */
@@ -27,7 +27,7 @@ public class Student
      * This method will enrol a student to a course
      */
     public void enrolOnCourse(Course course)
-    {
+    { 
         this.course = course;
     }
     
@@ -36,9 +36,9 @@ public class Student
      */
     public void getStudentDetails()
     {
-        System.out.println("Name: " + name + " Student ID: " + studentId);
+        System.out.println("Student name: " + name + ", Student ID: " + studentId);
         System.out.println("This student is enrolled in the following course:");
-        course.printCourseDetails();
+        course.getCourse();
     }
     
     /**
