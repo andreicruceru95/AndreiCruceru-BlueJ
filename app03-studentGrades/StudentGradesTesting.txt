@@ -1,66 +1,66 @@
-Module webDevelopment = new Module("Web Development", 123412);
-Module programmingConcepts = new Module("Programming Concepts", 135123);
-Module computerArchitecture = new Module("Computer Architecture", 1352212);
-Module databaseDesign = new Module("Database Design", 156853);
-Course dataScience = new Course("Data Science", "BSc63544");
-dataScience.addModuleOne(webDevelopment);
-dataScience.addModuleTwo(programmingConcepts);
-dataScience.addModuleThree(computerArchitecture);
-dataScience.addModuleFour(databaseDesign);
-webDevelopment.printModuleDetails();
-Module name: Web Development Code: 123412 Marks: 0%
-programmingConcepts.printModuleDetails();
-Module name: Programming Concepts Code: 135123 Marks: 0%
-computerArchitecture.printModuleDetails();
-Module name: Computer Architecture Code: 1352212 Marks: 0%
-databaseDesign.printModuleDetails();
-Module name: Database Design Code: 156853 Marks: 0%
-dataScience.printCourseDetails();
-Course: Data Science Course code BSc63544 Credits: 0
-Modules and mark:
-Module name: Web Development Code: 123412 Marks: 0%
-Module name: Programming Concepts Code: 135123 Marks: 0%
-Module name: Computer Architecture Code: 1352212 Marks: 0%
-Module name: Database Design Code: 156853 Marks: 0%
-webDevelopment.giveMark(89);
-Web Development 123412 recieves 89%
-webDevelopment.getMark()
-    returned int 89
-webDevelopment.getCredits()
-    returned int 15
-programmingConcepts.giveMark(23);
-Programming Concepts 135123 recieves 23%
-programmingConcepts.getMark()
-    returned int 23
-programmingConcepts.getCredits()
-    returned int 0
-computerArchitecture.giveMark(67);
-Computer Architecture 1352212 recieves 67%
-databaseDesign.giveMark(92);
-Database Design 156853 recieves 92%
-databaseDesign.getCredits()
-    returned int 15
-dataScience.calculateCredits();
-This course has acumulated 45 credits
-dataScience.calculateFinalGrades();
-Your final marks are: 67%
-Your final grades are: B
-your final credits are: 45
-dataScience.printCourseDetails();
-Course: Data Science Course code BSc63544 Credits: 45
-Modules and mark:
-Module name: Web Development Code: 123412 Marks: 89%
-Module name: Programming Concepts Code: 135123 Marks: 23%
-Module name: Computer Architecture Code: 1352212 Marks: 67%
-Module name: Database Design Code: 156853 Marks: 92%
-Student andrei = new Student("Andrei", 23123534);
+Student andrei = new Student("Andrei", 13215412);
+Course dataScience = new Course("Data Science", "BSc21GH");
 andrei.enrolOnCourse(dataScience);
-andrei.getStudentDetails();
-Name: Andrei Student ID: 23123534
 andrei.getCourseDetails();
-Course: Data Science Course code BSc63544 Credits: 45
-Modules and mark:
-Module name: Web Development Code: 123412 Marks: 89%
-Module name: Programming Concepts Code: 135123 Marks: 23%
-Module name: Computer Architecture Code: 1352212 Marks: 67%
-Module name: Database Design Code: 156853 Marks: 92%
+Course name: Data Science, Course code: BSc21GH
+Modules:
+ModuleDemo createModules = new ModuleDemo(dataScience);
+dataScience.searchName("Data");
+Module title: Database Design,Module code: Y1S1,Mark: 23%, Credits: 0
+Module title: Data Warehousing,Module code: Y1S2,Mark: 78%, Credits: 15
+Module title: Big Data,Module code: Y2S1,Mark: 65%, Credits: 15
+Module title: Data Visualisation,Module code: Y2S2,Mark: 33%, Credits: 0
+Module title: Data Science,Module code: Y3S1,Mark: 96%, Credits: 15
+Module title: Database Development,Module code: Y3S1,Mark: 45%, Credits: 15
+Module title: Database Technologies,Module code: Y3S1,Mark: 45%, Credits: 15
+dataScience.searchCode("Y1");
+Module title: Web Development,Module code: Y1S1,Mark: 34, Credits: 0
+Module title: Database Design,Module code: Y1S1,Mark: 23, Credits: 0
+Module title: Programming Concepts,Module code: Y1S1,Mark: 67, Credits: 15
+Module title: Computer Architecture,Module code: Y1S1,Mark: 89, Credits: 15
+Module title: Application Programming,Module code: Y1S2,Mark: 98, Credits: 15
+Module title: Data Warehousing,Module code: Y1S2,Mark: 78, Credits: 15
+Module title: Networking,Module code: Y1S2,Mark: 65, Credits: 15
+Module title: Professional Practice,Module code: Y1S2,Mark: 76, Credits: 15
+dataScience.searchCode("Y2S3");
+dataScience.searchCode("Y2S2");
+Module title: Data Visualisation,Module code: Y2S2,Mark: 33, Credits: 0
+Module title: Statistical Methods,Module code: Y2S2,Mark: 89, Credits: 15
+Module title: Software Engeneering,Module code: Y2S2,Mark: 56, Credits: 15
+Module title: Inteligence Systems,Module code: Y2S2,Mark: 87, Credits: 15
+dataScience.calculateFinalGrades();
+Your total marks for your 24 modules is: 1580
+Your final mark is: 65%
+Your final grade is: B
+Your final credits are: 300
+dataScience.getFinalMark();
+Final mark: 65%
+dataScience.getCourse()
+    returned String "Course name: Data Science, Course code: BSc21GH"
+andrei.getCourseDetails();
+Course name: Data Science, Course code: BSc21GH
+Modules:
+Module title: Web Development,Module code: Y1S1,Mark: 34, Credits: 0
+Module title: Database Design,Module code: Y1S1,Mark: 23, Credits: 0
+Module title: Programming Concepts,Module code: Y1S1,Mark: 67, Credits: 15
+Module title: Computer Architecture,Module code: Y1S1,Mark: 89, Credits: 15
+Module title: Application Programming,Module code: Y1S2,Mark: 98, Credits: 15
+Module title: Data Warehousing,Module code: Y1S2,Mark: 78, Credits: 15
+Module title: Networking,Module code: Y1S2,Mark: 65, Credits: 15
+Module title: Professional Practice,Module code: Y1S2,Mark: 76, Credits: 15
+Module title: Web Applications,Module code: Y2S1,Mark: 56, Credits: 15
+Module title: Big Data,Module code: Y2S1,Mark: 65, Credits: 15
+Module title: Information Security,Module code: Y2S1,Mark: 23, Credits: 0
+Module title: Business Intelligence,Module code: Y2S1,Mark: 97, Credits: 15
+Module title: Data Visualisation,Module code: Y2S2,Mark: 33, Credits: 0
+Module title: Statistical Methods,Module code: Y2S2,Mark: 89, Credits: 15
+Module title: Software Engeneering,Module code: Y2S2,Mark: 56, Credits: 15
+Module title: Inteligence Systems,Module code: Y2S2,Mark: 87, Credits: 15
+Module title: Data Science,Module code: Y3S1,Mark: 96, Credits: 15
+Module title: Database Development,Module code: Y3S1,Mark: 45, Credits: 15
+Module title: Cloud Computing,Module code: Y3S1,Mark: 59, Credits: 15
+Module title: Database Technologies,Module code: Y3S1,Mark: 45, Credits: 15
+Module title: Machine Learning,Module code: Y3S2,Mark: 67, Credits: 15
+Module title: Network Security,Module code: Y3S2,Mark: 82, Credits: 15
+Module title: Legal Aspects of IT,Module code: Y3S2,Mark: 52, Credits: 15
+Module title: Knowledge-Based Systems,Module code: Y3S2,Mark: 98, Credits: 15
