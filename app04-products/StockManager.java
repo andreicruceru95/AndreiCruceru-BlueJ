@@ -11,6 +11,7 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
+    
 
     /**
      * Initialise the stock manager.
@@ -34,15 +35,15 @@ public class StockManager
      */
     public void renameProduct(int id, String replacement)
     {
-       for(Product product : stock)
-           { 
+        for(Product product : stock)
+        { 
             if(product.getID() == id) 
-                {
-                    //replace the name of the product
-                    product.replaceName(replacement);
-                } 
-            }
- 
+            {
+                 //replace the name of the product
+                 product.replaceName(replacement);
+            } 
+        }
+        
     }
     
     /**
@@ -60,6 +61,7 @@ public class StockManager
                 product.increaseQuantity(amount);
             } 
         }
+        
     }
     
     /**
@@ -105,7 +107,7 @@ public class StockManager
         for (int i = 0; i < stock.size(); i++)
         {
             System.out.println("Product: ");
-            stock.get(i).getProduct();
+            stock.get(i).toString();
         }
     }
     
@@ -118,7 +120,7 @@ public class StockManager
         {
             if (stock.get(i).getName().contains(word))
             {
-                stock.get(i).getProduct();
+                stock.get(i).toString();
             }
             else
             {
@@ -132,11 +134,14 @@ public class StockManager
      */
     public void removeProduct(int id)
     {
-        for (int i = 0; i < stock.size(); i++)
+        for (Product product : stock)
         {
-            stock.remove(stock.get(i));
-            System.out.println("You have removed ");
-            stock.get(i).getProduct();
+            if (product.getID() == id)
+            {
+                
+                System.out.println("You have removed ");
+                
+            }
         }
     }
 }
