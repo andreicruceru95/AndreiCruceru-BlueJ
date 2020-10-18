@@ -1,11 +1,15 @@
-Student andrei = new Student("Andrei", 13215412);
-Course dataScience = new Course("Data Science", "BSc21GH");
+Student andrei = new Student("Andrei", 123213);
+
+Course dataScience = new Course("Data Science", "BSc232");
+
+ModuleDemo modules = new ModuleDemo(dataScience);
+
 andrei.enrolOnCourse(dataScience);
-andrei.getCourseDetails();
-Course name: Data Science, Course code: BSc21GH
-Modules:
-ModuleDemo createModules = new ModuleDemo(dataScience);
-dataScience.searchName("Data");
+
+andrei.getStudentDetails();
+Student name: Andrei, Student ID: 123213
+
+dataScience.searchModule("Data");
 Module title: Database Design,Module code: Y1S1,Mark: 23%, Credits: 0
 Module title: Data Warehousing,Module code: Y1S2,Mark: 78%, Credits: 15
 Module title: Big Data,Module code: Y2S1,Mark: 65%, Credits: 15
@@ -13,32 +17,27 @@ Module title: Data Visualisation,Module code: Y2S2,Mark: 33%, Credits: 0
 Module title: Data Science,Module code: Y3S1,Mark: 96%, Credits: 15
 Module title: Database Development,Module code: Y3S1,Mark: 45%, Credits: 15
 Module title: Database Technologies,Module code: Y3S1,Mark: 45%, Credits: 15
-dataScience.searchCode("Y1");
+
+dataScience.searchCode("Y1S1");
 Module title: Web Development,Module code: Y1S1,Mark: 34, Credits: 0
 Module title: Database Design,Module code: Y1S1,Mark: 23, Credits: 0
 Module title: Programming Concepts,Module code: Y1S1,Mark: 67, Credits: 15
 Module title: Computer Architecture,Module code: Y1S1,Mark: 89, Credits: 15
-Module title: Application Programming,Module code: Y1S2,Mark: 98, Credits: 15
-Module title: Data Warehousing,Module code: Y1S2,Mark: 78, Credits: 15
-Module title: Networking,Module code: Y1S2,Mark: 65, Credits: 15
-Module title: Professional Practice,Module code: Y1S2,Mark: 76, Credits: 15
-dataScience.searchCode("Y2S3");
-dataScience.searchCode("Y2S2");
-Module title: Data Visualisation,Module code: Y2S2,Mark: 33, Credits: 0
-Module title: Statistical Methods,Module code: Y2S2,Mark: 89, Credits: 15
-Module title: Software Engeneering,Module code: Y2S2,Mark: 56, Credits: 15
-Module title: Inteligence Systems,Module code: Y2S2,Mark: 87, Credits: 15
-dataScience.calculateFinalGrades();
-Your total marks for your 24 modules is: 1580
+
+dataScience.calculateFinalGrade();
+Your total marks for your 24 modules is: 1580%
 Your final mark is: 65%
 Your final grade is: B
 Your final credits are: 300
-dataScience.getFinalMark();
-Final mark: 65%
-dataScience.getCourse()
-    returned String "Course name: Data Science, Course code: BSc21GH"
-andrei.getCourseDetails();
-Course name: Data Science, Course code: BSc21GH
+
+dataScience.printFinalGrades();
+Your total marks for your 24 modules is: 1580%
+Your final mark is: 65%
+Your final grade is: B
+Your final credits are: 300
+
+dataScience.printCourseDetails();
+Course name: Data Science, Course code: BSc232
 Modules:
 Module title: Web Development,Module code: Y1S1,Mark: 34, Credits: 0
 Module title: Database Design,Module code: Y1S1,Mark: 23, Credits: 0
@@ -64,3 +63,71 @@ Module title: Machine Learning,Module code: Y3S2,Mark: 67, Credits: 15
 Module title: Network Security,Module code: Y3S2,Mark: 82, Credits: 15
 Module title: Legal Aspects of IT,Module code: Y3S2,Mark: 52, Credits: 15
 Module title: Knowledge-Based Systems,Module code: Y3S2,Mark: 98, Credits: 15
+
+dataScience.getmark();
+Final mark: 65%
+
+dataScience.getCourse()
+    returned String "Course name: Data Science, Course code: BSc232"
+
+dataScience.convertToGrade(64)
+    returned Object B
+dataScience.convertToGrade(98)
+    returned Object A
+dataScience.convertToGrade(23)
+    returned Object F
+dataScience.convertToGrade(56)
+    returned Object C
+dataScience.convertToGrade(41)
+    returned Object D
+
+dataScience.calculateForPeriod("Y1S1");
+For the given period, you have obtained 53% mark and 30 Credits.
+Your grade for the time period is C 
+Here is a breakdown of your modules for the time given:
+Module title: Web Development,Module code: Y1S1,Mark: 34%, Credits: 0
+Module title: Database Design,Module code: Y1S1,Mark: 23%, Credits: 0
+Module title: Programming Concepts,Module code: Y1S1,Mark: 67%, Credits: 15
+Module title: Computer Architecture,Module code: Y1S1,Mark: 89%, Credits: 15
+
+dataScience.calculateForPeriod("Y2S2");
+For the given period, you have obtained 66% mark and 45 Credits.
+Your grade for the time period is B 
+Here is a breakdown of your modules for the time given:
+Module title: Data Visualisation,Module code: Y2S2,Mark: 33%, Credits: 0
+Module title: Statistical Methods,Module code: Y2S2,Mark: 89%, Credits: 15
+Module title: Software Engeneering,Module code: Y2S2,Mark: 56%, Credits: 15
+Module title: Inteligence Systems,Module code: Y2S2,Mark: 87%, Credits: 15
+
+dataScience.calculateForPeriod("Y3");
+For the given period, you have obtained 68% mark and 120 Credits.
+Your grade for the time period is B 
+Here is a breakdown of your modules for the time given:
+Module title: Data Science,Module code: Y3S1,Mark: 96%, Credits: 15
+Module title: Database Development,Module code: Y3S1,Mark: 45%, Credits: 15
+Module title: Cloud Computing,Module code: Y3S1,Mark: 59%, Credits: 15
+Module title: Database Technologies,Module code: Y3S1,Mark: 45%, Credits: 15
+Module title: Machine Learning,Module code: Y3S2,Mark: 67%, Credits: 15
+Module title: Network Security,Module code: Y3S2,Mark: 82%, Credits: 15
+Module title: Legal Aspects of IT,Module code: Y3S2,Mark: 52%, Credits: 15
+Module title: Knowledge-Based Systems,Module code: Y3S2,Mark: 98%, Credits: 15
+
+Module project = new Module("Project", "Y3S2", 98);
+
+dataScience.searchCode("Y3S2");
+Module title: Machine Learning,Module code: Y3S2,Mark: 67, Credits: 15
+Module title: Network Security,Module code: Y3S2,Mark: 82, Credits: 15
+Module title: Legal Aspects of IT,Module code: Y3S2,Mark: 52, Credits: 15
+Module title: Knowledge-Based Systems,Module code: Y3S2,Mark: 98, Credits: 15
+
+dataScience.addModule(project);
+
+dataScience.searchCode("Y3S2");
+Module title: Machine Learning,Module code: Y3S2,Mark: 67, Credits: 15
+Module title: Network Security,Module code: Y3S2,Mark: 82, Credits: 15
+Module title: Legal Aspects of IT,Module code: Y3S2,Mark: 52, Credits: 15
+Module title: Knowledge-Based Systems,Module code: Y3S2,Mark: 98, Credits: 15
+Module title: Project,Module code: Y3S2,Mark: 98, Credits: 15
+
+dataScience.searchModule("Project");
+Module title: Project,Module code: Y3S2,Mark: 98%, Credits: 15
