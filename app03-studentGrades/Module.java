@@ -9,14 +9,16 @@
 public class Module
 {
     // Title and code for this course
-    public String title;
-    public String code;
+    private String title;
+    private String code;
     // The marks and credits for this module
-    public int mark = 0;
-    public int credits = 0;
+    private int mark = 0;
+    private int credits = 0;
     // The comfirmation that the course has been completed and marked
-    public boolean isCompleted;
-    public boolean isMarked;
+    private boolean isCompleted;
+    private boolean isMarked;
+    
+    private Grades grade;
     
     /**
      * Give a title and a code to this module.
