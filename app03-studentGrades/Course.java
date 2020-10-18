@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class Course
 {
+    public static final int LOWEST_PASS = 40;
     // Course name
     private String name;
     // Course Code
@@ -26,7 +27,7 @@ public class Course
     private int mark = 0;
     private int finalMark = 0;
     // The final grade of the course
-    private String finalGrades;
+    private Grades finalGrade;
          
     /**
      * Add a name and code to this course.
@@ -36,7 +37,7 @@ public class Course
         this.name = name;
         this.code = code;
         modules = new ArrayList<Module>();
-        finalGrades = null;
+        finalGrade = null;
     }
     
     /**
@@ -51,43 +52,65 @@ public class Course
      * This method will calculate the final grade of a student based on his percentage marks.
      * It will print this details to the terminal window.
      */
-    public void calculateFinalGrades()
+    public void calculateFinalGrade()
     {
         modules.forEach(module ->
         {
             mark = mark + module.getMark();
             credits = credits + module.getCredits();
         });
-        System.out.println("Your total marks for your " + modules.size() + " modules is: " + mark); 
+        
         finalMark = mark / modules.size(); 
-        // Converting marks to grades
-        if (finalMark < 40 && finalMark > 0)
+        finalGrade = convertToGrade(finalMark);
+        
+        printFinalGrades();
+        
+    }
+    
+    /**
+     * 
+     */
+    public void printFinalGrades()
+    {
+        System.out.println("Your total marks for your " + modules.size() + " modules is: " + mark + "%"); 
+        System.out.println("Your final mark is: " + finalMark + "%");
+        System.out.println("Your final grade is: " + finalGrade);
+        System.out.println("Your final credits are: " + credits);
+    }
+       
+    /**
+     * 
+     */
+    public Grades convertToGrade(int mark)
+    {
+        Grades grade = null;
+        
+        if (mark < LOWEST_PASS && mark > 0)
         {
-            finalGrades = "F";
+            grade = Grades.F;
         }
-        else if (finalMark > 39 && finalMark < 50)
+        else if (mark >= LOWEST_PASS  && mark < 50)
         {
-            finalGrades = "D";
+            grade = Grades.D;
         }
-        else if (finalMark > 49 && finalMark < 60)
+        else if (mark > 49 && mark < 60)
         {
-            finalGrades = "C";
+            grade = Grades.C;
         }
-        else if (finalMark > 59 && finalMark < 70)
+        else if (mark > 59 && mark < 70)
         {
-            finalGrades = "B";
+            grade = Grades.B;
         }
-        else if (finalMark > 69 && finalMark < 100)
+        else if (mark > 69 && mark < 100)
         {
-            finalGrades = "A";
+            grade = Grades.A;
         }
         else
         {
-            System.out.println("Module marks should be a positive between 0 and 100!");
+            grade = Grades.X;
         }
-        System.out.println("Your final mark is: " + finalMark + "%");
-        System.out.println("Your final grade is: " + finalGrades);
-        System.out.println("Your final credits are: " + credits);
+         
+        return grade;
     }
     
     /**
@@ -115,9 +138,9 @@ public class Course
     /**
      * Return the final mark value.
      */
-    public void getFinalMark()
+    public void getmark()
     {
-        System.out.println("Final mark: " + finalMark + "%");
+        System.out.println("Final mark: " + mark + "%");
     }
     
     /**
