@@ -1,12 +1,12 @@
 
 /**
- * Enumeration class Grades - write a description of the enum class here
+ * Enumeration class Grades 
+ * This class is used to convert marks into grades
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Andrei Cruceru   
+ * @version 18102020
  */
 public enum Grades
 {
     X, F, D, C, B, A
-    
-}
+} 
