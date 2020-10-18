@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
  
 /**
  * Manage the stock in a business.
@@ -12,8 +14,7 @@ public class StockManager
     // A list of the products.
     private ArrayList<Product> stock;
     
-
-    /**
+        /**
      * Initialise the stock manager.
      */
     public StockManager()
@@ -35,17 +36,18 @@ public class StockManager
      */
     public void renameProduct(int id, String replacement)
     {
-        for(Product product : stock)
-        { 
-            if(product.getID() == id) 
-            {
-                 //replace the name of the product
-                 product.replaceName(replacement);
-            } 
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            product.replaceName(replacement);
+        }
+        else
+        {
+            System.out.println("Product not found!");
         }
         
     }
-    
+       
     /**
      * Receive a delivery of a particular product.
      * Increase the quantity of the product by the given amount.
@@ -54,12 +56,14 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
-        for(Product product : stock)
-        { 
-            if(product.getID() == id) 
-            {
-                product.increaseQuantity(amount);
-            } 
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            product.increaseQuantity(amount);
+        }
+        else
+        {
+            System.out.println("Product not found!");
         }
         
     }
@@ -75,7 +79,7 @@ public class StockManager
         { 
             if(product.getID() == id) 
             {
-                product.getProduct();
+                return product;
             }
         }
         return null;
@@ -90,25 +94,28 @@ public class StockManager
      */
     public void numberInStock(int id)
     {
-        for(Product product : stock)
-        { 
-            if(product.getID() == id) 
-            {
-                System.out.println(product.getQuantity());
-            }
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            System.out.println(product.getQuantity());        
         }
+        else
+        {
+            System.out.println("Product not found!");
+        }
+        
     }
-
+ 
     /**
      * Print details of all the products.
      */
     public void printProductDetails()
     {
-        for (int i = 0; i < stock.size(); i++)
+        stock.forEach(product->
         {
-            System.out.println("Product: ");
-            stock.get(i).toString();
-        }
+            System.out.println(product.toString());
+        });
+        
     }
     
     /**
@@ -116,17 +123,20 @@ public class StockManager
      */
     public void searchProduct(String word)
     {
-        for (int i = 0; i < stock.size(); i++)
+        List <Product> listClone = new ArrayList<Product>();
+        stock.forEach(item->
         {
-            if (stock.get(i).getName().contains(word))
-            {
-                stock.get(i).toString();
+            for(Product product : stock) 
+            { 
+                if(product.getName().contains(word))  
+                { 
+                    listClone.add(product);
+                }
+                
             }
-            else
-            {
-                System.out.println("There is no product with this name");
-            }
-        }
+            
+        });
+        System.out.println(listClone); 
     }
     
     /**
@@ -134,14 +144,16 @@ public class StockManager
      */
     public void removeProduct(int id)
     {
-        for (Product product : stock)
+        Product product = findProduct(id);
+        if (product != null)
         {
-            if (product.getID() == id)
-            {
-                
-                System.out.println("You have removed ");
-                
-            }
+            product = null;        
         }
+        
+        else
+        {
+            System.out.println("Product not found!");
+        }
+                        
     }
 }
