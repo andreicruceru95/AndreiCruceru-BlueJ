@@ -4,7 +4,7 @@
  * Each module recieves 15 credits if it has been completed.
  * 
  * @author Andrei Cruceru
- * @version 12102020
+ * @version 12102020 
  */
 public class Module
 {
