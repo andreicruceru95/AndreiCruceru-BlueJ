@@ -1,6 +1,6 @@
 /**
  * This class will create a student with a student ID.
- * It will enroll the student to a course and print the details of this course.
+ * It will enroll the student to a course and print the details of it's course.
  * 
  * @author Andrei Cruceru
  * @version 12102020
