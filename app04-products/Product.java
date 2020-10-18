@@ -108,7 +108,7 @@ public class Product
     /**
      * Get product details
      */
-    public void getProduct()
+    public void printProduct()
     {
         System.out.println("Product name: " + name + " Product ID: " + id + " Stock Level: " + quantity); 
     }
