@@ -1,7 +1,6 @@
-
 /**
  * Enumeration class Grades 
- * This enum will be used to convert marks into grades
+ * This enum is used for converting marks into grades
  *
  * @author Andrei Cruceru   
  * @version 18102020
