@@ -58,6 +58,10 @@ public class Course
      */
     public void calculateFinalGrade()
     {
+        mark = 0;
+        credits= 0;
+        finalMark = 0;
+        
         modules.forEach(module ->
         {
             mark = mark + module.getMark();
@@ -134,6 +138,7 @@ public class Course
     {
         System.out.println("Course name: " + name + ", Course code: " + code);
         System.out.println("Modules:");
+        
         modules.forEach(module ->
         {
             System.out.println(module.getTitle() + "," + module.getCode() + ",Mark: " + module.getMark() + ", Credits: " + module.getCredits());
@@ -200,7 +205,7 @@ public class Course
      */
     public void calculateForPeriod(String code)
     {
-        this.mark = 0;
+        mark = 0;
         finalMark = 0;
         credits = 0;
                
@@ -216,12 +221,13 @@ public class Course
         
         listClone.forEach(entry->
         {
-            this.mark = mark + entry.getMark();
+            mark = mark + entry.getMark();
             credits = credits + entry.getCredits(); 
         });    
                 
         System.out.println("For the given period, you have obtained " + mark/listClone.size() + "% mark and " + credits + " Credits.");
-        finalMark = mark/listClone.size();
+        
+        finalMark = mark / listClone.size();
         finalGrade = convertToGrade(finalMark);
         
         System.out.println("Your grade for the time period is " + finalGrade + " ");
