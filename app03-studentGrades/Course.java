@@ -23,7 +23,7 @@ public class Course
     // Course Code
     private String code;
     //ArrayList of modules
-    public ArrayList<Module> modules;
+    private ArrayList<Module> modules;
     private Module module;
     // Course credits
     private int credits = 0;
@@ -31,7 +31,12 @@ public class Course
     private int mark = 0;
     private int finalMark = 0;
     // The final grade of the course
-    private Grades finalGrade;
+    private Grades finalGrade = null;
+    //period variables(cannot be defined inside calculateForPeriod method)
+    private int periodMark = 0;
+    private int periodFinalMark = 0;
+    private int periodCredits = 0;
+    private Grades periodGrade = null; 
          
     /**
      * Add a name and code to this course.
@@ -41,7 +46,6 @@ public class Course
         this.name = name;
         this.code = code;
         modules = new ArrayList<Module>();
-        finalGrade = null;
     }
     
     /**
@@ -56,8 +60,9 @@ public class Course
      * This method will calculate the final grade of a student based on his percentage marks.
      * It will print this details to the terminal window.
      */
-    public void calculateFinalGrade()
+    public void getFinalGrade()
     {
+        //Resetting the values of the variables before they are used
         mark = 0;
         credits= 0;
         finalMark = 0;
@@ -70,26 +75,25 @@ public class Course
         
         finalMark = mark / modules.size(); 
         finalGrade = convertToGrade(finalMark);
-        
-        printFinalGrades();
-        
+       
+        printFinalGrade();
     }
     
     /**
      * This method will print out the final grades, marks and credits
      */
-    public void printFinalGrades()
+    private void printFinalGrade()
     {
         System.out.println("Your total marks for your " + modules.size() + " modules is: " + mark + "%"); 
         System.out.println("Your final mark is: " + finalMark + "%");
-        System.out.println("Your final grade is: " + finalGrade);
+        System.out.println("Your final grade is: " + finalGrade + "!");
         System.out.println("Your final credits are: " + credits);
     }
        
     /**
      * Convert the marks into grades.
      */
-    public Grades convertToGrade(int mark)
+    private Grades convertToGrade(int mark)
     {
         Grades grade = null;
                 
@@ -101,15 +105,15 @@ public class Course
         {
             grade = Grades.D;
         }
-        else if (mark > D_PASS && mark < C_PASS)
+        else if (mark >= D_PASS && mark < C_PASS)
         {
             grade = Grades.C;
         }
-        else if (mark > C_PASS && mark < B_PASS)
+        else if (mark >= C_PASS && mark < B_PASS)
         {
             grade = Grades.B;
         }
-        else if (mark > B_PASS && mark < MAXIMUM_MARK)
+        else if (mark >= B_PASS && mark < MAXIMUM_MARK)
         {
             grade = Grades.A;
         }
@@ -119,37 +123,66 @@ public class Course
         }
          
         return grade;
-        
     }
     
     /**
      * This method will return the course details only.
      */
-    public String getCourse()
+    private String getCourse()
     {
-        return "Course name: " + name + ", Course code: " + code;
+        return "Course Name: " + name + ", Course Code: " + code;
     }
+    
+    /**
+     * Find a module using it's unique code
+     */
+    private Module findModule(String code)
+    {
+        for(Module module : modules)
+        { 
+            if(module.getCode() == code) 
+            {
+                return module;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Award mark to a module using it's unique code.
+     */
+    public void awardMark(String code, int mark)
+    {
+        Module module = findModule(code);
         
+        if (module != null)
+        {
+            module.awardMark(mark);
+        }
+        else
+        {
+            System.out.println("Module not found!");
+        }
+    }
+    
     /**
      * This method will print all the course details.
      * It will include separate marks for each modules and the total credits.
      */
     public void printCourseDetails()
     {
-        System.out.println("Course name: " + name + ", Course code: " + code);
-        System.out.println("Modules:");
-        
+        System.out.println(getCourse());
+                
         modules.forEach(module ->
         {
-            System.out.println(module.getTitle() + "," + module.getCode() + ",Mark: " + module.getMark() + ", Credits: " + module.getCredits());
+            getDetails(module);
         });
-        
     }
     
     /**
      * Return the final mark value.
      */
-    public void getmark()
+    public void getFinalMark()
     {
         System.out.println("Final mark: " + finalMark + "%");
     }
@@ -159,9 +192,10 @@ public class Course
      * A module code is made by year number and semester number (ex:Y1S1).
      * As another example Y1 will show you all the modules from year 1, S1 will show you all the modules from semesters 1.
      */
-    public void searchCode(String code)
+    public void searchByCode(String code)
     {
-        List <Module> listClone = new ArrayList<Module>(); 
+        List <Module> listClone = new ArrayList<Module>();
+        
         for(Module module : modules) 
         { 
             if(module.getCode().contains(code))
@@ -173,20 +207,20 @@ public class Course
         
         listClone.forEach(entry->
         {
-            System.out.println(entry.getTitle() + "," + entry.getCode() + ",Mark: " + entry.getMark() + ", Credits: " + entry.getCredits());
+            getDetails(entry);
         });
-        
     }
     
     /**
      * This method will search the modules for the input word.
      */
-    public void searchModule(String word)
+    public void searchByName(String name)
     {
         List <Module> listClone = new ArrayList<Module>();
+        
         for(Module module : modules)
         { 
-            if(module.getTitle().contains(word))
+            if(module.getTitle().contains(name))
  
             { 
                 listClone.add(module);
@@ -195,9 +229,18 @@ public class Course
         
         listClone.forEach(entry->
         {
-            System.out.println(entry.getTitle() + "," + entry.getCode() + ",Mark: " + entry.getMark() + "%" + ", Credits: " + entry.getCredits());
+            getDetails(entry);
         });
-        
+    }
+    
+    /**
+     * Get details about a given module.
+     */
+    private void getDetails(Module module)
+    {
+        System.out.println("Module name: " + module.getTitle() + ", Module Code: " 
+                           + module.getCode() + ", Mark: " + module.getMark() 
+                           + "%" + ", Credits: " + module.getCredits());
     }
     
     /**
@@ -205,11 +248,13 @@ public class Course
      */
     public void calculateForPeriod(String code)
     {
-        mark = 0;
-        finalMark = 0;
-        credits = 0;
-               
+        //reseting the values of the variables before they are used
+        periodMark = 0;
+        periodFinalMark = 0;
+        periodCredits = 0; 
+        
         List <Module> listClone = new ArrayList<Module>(); 
+        
         for(Module module : modules) 
         { 
             if(module.getCode().contains(code))
@@ -221,22 +266,22 @@ public class Course
         
         listClone.forEach(entry->
         {
-            mark = mark + entry.getMark();
-            credits = credits + entry.getCredits(); 
+            periodMark = periodMark + entry.getMark();
+            periodCredits = periodCredits + entry.getCredits(); 
         });    
                 
-        System.out.println("For the given period, you have obtained " + mark/listClone.size() + "% mark and " + credits + " Credits.");
+        System.out.println("For the given period, you have obtained " + periodMark/listClone.size() 
+                           + "% mark and " + periodCredits + " Credits.");
         
-        finalMark = mark / listClone.size();
-        finalGrade = convertToGrade(finalMark);
+        periodFinalMark = periodMark / listClone.size();
+        periodGrade = convertToGrade(periodFinalMark);
         
-        System.out.println("Your grade for the time period is " + finalGrade + " ");
+        System.out.println("Your grade for the time period is " + periodGrade + " ");
         System.out.println("Here is a breakdown of your modules for the time given:");
             
         listClone.forEach(entry->
         {
-            System.out.println(entry.getTitle() + "," + entry.getCode() + ",Mark: " + entry.getMark() + "%" + ", Credits: " + entry.getCredits());
+            getDetails(entry);
         });
-        
     }
 }
