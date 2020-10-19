@@ -147,7 +147,7 @@ public class StockManager
         Product product = findProduct(id);
         if (product != null)
         {
-            product = null;        
+            product.removeProduct();        
         }
         
         else
