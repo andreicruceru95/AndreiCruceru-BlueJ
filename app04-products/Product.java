@@ -106,6 +106,16 @@ public class Product
     }
     
     /**
+     * Remove a product from stock.
+     */
+    public void removeProduct()
+    {
+        name = null;
+        id = 0;
+        quantity = 0;
+    }
+    
+    /**
      * Get product details
      */
     public void printProduct()
