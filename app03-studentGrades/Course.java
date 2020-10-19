@@ -178,7 +178,7 @@ public class Course
      */
     public void searchModule(String word)
     {
-        List <Module> listClone = new ArrayList<Module>(); 
+        List <Module> listClone = new ArrayList<Module>();
         for(Module module : modules)
         { 
             if(module.getTitle().contains(word))
@@ -201,6 +201,7 @@ public class Course
     public void calculateForPeriod(String code)
     {
         this.mark = 0;
+        finalMark = 0;
         credits = 0;
                
         List <Module> listClone = new ArrayList<Module>(); 
