@@ -24,7 +24,7 @@ public class Student
     }
     
     /**
-     * This method will enrol a student to a course
+     * Enrol a student on a course
      */
     public void enrolOnCourse(Course course)
     { 
@@ -32,7 +32,7 @@ public class Student
     }
     
     /**
-     * This method will return the name and id of the student
+     * Return the name and id of the student
      */
     public void getStudentDetails()
     {
@@ -40,7 +40,7 @@ public class Student
     }
     
     /**
-     * This method will print the final grades and marks for the student
+     * Print the final grades and marks for the student
      */
     public void getCourseDetails()
     {

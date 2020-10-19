@@ -20,7 +20,7 @@ public class Module
         
     /**
      * Give a title and a code to this module.
-     * The code should be Year followd by Semester (ex Y1S1);
+     * The code should contain the Year followed by Semester (ex Y1S1example);
      */
     public Module (String title, String code)
     {
@@ -37,7 +37,7 @@ public class Module
     }
     
     /**
-     * This method will return the credits for a module.
+     * Return the credits for a module.
      * It will return 15 if the module has a mark over 39% and 0 if the module has a mark less than 39%.
      */
     public int getCredits()
@@ -55,7 +55,7 @@ public class Module
     }
     
     /**
-     * This method will return the marks for a module
+     * Return the marks for a module
      */
     public int getMark()
     {
@@ -79,7 +79,7 @@ public class Module
     }
     
     /**
-     * This method will print the full module details
+     * Print the full module details
      */
     public void printModuleDetails()
     {
