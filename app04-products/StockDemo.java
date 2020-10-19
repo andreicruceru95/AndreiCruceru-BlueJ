@@ -18,20 +18,20 @@ public class StockDemo
     public StockDemo(StockManager manager)
     {
         this.manager = manager;
-        manager.addProduct(new Product(21, "Clock Radio"));
-        manager.addProduct(new Product(22,  "Mobile Phone"));
-        manager.addProduct(new Product(23,  "TV"));
-        manager.addProduct(new Product(24,  "Desk"));
-        manager.addProduct(new Product(25,  "Bed"));
-        manager.addProduct(new Product(26,  "Microwave Oven"));
-        manager.addProduct(new Product(27,  "Lamp"));
-        manager.addProduct(new Product(28,  "Washing Mashine"));
-        manager.addProduct(new Product(29,  "Tumble Dryer"));
-        manager.addProduct(new Product(30,  "Cooker"));
-        manager.addProduct(new Product(31,  "Sofa"));
-        manager.addProduct(new Product(32,  "Curtains"));
-        manager.addProduct(new Product(33,  "Sink"));
         
+        manager.addProduct(new Product(21, "Bush Clock Radio"));
+        manager.addProduct(new Product(22, "Google Pixel 4XL"));
+        manager.addProduct(new Product(23, "Samsung QLED 4K TV"));
+        manager.addProduct(new Product(24, "IKEA Malm Desk"));
+        manager.addProduct(new Product(25, "Japanese Storage Bed"));
+        manager.addProduct(new Product(26, "Samsung CE1041DSB2/TL Smart Microwave"));
+        manager.addProduct(new Product(27, "Monda Black Adjustable Table Lamp"));
+        manager.addProduct(new Product(28, "Electrolux EFLS627UTT Washing Mashine"));
+        manager.addProduct(new Product(29, "Bosch Serie 4 WTN85251GB Tumble Dryer"));
+        manager.addProduct(new Product(30, "Beko ADC5422AW Electric Cooker"));
+        manager.addProduct(new Product(31, "IKEA Ektorp Sofa"));
+        manager.addProduct(new Product(32, "Shower Curtain"));
+        manager.addProduct(new Product(33, "Kraus KHU100-30 Kitchen Sink"));
     }
     
     /**
@@ -39,19 +39,19 @@ public class StockDemo
      * might be used. Details of one product are shown, the
      * product is restocked, and then the details are shown again.
      */
-    public void demo()
+    public void deliverProducts()
     {
         // Show details of all of the products.
         manager.printProductDetails();
         // Take delivery of 5 items of one of the products.
         manager.delivery(21, 5);
-        manager.delivery(22, 15);
-        manager.delivery(23, 53);
-        manager.delivery(24, 51);
-        manager.delivery(25, 51);
-        manager.delivery(26, 215);
-        manager.delivery(27, 4);
-        manager.delivery(28, 64);
+        manager.delivery(22, 11);
+        manager.delivery(23, 2);
+        manager.delivery(24, 3);
+        manager.delivery(25, 4);
+        manager.delivery(26, 1);
+        manager.delivery(27, 5);
+        manager.delivery(28, 5);
         manager.delivery(29, 5);
         manager.delivery(30, 5);
         manager.delivery(31, 5);
