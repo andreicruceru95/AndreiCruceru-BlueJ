@@ -49,10 +49,11 @@ var activeTableTab = "activeTableTab";
 <hr>
 <pre>public class <span class="typeNameLabel">Course</span>
 extends java.lang.Object</pre>
-<div class="block">This class represents a real life example of a course.
- A course has a three years lenght and eight modules each year separated in two semesters.
+<div class="block">This class represents a real life example of a university student who enrols on a course.
+ A course has a three years duration and eight modules each year between two semesters.
  It will calculate the credits for the course based on how many modules are completed and the overall grade of the modules.
- It also allows the user to search modules based on their code, or part of their name.</div>
+ It also allows the user to search modules based on their code, or part of their name 
+ and calculate the overall grade, credits and marks for a period of time.</div>
 <dl>
 <dt><span class="simpleTagLabel">Version:</span></dt>
 <dd>12102020</dd>
@@ -172,7 +173,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFinalGrade()">getFinalGrade</a></span>()</code></th>
 <td class="colLast">
-<div class="block">This method will calculate the final grade of a student based on his percentage marks.</div>
+<div class="block">This method will calculate the final grade of a student based on his percentage mark.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -186,7 +187,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printCourseDetails()">printCourseDetails</a></span>()</code></th>
 <td class="colLast">
-<div class="block">This method will print all the course details.</div>
+<div class="block">Print all the course details.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -200,7 +201,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#searchByName(java.lang.String)">searchByName</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">
-<div class="block">This method will search the modules for the input word.</div>
+<div class="block">Search the list of modules for the input word.</div>
 </td>
 </tr>
 </table>
@@ -340,7 +341,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getFinalGrade</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;getFinalGrade()</pre>
-<div class="block">This method will calculate the final grade of a student based on his percentage marks.
+<div class="block">This method will calculate the final grade of a student based on his percentage mark.
  It will print this details to the terminal window.</div>
 </li>
 </ul>
@@ -362,8 +363,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>printCourseDetails</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;printCourseDetails()</pre>
-<div class="block">This method will print all the course details.
- It will include separate marks for each modules and the total credits.</div>
+<div class="block">Print all the course details.
+ It will also print the module details.</div>
 </li>
 </ul>
 <a id="getFinalMark()">
@@ -395,7 +396,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>searchByName</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;searchByName&#8203;(java.lang.String&nbsp;name)</pre>
-<div class="block">This method will search the modules for the input word.</div>
+<div class="block">Search the list of modules for the input word.</div>
 </li>
 </ul>
 <a id="calculateForPeriod(java.lang.String)">
