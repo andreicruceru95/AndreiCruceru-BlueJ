@@ -37,6 +37,7 @@ public class StockManager
     public void renameProduct(int id, String replacement)
     {
         Product product = findProduct(id);
+        
         if (product != null)
         {
             product.replaceName(replacement);
@@ -45,7 +46,6 @@ public class StockManager
         {
             System.out.println("Product not found!");
         }
-        
     }
        
     /**
@@ -57,6 +57,7 @@ public class StockManager
     public void delivery(int id, int amount)
     {
         Product product = findProduct(id);
+        
         if (product != null)
         {
             product.increaseQuantity(amount);
@@ -65,7 +66,6 @@ public class StockManager
         {
             System.out.println("Product not found!");
         }
-        
     }
     
     /**
@@ -95,6 +95,7 @@ public class StockManager
     public void numberInStock(int id)
     {
         Product product = findProduct(id);
+        
         if (product != null)
         {
             System.out.println(product.getQuantity());        
@@ -103,7 +104,6 @@ public class StockManager
         {
             System.out.println("Product not found!");
         }
-        
     }
  
     /**
@@ -115,7 +115,6 @@ public class StockManager
         {
             System.out.println(product.toString());
         });
-        
     }
     
     /**
@@ -124,19 +123,20 @@ public class StockManager
     public void searchProduct(String word)
     {
         List <Product> listClone = new ArrayList<Product>();
-        stock.forEach(item->
-        {
-            for(Product product : stock) 
+        
+        for(Product product : stock) 
+        { 
+            if(product.getName().contains(word))  
             { 
-                if(product.getName().contains(word))  
-                { 
-                    listClone.add(product);
-                }
-                
+                listClone.add(product);
             }
-            
+                
+        }
+        
+        listClone.forEach(entry->
+        {
+            System.out.println(entry.toString());
         });
-        System.out.println(listClone); 
     }
     
     /**
@@ -145,15 +145,15 @@ public class StockManager
     public void removeProduct(int id)
     {
         Product product = findProduct(id);
+        
         if (product != null)
         {
-            product.removeProduct();        
+            stock.remove(product);        
         }
         
         else
         {
             System.out.println("Product not found!");
         }
-                        
-    }
+    } 
 }
