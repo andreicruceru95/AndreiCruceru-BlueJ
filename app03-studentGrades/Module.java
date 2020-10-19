@@ -14,21 +14,18 @@ public class Module
     // The marks and credits for this module
     private int mark = 0;
     private int credits = 0;
-    // The comfirmation that the course has been completed and marked
+    // The confirmation that the course has been completed and marked
     private boolean isCompleted;
     private boolean isMarked;
-    
-    private Grades grade;
-    
+        
     /**
      * Give a title and a code to this module.
      * The code should be Year followd by Semester (ex Y1S1);
      */
-    public Module (String title, String code, int mark)
+    public Module (String title, String code)
     {
         this.title = title;
         this.code = code;
-        this.mark = mark;
     }
     
     /**
@@ -53,6 +50,7 @@ public class Module
         {
             credits = 0;
         }
+        
         return credits;
     }
     
@@ -69,7 +67,7 @@ public class Module
      */
     public String getTitle()
     {
-        return "Module title: " + title;
+        return title;
     }
     
     /**
@@ -77,7 +75,7 @@ public class Module
      */
     public String getCode()
     {
-        return "Module code: " + code;
+        return code;
     }
     
     /**
@@ -85,6 +83,7 @@ public class Module
      */
     public void printModuleDetails()
     {
-        System.out.println("Name: " + title + " Code: " + code + " Marks: " + mark +"%" + "Credits " + credits);
+        System.out.println("Name: " + title + " Code: " + code + " Marks: " 
+                           + mark +"%" + "Credits " + credits);
     }
 }
