@@ -3,10 +3,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class represents a real life example of a course.
- * A course has a three years lenght and eight modules each year separated in two semesters.
+ * This class represents a real life example of a university student who enrols on a course.
+ * A course has a three years duration and eight modules each year between two semesters.
  * It will calculate the credits for the course based on how many modules are completed and the overall grade of the modules.
- * It also allows the user to search modules based on their code, or part of their name.
+ * It also allows the user to search modules based on their code, or part of their name 
+ * and calculate the overall grade, credits and marks for a period of time.
  * 
  * @author Andrei Cruceru
  * @version 12102020
@@ -57,7 +58,7 @@ public class Course
     }
     
     /**
-     * This method will calculate the final grade of a student based on his percentage marks.
+     * This method will calculate the final grade of a student based on his percentage mark.
      * It will print this details to the terminal window.
      */
     public void getFinalGrade()
@@ -80,7 +81,8 @@ public class Course
     }
     
     /**
-     * This method will print out the final grades, marks and credits
+     * Print the final grades, mark and credits.
+     * This method serves no purpose outside this class.
      */
     private void printFinalGrade()
     {
@@ -92,6 +94,7 @@ public class Course
        
     /**
      * Convert the marks into grades.
+     * This method serves no purpose outside this class.
      */
     private Grades convertToGrade(int mark)
     {
@@ -126,7 +129,8 @@ public class Course
     }
     
     /**
-     * This method will return the course details only.
+     * Return the course name and code.
+     * This method serves no purpose outside this class. 
      */
     private String getCourse()
     {
@@ -134,7 +138,8 @@ public class Course
     }
     
     /**
-     * Find a module using it's unique code
+     * Find a module using it's unique code.
+     * This method serves no purpose outside this class.
      */
     private Module findModule(String code)
     {
@@ -166,8 +171,8 @@ public class Course
     }
     
     /**
-     * This method will print all the course details.
-     * It will include separate marks for each modules and the total credits.
+     * Print all the course details.
+     * It will also print the module details.
      */
     public void printCourseDetails()
     {
@@ -212,7 +217,7 @@ public class Course
     }
     
     /**
-     * This method will search the modules for the input word.
+     * Search the list of modules for the input word.
      */
     public void searchByName(String name)
     {
@@ -235,6 +240,7 @@ public class Course
     
     /**
      * Get details about a given module.
+     * This method serves no purpose outside this class.
      */
     private void getDetails(Module module)
     {

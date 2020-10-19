@@ -11,7 +11,7 @@ public class ModuleDemo
     private Course course;
     
     /**
-     * This constructor will create 24 new modules with a name and code.
+     * We create 24 new modules each with a name and code.
      */
     public ModuleDemo(Course course)
     {
@@ -44,7 +44,7 @@ public class ModuleDemo
     }
     
     /**
-     * Award marks to 24 modules.
+     * We award marks to the 24 modules.
      */
     public void awardMarks()
     {
