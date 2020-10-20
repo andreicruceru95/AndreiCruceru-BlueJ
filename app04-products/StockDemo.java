@@ -44,19 +44,19 @@ public class StockDemo
         // Show details of all of the products.
         manager.printProductDetails();
         // Take delivery of 5 items of one of the products.
-        manager.delivery(21, 5);
-        manager.delivery(22, 11);
-        manager.delivery(23, 2);
-        manager.delivery(24, 3);
-        manager.delivery(25, 4);
-        manager.delivery(26, 1);
-        manager.delivery(27, 5);
-        manager.delivery(28, 5);
-        manager.delivery(29, 5);
-        manager.delivery(30, 5);
-        manager.delivery(31, 5);
-        manager.delivery(32, 5);
-        manager.delivery(33, 5);
+        manager.deliverProduct(21, 5);
+        manager.deliverProduct(22, 11);
+        manager.deliverProduct(23, 2);
+        manager.deliverProduct(24, 3);
+        manager.deliverProduct(25, 4);
+        manager.deliverProduct(26, 1);
+        manager.deliverProduct(27, 5);
+        manager.deliverProduct(28, 5);
+        manager.deliverProduct(29, 5);
+        manager.deliverProduct(30, 5);
+        manager.deliverProduct(31, 5);
+        manager.deliverProduct(32, 5);
+        manager.deliverProduct(33, 5);
         manager.printProductDetails();
     }
     
