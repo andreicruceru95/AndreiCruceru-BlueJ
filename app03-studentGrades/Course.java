@@ -19,21 +19,21 @@ public class Course
     public static final int C_PASS = 60;
     public static final int B_PASS = 70;
     public static final int MAXIMUM_MARK = 100;
-    // Course name
+    
+    //Course name and code
     private String name;
-    // Course Code
     private String code;
-    //ArrayList of modules
-    private ArrayList<Module> modules;
-    private Module module;
     // Course credits
     private int credits = 0;
+    
+    //ArrayList of modules
+    private ArrayList<Module> modules;
     // Marks for the modules
     private int mark = 0;
     private int finalMark = 0;
     // The final grade of the course
     private Grades finalGrade = null;
-    //period variables(cannot be defined inside calculateForPeriod method)
+    // //period variables(cannot be defined inside calculateForPeriod method)
     private int periodMark = 0;
     private int periodFinalMark = 0;
     private int periodCredits = 0;
@@ -71,13 +71,23 @@ public class Course
         modules.forEach(module ->
         {
             mark = mark + module.getMark();
-            credits = credits + module.getCredits();
+            if (module.isCompleted == true && module.isMarked == true)
+            {
+                credits = credits + module.getCredits();
+            }
         });
-        
-        finalMark = mark / modules.size(); 
-        finalGrade = convertToGrade(finalMark);
+        if (credits == modules.size() * 15)
+        {
+                
+            finalMark = mark / modules.size(); 
+            finalGrade = convertToGrade(finalMark);
        
-        printFinalGrade();
+            printFinalGrade();
+        }
+        else
+        {
+            System.out.println("Not all the modules are completed or marked. Cannot calculate final grades.");
+        }
     }
     
     /**
@@ -255,14 +265,12 @@ public class Course
     public void calculateForPeriod(String code)
     {
         //reseting the values of the variables before they are used
-        periodMark = 0;
-        periodFinalMark = 0;
-        periodCredits = 0; 
-        
-        List <Module> listClone = new ArrayList<Module>(); 
+              
+        List <Module> listClone = new ArrayList<Module>();
+        List <Module> modulesCompleted = new ArrayList<Module>();
         
         for(Module module : modules) 
-        { 
+        {
             if(module.getCode().contains(code))
  
             { 
@@ -270,24 +278,39 @@ public class Course
             }
         }
         
-        listClone.forEach(entry->
+        for (Module module : listClone)
         {
-            periodMark = periodMark + entry.getMark();
-            periodCredits = periodCredits + entry.getCredits(); 
-        });    
-                
-        System.out.println("For the given period, you have obtained " + periodMark/listClone.size() 
-                           + "% mark and " + periodCredits + " Credits.");
+            if (module.isCompleted == true)
+            {
+                modulesCompleted.add(module);
+            }
+        }
         
-        periodFinalMark = periodMark / listClone.size();
-        periodGrade = convertToGrade(periodFinalMark);
-        
-        System.out.println("Your grade for the time period is " + periodGrade + " ");
-        System.out.println("Here is a breakdown of your modules for the time given:");
-            
-        listClone.forEach(entry->
+        if (modulesCompleted.size() != listClone.size())
         {
-            getDetails(entry);
-        });
+            System.out.println("Not all the modules are marked or completed. Cannot calculate grades for " + code);
+        }
+        else
+        {
+            listClone.forEach(entry->
+            {
+                periodMark = periodMark + entry.getMark();
+                periodCredits = periodCredits + entry.getCredits(); 
+            });    
+              
+            System.out.println("For the given period, you have obtained " + periodMark/listClone.size() 
+                             + "% mark and " + periodCredits + " Credits.");
+        
+            periodFinalMark = periodMark / listClone.size();
+            periodGrade = convertToGrade(periodFinalMark);
+        
+            System.out.println("Your grade for the time period is " + periodGrade + " ");
+            System.out.println("Here is a breakdown of your modules for the time given:");
+          
+            listClone.forEach(entry->
+            {
+                getDetails(entry);
+            });
+        }
     }
 }
