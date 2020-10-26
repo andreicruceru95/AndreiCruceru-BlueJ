@@ -15,8 +15,8 @@ public class Module
     private int mark = 0;
     private int credits = 0;
     // The confirmation that the course has been completed and marked
-    private boolean isCompleted;
-    private boolean isMarked;
+    public boolean isCompleted;
+    public boolean isMarked;
         
     /**
      * Give a title and a code to this module.
@@ -45,10 +45,13 @@ public class Module
         if(mark > 39)
         {
             credits = 15;
+            isCompleted = true;
+            isMarked = true;
         }
-        else
+        else 
         {
             credits = 0;
+            isMarked = true;
         }
         
         return credits;
