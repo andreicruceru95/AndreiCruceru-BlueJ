@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
- 
+import java.util.*;
+
 /**
  * Manage the stock in a business.
  * The stock is described by zero or more Products.
@@ -156,4 +154,25 @@ public class StockManager
             System.out.println("Product not found!");
         }
     } 
+    
+    /**
+     * Print a list of the products with low stock.
+     */
+    public void printLowStock()
+    {
+        List <Product> listClone = new ArrayList<Product>();
+        
+        for (Product product : stock)
+        {
+            if (product.getQuantity() < 5)
+            {
+                listClone.add(product);
+            }
+        }
+        
+        listClone.forEach(product ->
+        {
+            System.out.println(product);
+        });
+    }
 }
