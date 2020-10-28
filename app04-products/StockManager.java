@@ -11,8 +11,9 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
-    
-        /**
+    List <Product> listClone = new ArrayList<Product>();
+       
+    /**
      * Initialise the stock manager.
      */
     public StockManager()
@@ -120,7 +121,7 @@ public class StockManager
      */
     public void searchProduct(String word)
     {
-        List <Product> listClone = new ArrayList<Product>();
+        listClone.clear();
         
         for(Product product : stock) 
         { 
@@ -131,10 +132,7 @@ public class StockManager
                 
         }
         
-        listClone.forEach(entry->
-        {
-            System.out.println(entry.toString());
-        });
+        printClone();
     }
     
     /**
@@ -156,11 +154,11 @@ public class StockManager
     } 
     
     /**
-     * Print a list of the products with low stock.
+     * Print a list of the products with a quantity lower than 5.
      */
     public void printLowStock()
     {
-        List <Product> listClone = new ArrayList<Product>();
+        listClone.clear();
         
         for (Product product : stock)
         {
@@ -170,6 +168,30 @@ public class StockManager
             }
         }
         
+        printClone();
+    }
+    
+    /**
+     * Get delivery for products with low quantity.
+     */
+    public void refillStock()
+    {
+        listClone.clear();
+        printLowStock();
+        
+        listClone.forEach(product ->
+        {
+            product.increaseQuantity(5);    
+        });
+        
+        printClone();
+    }
+    
+    /**
+     * Print listClone.
+     */
+    private void printClone()
+    {
         listClone.forEach(product ->
         {
             System.out.println(product);
