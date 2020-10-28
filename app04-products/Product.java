@@ -6,9 +6,8 @@
  */
 public class Product
 {
-    // An identifying number for this product.
+    // Name and id of the product.
     private int id;
-    // The name of this product.
     private String name;
     // The quantity of this product in stock.
     private int quantity;
@@ -86,6 +85,8 @@ public class Product
         if(quantity > 0) 
         {
             quantity = quantity - 1;
+            
+            System.out.println("One " + name + " has been sold");
         }
         else 
         {
