@@ -11,6 +11,7 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
+    // A list with data type Product used for calculations.
     List <Product> listClone = new ArrayList<Product>();
        
     /**
@@ -129,7 +130,6 @@ public class StockManager
             { 
                 listClone.add(product);
             }
-                
         }
         
         printClone();
@@ -168,6 +168,7 @@ public class StockManager
             }
         }
         
+        System.out.println("The stock of the following products should be refilled");
         printClone();
     }
     
@@ -183,6 +184,8 @@ public class StockManager
         {
             product.increaseQuantity(5);    
         });
+        
+        System.out.println("Refilled the stock for the following products:");
         
         printClone();
     }
