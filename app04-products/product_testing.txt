@@ -1,29 +1,68 @@
 StockManager stock = new StockManager();
 
-StockDemo manager = new StockDemo(stock);
+StockDemo demo = new StockDemo(stock);
 
-manager.deliverProducts();
+demo.deliverProducts();
+Products delivered!
 
-21: Bush Clock Radio stock level: 0
-22: Google Pixel 4XL stock level: 0
-23: Samsung QLED 4K TV stock level: 0
-24: IKEA Malm Desk stock level: 0
-25: Japanese Storage Bed stock level: 0
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 0
-27: Monda Black Adjustable Table Lamp stock level: 0
-28: Electrolux EFLS627UTT Washing Mashine stock level: 0
-29: Bosch Serie 4 WTN85251GB Tumble Dryer stock level: 0
-30: Beko ADC5422AW Electric Cooker stock level: 0
-31: IKEA Ektorp Sofa stock level: 0
-32: Shower Curtain stock level: 0
-33: Kraus KHU100-30 Kitchen Sink stock level: 0
-
-21: Bush Clock Radio stock level: 5
-22: Google Pixel 4XL stock level: 11
+demo.getProduct(23);
 23: Samsung QLED 4K TV stock level: 2
+
+demo.showDetails(21);
+21: Bush Clock Radio stock level: 5
+
+demo.sellProduct(23);
+One Samsung QLED 4K TV has been sold
+23: Samsung QLED 4K TV stock level: 1
+
+demo.sellProduct(23);
+One Samsung QLED 4K TV has been sold
+
+23: Samsung QLED 4K TV stock level: 0
+demo.sellProduct(23);
+
+Attempt to sell an out of stock item: Samsung QLED 4K TV
+23: Samsung QLED 4K TV stock level: 0
+
+Product iphone = new Product(55, "Iphone XV");
+
+stock.addProduct(iphone);
+
+stock.deliverProduct(55, 2);
+
+stock.getQuantity(55);
+2
+
+stock.printLowStock();
+The stock of the following products should be refilled
+23: Samsung QLED 4K TV stock level: 0
 24: IKEA Malm Desk stock level: 3
 25: Japanese Storage Bed stock level: 4
 26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
+55: Iphone XV stock level: 2
+
+stock.refillStock();
+The stock of the following products should be refilled
+23: Samsung QLED 4K TV stock level: 0
+24: IKEA Malm Desk stock level: 3
+25: Japanese Storage Bed stock level: 4
+26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
+55: Iphone XV stock level: 2
+
+Refilled the stock for the following products:
+23: Samsung QLED 4K TV stock level: 5
+24: IKEA Malm Desk stock level: 8
+25: Japanese Storage Bed stock level: 9
+26: Samsung CE1041DSB2/TL Smart Microwave stock level: 6
+55: Iphone XV stock level: 7
+
+stock.printProductDetails();
+21: Bush Clock Radio stock level: 5
+22: Google Pixel 4XL stock level: 11
+23: Samsung QLED 4K TV stock level: 5
+24: IKEA Malm Desk stock level: 8
+25: Japanese Storage Bed stock level: 9
+26: Samsung CE1041DSB2/TL Smart Microwave stock level: 6
 27: Monda Black Adjustable Table Lamp stock level: 5
 28: Electrolux EFLS627UTT Washing Mashine stock level: 5
 29: Bosch Serie 4 WTN85251GB Tumble Dryer stock level: 5
@@ -31,110 +70,21 @@ manager.deliverProducts();
 31: IKEA Ektorp Sofa stock level: 5
 32: Shower Curtain stock level: 5
 33: Kraus KHU100-30 Kitchen Sink stock level: 5
+55: Iphone XV stock level: 7
 
-stock.delivery(33, 1);
+stock.removeProduct(55);
 
-manager.showDetails(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 6
+demo.getProduct(55);
+Product with ID: 55 is not recognised.
 
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 6
-33: Kraus KHU100-30 Kitchen Sink stock level: 5
+stock.renameProduct(22, "Google phone");
 
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 5
-33: Kraus KHU100-30 Kitchen Sink stock level: 4
+demo.showDetails(23);
+23: Samsung QLED 4K TV stock level: 5
 
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 4
-33: Kraus KHU100-30 Kitchen Sink stock level: 3
+demo.showDetails(22);
+22: Google phone stock level: 11
 
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 3
-33: Kraus KHU100-30 Kitchen Sink stock level: 2
-
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 2
-33: Kraus KHU100-30 Kitchen Sink stock level: 1
-
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 1
-33: Kraus KHU100-30 Kitchen Sink stock level: 0
-
-manager.sellProduct(33);
-33: Kraus KHU100-30 Kitchen Sink stock level: 0
-Attempt to sell an out of stock item: Kraus KHU100-30 Kitchen Sink
-33: Kraus KHU100-30 Kitchen Sink stock level: 0
-
-stock.renameProduct(22, "Google Pixel 4A");
-
-manager.showDetails(22);
-22: Google Pixel 4A stock level: 11
-
-stock.removeProduct(32);
-
-manager.showDetails(32);
-Product with ID: 32 is not recognised.
-
-stock.printProductDetails();
-21: Bush Clock Radio stock level: 5
-22: Google Pixel 4A stock level: 11
-23: Samsung QLED 4K TV stock level: 2
-24: IKEA Malm Desk stock level: 3
-25: Japanese Storage Bed stock level: 4
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
-27: Monda Black Adjustable Table Lamp stock level: 5
-28: Electrolux EFLS627UTT Washing Mashine stock level: 5
-29: Bosch Serie 4 WTN85251GB Tumble Dryer stock level: 5
-30: Beko ADC5422AW Electric Cooker stock level: 5
-31: IKEA Ektorp Sofa stock level: 5
-33: Kraus KHU100-30 Kitchen Sink stock level: 0
-
-stock.searchProduct("Samsung");
-23: Samsung QLED 4K TV stock level: 2
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
-
-Product samsung = new Product(32, "Samsung S20 Ultra");
-
-stock.addProduct(samsung);
-
-stock.searchProduct("Samsung");
-23: Samsung QLED 4K TV stock level: 2
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
-32: Samsung S20 Ultra stock level: 0
-
-stock.delivery(32, 12);
-
-stock.searchProduct("Samsung");
-23: Samsung QLED 4K TV stock level: 2
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
-32: Samsung S20 Ultra stock level: 12
-
-manager.sellProduct(32);
-32: Samsung S20 Ultra stock level: 12
-32: Samsung S20 Ultra stock level: 11
-
-manager.sellProduct(32);
-32: Samsung S20 Ultra stock level: 11
-32: Samsung S20 Ultra stock level: 10
-
-manager.sellProduct(21);
-21: Bush Clock Radio stock level: 5
-21: Bush Clock Radio stock level: 4
-
-manager.sellProduct(22);
-22: Google Pixel 4A stock level: 11
-22: Google Pixel 4A stock level: 10
-
-manager.sellProduct(25);
-25: Japanese Storage Bed stock level: 4
-25: Japanese Storage Bed stock level: 3
-
-manager.sellProduct(26);
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 1
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 0
-
-manager.sellProduct(26);
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 0
-Attempt to sell an out of stock item: Samsung CE1041DSB2/TL Smart Microwave
-26: Samsung CE1041DSB2/TL Smart Microwave stock level: 0
+stock.searchProduct("Sams");
+23: Samsung QLED 4K TV stock level: 5
+26: Samsung CE1041DSB2/TL Smart Microwave stock level: 6
