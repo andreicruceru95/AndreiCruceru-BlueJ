@@ -101,17 +101,7 @@ public class Product
     {
         name = replacement;
     }
-    
-    /**
-     * Remove a product from stock.
-     */
-    public void removeProduct()
-    {
-        name = null;
-        id = 0;
-        quantity = 0;
-    }
-    
+        
     /**
      * Get product details
      */
