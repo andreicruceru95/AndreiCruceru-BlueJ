@@ -41,8 +41,6 @@ public class StockDemo
      */
     public void deliverProducts()
     {
-        // Show details of all of the products.
-        manager.printProductDetails();
         // Take delivery of 5 items of one of the products.
         manager.deliverProduct(21, 5);
         manager.deliverProduct(22, 11);
@@ -57,7 +55,7 @@ public class StockDemo
         manager.deliverProduct(31, 5);
         manager.deliverProduct(32, 5);
         manager.deliverProduct(33, 5);
-        manager.printProductDetails();
+        System.out.println("Products delivered!");
     }
     
     /**
@@ -67,7 +65,7 @@ public class StockDemo
      */
     public void showDetails(int id)
     {
-        Product product = getProduct(id);
+        Product product = manager.findProduct(id);
         
         if(product != null) 
         {
@@ -82,11 +80,10 @@ public class StockDemo
      */
     public void sellProduct(int id)
     {
-        Product product = getProduct(id);
+        Product product = manager.findProduct(id);
         
         if(product != null) 
         {
-            showDetails(id);
             product.sellOne();
             showDetails(id);
         }
@@ -98,16 +95,19 @@ public class StockDemo
      * @param id The ID of the product.
      * @return The Product, or null if no matching one is found.
      */
-    public Product getProduct(int id)
+    public void getProduct(int id)
     {
         Product product = manager.findProduct(id);
         
-        if(product == null) 
+        if(product != null) 
+        {
+            System.out.println(product.toString());
+        }
+        else
         {
             System.out.println("Product with ID: " + id +
-                               " is not recognised.");
+                                " is not recognised.");
         }
-        return product;
     }
 
     /**
