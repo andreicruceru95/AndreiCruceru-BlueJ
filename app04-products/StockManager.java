@@ -13,7 +13,7 @@ public class StockManager
     private ArrayList<Product> stock;
     // A list with data type Product used for calculations.
     List <Product> listClone = new ArrayList<Product>();
-       
+    
     /**
      * Initialise the stock manager.
      */
@@ -21,7 +21,7 @@ public class StockManager
     {
         stock = new ArrayList<>();
     }
-
+    
     /**
      * Add a product to the list.
      * @param item The item to be added.
@@ -162,7 +162,7 @@ public class StockManager
         
         for (Product product : stock)
         {
-            if (product.getQuantity() < 5)
+            if (product.checkLow() == true)
             {
                 listClone.add(product);
             }
@@ -198,6 +198,6 @@ public class StockManager
         listClone.forEach(product ->
         {
             System.out.println(product);
-        });
+        }); 
     }
 }
