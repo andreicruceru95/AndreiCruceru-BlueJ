@@ -54,7 +54,7 @@ public class Product
      */
     public String toString()
     {
-        return id + ": " +  name + " stock level: " + quantity;
+        return "|Product ID: " + id + " |Product Name: "  +  name + " |Stock Level: " + quantity + " |" ;
     }
 
     /**
@@ -87,11 +87,13 @@ public class Product
             quantity = quantity - 1;
             
             System.out.println("One " + name + " has been sold");
+            
+            getLow();
         }
         else 
         {
             System.out.println(
-                "Attempt to sell an out of stock item: " + name);
+                "Attempt to sell an out of stock item: " + name + ". Quantity in stock: " + getQuantity());
         }
     }
     
@@ -104,10 +106,31 @@ public class Product
     }
         
     /**
-     * Get product details
+     *  Check if the stock of a product is low.
+     *  Print a warning message if true.
      */
-    public void printProduct()
+    private void getLow()
     {
-        System.out.println("Product name: " + name + " Product ID: " + id + " Stock Level: " + quantity); 
+        if (checkLow() == true)
+        {
+            System.out.println("WARNING: " + getQuantity() + " " + getName() + " in stock. Please order more!");
+        }
+    }
+    
+    /**
+     * Check if the quantity of a product is low.
+     */
+    public boolean checkLow()
+    {
+        int low = 5;
+        
+        if (getQuantity() <= low)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
