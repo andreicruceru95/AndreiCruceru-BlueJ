@@ -1,9 +1,9 @@
 /**
- * Model some details of a product sold by a company.
- * 
- * @author Andrei Cruceru  
- * @version 15102020
- */
+* Model some details of a product sold by a company.
+*
+* @author Andrei Cruceru
+* @version 15102020
+*/
 public class Product
 {
     // Name and id of the product.
@@ -13,11 +13,11 @@ public class Product
     private int quantity;
 
     /**
-     * Constructor for objects of class Product.
-     * The initial stock quantity is zero.
-     * @param id The product's identifying number.
-     * @param name The product's name.
-     */
+    * Constructor for objects of class Product.
+    * The initial stock quantity is zero.
+    * @param id The product's identifying number.
+    * @param name The product's name.
+    */
     public Product(int id, String name)
     {
         this.id = id;
@@ -54,25 +54,24 @@ public class Product
      */
     public String toString()
     {
-        return "|Product ID: " + id + " |Product Name: "  +  name + " |Stock Level: " + quantity + " |" ;
+        return "|Product ID: " + id + " |Product Name: " + name + " |Stock Level: " + quantity + " |";
     }
 
     /**
      * Restock with the given amount of this product.
      * The current quantity is incremented by the given amount.
      * @param amount The number of new items added to the stock.
-     *               This must be greater than zero.
+     * This must be greater than zero.
      */
     public void increaseQuantity(int amount)
     {
-        if(amount > 0) 
+        if(amount > 0)
         {
             quantity += amount;
         }
-        else 
+        else
         {
-            System.out.println("Attempt to restock " + name +
-                               " with a non-positive amount: " + amount);
+            System.out.println("Attempt to restock " + name + " with a non-positive amount: " + amount);
         }
     }
 
@@ -82,21 +81,20 @@ public class Product
      */
     public void sellOne()
     {
-        if(quantity > 0) 
+        if(quantity > 0)
         {
             quantity = quantity - 1;
-            
+
             System.out.println("One " + name + " has been sold");
-            
+
             getLow();
         }
-        else 
+        else
         {
-            System.out.println(
-                "Attempt to sell an out of stock item: " + name + ". Quantity in stock: " + getQuantity());
+            System.out.println("Attempt to sell an out of stock item: " + name + ". Quantity in stock: " + getQuantity());
         }
     }
-    
+
     /**
      * Replace the name of this product.
      */
@@ -104,27 +102,27 @@ public class Product
     {
         name = replacement;
     }
-        
+
     /**
-     *  Check if the stock of a product is low.
-     *  Print a warning message if true.
+     * Check if the stock of a product is low.
+     * Print a warning message if true.
      */
     private void getLow()
     {
-        if (checkLow() == true)
+        if(checkLow() == true)
         {
             System.out.println("WARNING: " + getQuantity() + " " + getName() + " in stock. Please order more!");
         }
     }
-    
+
     /**
-     * Check if the quantity of a product is low.
+     * @return weather or not the quantity of a product is low.
      */
     public boolean checkLow()
     {
         int low = 5;
-        
-        if (getQuantity() <= low)
+
+        if(getQuantity() <= low)
         {
             return true;
         }

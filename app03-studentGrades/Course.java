@@ -265,7 +265,9 @@ public class Course
     public void calculateForPeriod(String code)
     {
         //reseting the values of the variables before they are used
-              
+        periodMark = 0;
+        periodCredits = 0;
+        
         List <Module> listClone = new ArrayList<Module>();
         List <Module> modulesCompleted = new ArrayList<Module>();
         
