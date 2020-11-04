@@ -69,6 +69,22 @@ public class StockManager
     }
     
     /**
+     * Sell a quantity of a product based on the product's id
+     */
+    public void sellMultiple(int id,int amount)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            product.sellMultiple(amount);
+        }
+        else
+        {
+            System.out.println("Product not found");
+        }
+    }
+    
+    /**
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
      *         with a matching ID.
