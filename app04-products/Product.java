@@ -55,7 +55,7 @@ public class Product
      */
     public String toString()
     {
-        return "|Product ID: " + id + " |Product Name: " + name + " |Stock Level: " + quantity + " |";
+        return "| Product ID: " + id + " | Product Name: " + name + " | Stock Level: " + quantity + " |";
     }
 
     /**
