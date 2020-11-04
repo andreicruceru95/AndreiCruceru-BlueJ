@@ -88,7 +88,6 @@ public class Product
         {
             System.out.println("The quantity is lower than the required amount!");
         }
-        
     }
     
 
