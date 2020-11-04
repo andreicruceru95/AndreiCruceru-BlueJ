@@ -32,6 +32,8 @@ public class StockDemo
         manager.addProduct(new Product(31, "IKEA Ektorp Sofa"));
         manager.addProduct(new Product(32, "Shower Curtain"));
         manager.addProduct(new Product(33, "Kraus KHU100-30 Kitchen Sink"));
+        
+        deliverProducts();
     }
     
     /**
@@ -39,7 +41,7 @@ public class StockDemo
      * might be used. Details of one product are shown, the
      * product is restocked, and then the details are shown again.
      */
-    public void deliverProducts()
+    private void deliverProducts()
     {
         // Take delivery of 5 items of one of the products.
         manager.deliverProduct(21, 5);
@@ -55,6 +57,7 @@ public class StockDemo
         manager.deliverProduct(31, 5);
         manager.deliverProduct(32, 5);
         manager.deliverProduct(33, 5);
+        
         System.out.println("Products delivered!");
     }
     
