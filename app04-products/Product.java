@@ -153,7 +153,7 @@ public class Product
      */
     public void amountToCart(int amount)
     {
-        amount += amount;
+        this.amount = amount;
     }
     
     /**
