@@ -13,7 +13,7 @@ public class StockManager
     private ArrayList<Product> stock;
     // A list with data type Product used for calculations.
     List <Product> listClone = new ArrayList<Product>();
-    
+       
     /**
      * Initialise the stock manager.
      */
@@ -80,7 +80,7 @@ public class StockManager
         }
         else
         {
-            System.out.println("Product not found");
+            System.out.println("Product with id " + id + " not found");
         }
     }
     
@@ -125,7 +125,7 @@ public class StockManager
     /**
      * Print details of all the products.
      */
-    public void printProductDetails()
+    public void printAllProductDetails()
     {
         stock.forEach(product->
         {
@@ -138,7 +138,7 @@ public class StockManager
      * its name and stock quantity will be shown.
      * @param id The ID of the product to look for.
      */
-    public void showDetails(int id)
+    public void printDetailsWithID(int id)
     {
         Product product = findProduct(id);
         
@@ -153,14 +153,14 @@ public class StockManager
      * Show the before and after status of the product.
      * @param id The ID of the product being sold.
      */
-    public void sellProduct(int id)
+    public void sellOneProduct(int id)
     {
         Product product = findProduct(id);
         
         if(product != null) 
         {
             product.sellOne();
-            showDetails(id);
+            printDetailsWithID(id);
         }
     }
     
@@ -170,7 +170,7 @@ public class StockManager
      * @param id The ID of the product.
      * @return The Product, or null if no matching one is found.
      */
-    public void getProduct(int id)
+    public void getProductByID(int id)
     {
         Product product = findProduct(id);
         
@@ -188,7 +188,7 @@ public class StockManager
     /**
      * Search for a product
      */
-    public void searchProduct(String word)
+    public void search(String word)
     {
         listClone.clear();
         
@@ -222,9 +222,9 @@ public class StockManager
     } 
     
     /**
-     * Print a list of the products with a quantity lower than 5.
+     * Search for product with low stock and add them to a list.
      */
-    public void printLowStock()
+    public void checkLowStock()
     {
         listClone.clear();
         
@@ -236,8 +236,37 @@ public class StockManager
             }
         }
         
-        System.out.println("The stock of the following products should be refilled");
-        printClone();
+        validate();
+        verifyLow();
+    }
+    
+    private boolean validate()
+    {
+        if (listClone.size() > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * Verify if there are low quantity products in the list
+     */
+    private void verifyLow()
+    {
+        if (validate() == true)
+        {
+            System.out.println("The stock of the following products should be refilled");
+        
+            printClone();
+        }
+        else
+        {
+            System.out.println("The quantity of each product is at least 5");
+        }
     }
     
     /**
@@ -245,17 +274,21 @@ public class StockManager
      */
     public void refillStock()
     {
-        listClone.clear();
-        printLowStock();
-        
-        listClone.forEach(product ->
+        checkLowStock();
+        if(validate() == true)
         {
-            product.increaseQuantity(5);    
-        });
-        
-        System.out.println("Refilled the stock for the following products:");
-        
-        printClone();
+            listClone.forEach(product ->
+            {
+                product.increaseQuantity(5);    
+            });
+            System.out.println("Succsess!");
+                        
+            printClone();
+        }
+        else
+        {
+            System.out.println("The quantity of each product is at least 5");
+        }
     }
     
     /**
