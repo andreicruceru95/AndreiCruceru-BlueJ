@@ -8,12 +8,12 @@ import java.util.*;
  */
 public class ShoppingCart
 {
-    // instance variables - replace the example below with your own
+    // List of products inside the cart
     List <Product> cart = new ArrayList<Product>();
     private StockManager manager;
 
     /**
-     * Constructor for objects of class ShoppingCart
+     * The stock used by this shopping cart.
      */
     public ShoppingCart(StockManager manager)
     {
@@ -56,6 +56,7 @@ public class ShoppingCart
             {
                 System.out.println("| ID: " + product.getID() + " | Product: " + product.getName() + " | Amount: " + product.getAmount() + " |");
             });
+            
         }
         else
         {
@@ -89,7 +90,7 @@ public class ShoppingCart
         
         if (product != null)
         {
-            cart.remove(product);        
+            cart.remove(product);
         }
         
         else
@@ -108,9 +109,10 @@ public class ShoppingCart
             manager.sellQuantity(product.getID(), product.getAmount());
             
             System.out.println(product.getAmount() + " " + product.getName() + " Sold");
-            System.out.println("Thank you for shopping with us!");
         });
-         
+               
         cart.clear();
+        
+        System.out.println("Thank you for shopping with us!");
     }
 }
