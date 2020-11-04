@@ -11,6 +11,7 @@ public class Product
     private String name;
     // The quantity of this product in stock.
     private int quantity;
+    private int amount;
 
     /**
     * Constructor for objects of class Product.
@@ -78,15 +79,15 @@ public class Product
     /**
      * Sell a quantity of a product
      */
-    public void sellMultiple(int amount)
+    public void sellMultiple(int number)
     {
-        if (amount < quantity)
+        if (number <= quantity)
         {
-            quantity = quantity - amount;
+            quantity = quantity - number;
         }
         else
         {
-            System.out.println("The quantity is lower than the required amount!");
+            System.out.println("The quantity of the product " + name + " is lower than the required amount!");
         }
     }
     
@@ -145,5 +146,21 @@ public class Product
         {
             return false;
         }
+    }
+    
+    /**
+     * The quantity you want to sell.
+     */
+    public void amountToCart(int amount)
+    {
+        amount += amount;
+    }
+    
+    /**
+     * Return the amount of items you want to sell.
+     */
+    public int getAmount()
+    {
+        return amount;
     }
 }
