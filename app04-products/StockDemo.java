@@ -19,19 +19,19 @@ public class StockDemo
     {
         this.manager = manager;
         
-        manager.addProduct(new Product(21, "Bush Clock Radio"));
-        manager.addProduct(new Product(22, "Google Pixel 4XL"));
-        manager.addProduct(new Product(23, "Samsung QLED 4K TV"));
-        manager.addProduct(new Product(24, "IKEA Malm Desk"));
-        manager.addProduct(new Product(25, "Japanese Storage Bed"));
-        manager.addProduct(new Product(26, "Samsung CE1041DSB2/TL Smart Microwave"));
-        manager.addProduct(new Product(27, "Monda Black Adjustable Table Lamp"));
-        manager.addProduct(new Product(28, "Electrolux EFLS627UTT Washing Mashine"));
-        manager.addProduct(new Product(29, "Bosch Serie 4 WTN85251GB Tumble Dryer"));
-        manager.addProduct(new Product(30, "Beko ADC5422AW Electric Cooker"));
-        manager.addProduct(new Product(31, "IKEA Ektorp Sofa"));
-        manager.addProduct(new Product(32, "Shower Curtain"));
-        manager.addProduct(new Product(33, "Kraus KHU100-30 Kitchen Sink"));
+        manager.addProduct(new Product(21, "Bush Clock Radio "));
+        manager.addProduct(new Product(22, "Google Pixel 4XL "));
+        manager.addProduct(new Product(23, "Samsung QLED TV  "));
+        manager.addProduct(new Product(24, "IKEA Malm Desk   "));
+        manager.addProduct(new Product(25, "Japanese Storage "));
+        manager.addProduct(new Product(26, "Samsung Microwave"));
+        manager.addProduct(new Product(27, "Monda Table Lamp "));
+        manager.addProduct(new Product(28, "Washing Mashine  "));
+        manager.addProduct(new Product(29, "Bosch S. 4 Dryer "));
+        manager.addProduct(new Product(30, "Beko Elect Cooker"));
+        manager.addProduct(new Product(31, "IKEA Ektorp Sofa "));
+        manager.addProduct(new Product(32, "Shower Curtain   "));
+        manager.addProduct(new Product(33, "Krau Kitchen Sink"));
         
         deliverProducts();
     }
@@ -44,19 +44,19 @@ public class StockDemo
     private void deliverProducts()
     {
         // Take delivery of 5 items of one of the products.
-        manager.deliverProduct(21, 5);
+        manager.deliverProduct(21, 51);
         manager.deliverProduct(22, 11);
-        manager.deliverProduct(23, 2);
-        manager.deliverProduct(24, 3);
-        manager.deliverProduct(25, 4);
-        manager.deliverProduct(26, 1);
-        manager.deliverProduct(27, 5);
-        manager.deliverProduct(28, 5);
-        manager.deliverProduct(29, 5);
-        manager.deliverProduct(30, 5);
-        manager.deliverProduct(31, 5);
-        manager.deliverProduct(32, 5);
-        manager.deliverProduct(33, 5);
+        manager.deliverProduct(23, 21);
+        manager.deliverProduct(24, 91);
+        manager.deliverProduct(25, 43);
+        manager.deliverProduct(26, 15);
+        manager.deliverProduct(27, 55);
+        manager.deliverProduct(28, 17);
+        manager.deliverProduct(29, 32);
+        manager.deliverProduct(30, 12);
+        manager.deliverProduct(31, 45);
+        manager.deliverProduct(32, 52);
+        manager.deliverProduct(33, 81);
         
         System.out.println("Products delivered!");
     }
