@@ -80,7 +80,15 @@ public class Product
      */
     public void sellMultiple(int amount)
     {
-        quantity = quantity - amount;
+        if (amount < quantity)
+        {
+            quantity = quantity - amount;
+        }
+        else
+        {
+            System.out.println("The quantity is lower than the required amount!");
+        }
+        
     }
     
 
