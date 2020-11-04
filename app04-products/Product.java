@@ -155,7 +155,7 @@ public class Product
     {
         this.amount = amount;
     }
-    
+           
     /**
      * Return the amount of items you want to sell.
      */
