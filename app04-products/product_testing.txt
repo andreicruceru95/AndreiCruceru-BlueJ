@@ -100,3 +100,41 @@ Thank you for shopping with us!
 
 andreiCart.printCart()
 Shopping cart is empty!
+
+manager.getProductByID(23);
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 21 |
+
+manager.getProductByID(24);
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 91 |
+
+manager.getProductByID(25);
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 43 |
+
+andreiCart.addToCart(23, 5);
+andreiCart.addToCart(24, 6);
+andreiCart.addToCart(25, 8);
+
+andreiCart.printCart();
+| ID: 23 | Product: Samsung QLED TV   | Amount: 5 |
+| ID: 24 | Product: IKEA Malm Desk    | Amount: 6 |
+| ID: 25 | Product: Japanese Storage  | Amount: 8 |
+
+andreiCart.deleteProduct(23);
+
+andreiCart.printCart();
+| ID: 24 | Product: IKEA Malm Desk    | Amount: 6 |
+| ID: 25 | Product: Japanese Storage  | Amount: 8 |
+
+andreiCart.proceedWithCart();
+6 IKEA Malm Desk    Sold
+8 Japanese Storage  Sold
+Thank you for shopping with us!
+
+manager.getQuantity(23);
+21
+manager.getQuantity(24);
+85
+manager.getQuantity(25);
+35
+
+
