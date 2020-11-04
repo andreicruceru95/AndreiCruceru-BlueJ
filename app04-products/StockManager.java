@@ -146,6 +146,10 @@ public class StockManager
         {
             System.out.println(product.toString());
         }
+        else
+        {
+            System.out.println("Product not found!");
+        }
     }
     
     /**
