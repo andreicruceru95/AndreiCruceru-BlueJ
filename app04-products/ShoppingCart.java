@@ -50,11 +50,18 @@ public class ShoppingCart
      */
     public void printCart()
     {
-        cart.forEach(product->
+        if (cart.size() > 0)
         {
-            System.out.println("| ID: " + product.getID() + " | Product: " + product.getName() + " | Amount: " + product.getAmount() + " |");
-        });
-    }
+            cart.forEach(product->
+            {
+                System.out.println("| ID: " + product.getID() + " | Product: " + product.getName() + " | Amount: " + product.getAmount() + " |");
+            });
+        }
+        else
+        {
+            System.out.println("Shopping cart is empty!");
+        }
+    } 
     
     /**
      * Try to find a product in the cart with the given id.
@@ -101,6 +108,7 @@ public class ShoppingCart
             manager.sellQuantity(product.getID(), product.getAmount());
             
             System.out.println(product.getAmount() + " " + product.getName() + " Sold");
+            System.out.println("Thank you for shopping with us!");
         });
          
         cart.clear();
