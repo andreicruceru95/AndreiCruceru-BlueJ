@@ -74,6 +74,15 @@ public class Product
             System.out.println("Attempt to restock " + name + " with a non-positive amount: " + amount);
         }
     }
+    
+    /**
+     * Sell a quantity of a product
+     */
+    public void sellMultiple(int amount)
+    {
+        quantity = quantity - amount;
+    }
+    
 
     /**
      * Sell one of these products.
