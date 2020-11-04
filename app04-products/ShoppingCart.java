@@ -21,6 +21,14 @@ public class ShoppingCart
     }
     
     /**
+     * See a list of available products.
+     */
+    public void seeProducts()
+    {
+        manager.printAllProductDetails();
+    }
+    
+    /**
      * Add a product and the quantity you want to buy.
      */
     public void addToCart(int id, int amount)
@@ -44,7 +52,7 @@ public class ShoppingCart
     {
         cart.forEach(product->
         {
-            System.out.println("| ID: " + product.getID() + "| Product: " + product.getName() + "| Amount: " + product.getAmount() + "|");
+            System.out.println("| ID: " + product.getID() + " | Product: " + product.getName() + " | Amount: " + product.getAmount() + " |");
         });
     }
     
