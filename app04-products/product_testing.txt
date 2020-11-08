@@ -1,4 +1,5 @@
-StockManager manager = new StockManager();
+ShoppingCart andreiCart = new ShoppingCart();
+StockManager manager = new StockManager(andreiCart);
 StockDemo demo = new StockDemo(manager);
 
 ##############
@@ -21,49 +22,61 @@ Andrei's stock
 
 Demonstrating delivering products
 
-Delivered 9 Bush Clock Radio 
+Delivered 4 Bush Clock Radio 
 Delivered 12 Google Pixel 4XL 
-Delivered 10 Samsung QLED TV  
-Delivered 1 IKEA Malm Desk   
-Delivered 9 Japanese Storage 
-Delivered 14 Samsung Microwave
-Delivered 10 Monda Table Lamp 
-Delivered 12 Washing Mashine  
-Delivered 7 Bosch S. 4 Dryer 
-Delivered 7 Beko Elect Cooker
-Delivered 1 IKEA Ektorp Sofa 
-Delivered 5 Shower Curtain   
-Delivered 14 Krau Kitchen Sink
+Delivered 14 Samsung QLED TV  
+Delivered 8 IKEA Malm Desk   
+Delivered 2 Japanese Storage 
+Delivered 2 Samsung Microwave
+Delivered 15 Monda Table Lamp 
+Delivered 4 Washing Mashine  
+Delivered 2 Bosch S. 4 Dryer 
+Delivered 10 Beko Elect Cooker
+Delivered 3 IKEA Ektorp Sofa 
+Delivered 8 Shower Curtain   
+Delivered 15 Krau Kitchen Sink
 
 Demonstrating selling products
 
-7 of Bush Clock Radio sold!
-10 of Google Pixel 4XL sold!
-3 of Samsung QLED TV  sold!
-The quantity of the product IKEA Malm Desk    is lower than the required amount!
-1 of IKEA Malm Desk   sold!
-7 of Japanese Storage sold!
-10 of Samsung Microwavesold!
-2 of Monda Table Lamp sold!
-3 of Washing Mashine  sold!
-5 of Bosch S. 4 Dryer sold!
+The quantity of the product Bush Clock Radio  is lower than the required amount!
+4 of Bush Clock Radio sold!
+2 of Google Pixel 4XL sold!
+4 of Samsung QLED TV  sold!
+3 of IKEA Malm Desk   sold!
+The quantity of the product Japanese Storage  is lower than the required amount!
+2 of Japanese Storage sold!
+1 of Samsung Microwavesold!
+6 of Monda Table Lamp sold!
+The quantity of the product Washing Mashine   is lower than the required amount!
+4 of Washing Mashine  sold!
+1 of Bosch S. 4 Dryer sold!
 7 of Beko Elect Cookersold!
-The quantity of the product IKEA Ektorp Sofa  is lower than the required amount!
 1 of IKEA Ektorp Sofa sold!
-2 of Shower Curtain   sold!
-2 of Krau Kitchen Sinksold!
+4 of Shower Curtain   sold!
+5 of Krau Kitchen Sinksold!
 
-manager.checkLowStock();
-The stock of the following products should be refilled
-| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 2 |
-| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 2 |
-| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 0 |
-| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 2 |
-| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 4 |
-| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 2 |
-| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 0 |
-| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 0 |
-| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 3 |
+Demonstrating adding items to cart
+
+Quantity requested is too high for Bush Clock Radio 
+3 Samsung QLED TV   added to cart
+Quantity requested is too high for Japanese Storage 
+1 Monda Table Lamp  added to cart
+Quantity requested is too high for Bosch S. 4 Dryer 
+
+Demonstrating print cart before and after removing a product
+
+| ID: 23 | Product: Samsung QLED TV   | Amount: 3 |
+| ID: 27 | Product: Monda Table Lamp  | Amount: 1 |
+Product Samsung QLED TV   removed from cart
+| ID: 27 | Product: Monda Table Lamp  | Amount: 1 |
+
+Demonstrating sell items from cart
+
+1 of Monda Table Lamp sold!
+###############################
+Thank you for shopping with us!
+*******************************
+Shopping cart is empty!
 
 manager.findProduct(23)
     returned Object <object reference>
@@ -115,34 +128,4 @@ Succsess!
 | Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 5 |
 | Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 8 |
 
-ShoppingCart shopping1 = new ShoppingCart(manager);
 
-shopping1.addToCart(21, 6);
-shopping1.addToCart(23, 3);
-shopping1.addToCart(24, 2);
-shopping1.addToCart(28, 1);
-
-shopping1.printCart();
-| ID: 21 | Product: Bush Clock Radio  | Amount: 6 |
-| ID: 23 | Product: Samsung 4k Tv | Amount: 3 |
-| ID: 24 | Product: IKEA Malm Desk    | Amount: 2 |
-| ID: 28 | Product: Washing Mashine   | Amount: 1 |
-
-shopping1.deleteProduct(28);
-
-shopping1.printCart();
-| ID: 21 | Product: Bush Clock Radio  | Amount: 6 |
-| ID: 23 | Product: Samsung 4k Tv | Amount: 3 |
-| ID: 24 | Product: IKEA Malm Desk    | Amount: 2 |
-
-shopping1.proceedWithCart();
-6 of Bush Clock Radio sold!
-6 Bush Clock Radio  Sold
-3 of Samsung 4k Tvsold!
-3 Samsung 4k Tv Sold
-2 of IKEA Malm Desk   sold!
-2 IKEA Malm Desk    Sold
-Thank you for shopping with us!
-
-shopping1.printCart();
-Shopping cart is empty!
