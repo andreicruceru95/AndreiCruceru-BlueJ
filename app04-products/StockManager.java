@@ -61,6 +61,7 @@ public class StockManager
         if (product != null)
         {
             product.increaseQuantity(amount);
+            
         }
         else
         {
@@ -71,9 +72,10 @@ public class StockManager
     /**
      * Sell a quantity of a product based on the product's id
      */
-    public void sellQuantity(int id,int amount)
+    public void sellMultiple(int id,int amount)
     {
         Product product = findProduct(id);
+        
         if (product != null)
         {
             product.sellMultiple(amount);
@@ -279,6 +281,7 @@ public class StockManager
     public void refillStock()
     {
         checkLowStock();
+        
         if(validate() == true)
         {
             listClone.forEach(product ->
