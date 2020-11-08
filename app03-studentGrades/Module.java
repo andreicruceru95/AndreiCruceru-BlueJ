@@ -53,9 +53,10 @@ public class Module
             credits = 0;
             isMarked = true;
         }
-        
         return credits;
+        
     }
+
     
     /**
      * Return the marks for a module
