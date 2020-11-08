@@ -69,6 +69,8 @@ public class Product
         if(amount > 0)
         {
             quantity += amount;
+            
+            System.out.println("Delivered " + amount + " " + name);
         }
         else
         {
@@ -81,13 +83,24 @@ public class Product
      */
     public void sellMultiple(int number)
     {
-        if (number <= quantity)
+        if (quantity >= number)
         {
             quantity = quantity - number;
+            
+            System.out.println(number + " of " + name + "sold!");
+        }
+        else if(quantity < number)
+        {
+            System.out.println("The quantity of the product " + name + " is lower than the required amount!");
+            System.out.println(quantity + " of " + name + "sold!");
+            
+            quantity = 0;
         }
         else
         {
-            System.out.println("The quantity of the product " + name + " is lower than the required amount!");
+            System.out.println();
+            System.out.println("The amount of " + name + " required must be a positive number!");
+            System.out.println();
         }
     }
     
