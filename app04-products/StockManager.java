@@ -11,15 +11,60 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
+    private ShoppingCart cart;
     // A list with data type Product used for calculations.
     List <Product> listClone = new ArrayList<Product>();
        
     /**
      * Initialise the stock manager.
      */
-    public StockManager()
+    public StockManager(ShoppingCart cart)
     {
         stock = new ArrayList<>();
+        this.cart = cart;
+    }
+    
+    /**
+     * Add a product and the quantity you want to buy.
+     */
+    public void addToCart(int id, int amount)
+    {
+        Product product = findProduct(id);
+        if (product.getQuantity() >= amount)
+        {
+            cart.addToCart(product, amount);
+            product.amountToCart(amount);
+        }
+        else
+        {
+            System.out.println("Quantity requested is too high for " + product.getName());
+        }
+    }
+    
+    /**
+     * Delete a product from cart.
+     */
+    public void deleteFromCart(int id)
+    {
+        Product product = findProduct(id);
+        
+        cart.deleteProduct(product);
+    }
+    
+    /**
+     * Print the products from the cart.
+     */
+    public void printCart()
+    {
+        cart.printCart();
+    }
+    
+    /**
+     * Sell the products from the cart.
+     */
+    public void proceedWithCart()
+    {
+        cart.proceedWithCart();
     }
     
     /**
