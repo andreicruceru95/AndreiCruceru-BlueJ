@@ -106,7 +106,7 @@ public class ShoppingCart
     {
         cart.forEach(product->
         {
-            manager.sellQuantity(product.getID(), product.getAmount());
+            manager.sellMultiple(product.getID(), product.getAmount());
             
             System.out.println(product.getAmount() + " " + product.getName() + " Sold");
         });
