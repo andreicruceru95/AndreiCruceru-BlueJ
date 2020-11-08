@@ -22,6 +22,8 @@ public class StockDemo
      * Create a StockManager and populate it with a few
      * sample products.
      * Demonstrate the program can deliver products and sell products.
+     * Demonstrate the use of a shopping cart to sell multiple products 
+     * of different quantities.
      */
     public StockDemo(StockManager manager)
     {
@@ -37,6 +39,22 @@ public class StockDemo
         
         printMessage("selling products");
         sellProducts();
+        
+        printMessage("adding items to cart");
+        manager.addToCart(21,5);
+        manager.addToCart(23,3);
+        manager.addToCart(25,2);
+        manager.addToCart(27,1);
+        manager.addToCart(29,4);
+        
+        printMessage("print cart before and after removing a product");
+        manager.printCart();
+        manager.deleteFromCart(23);
+        manager.printCart();
+        
+        printMessage("sell items from cart");
+        manager.proceedWithCart();
+        manager.printCart();
     }
     
     /**
@@ -48,7 +66,7 @@ public class StockDemo
         
         for (int i = 21; i <= 33; i++)
         {
-            manager.addProduct(new Product(i, items[j]));
+            manager.addProduct (new Product(i, items[j]));
             j++;
         }
             
