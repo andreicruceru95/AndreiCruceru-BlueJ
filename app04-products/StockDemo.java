@@ -1,71 +1,111 @@
+import java.util.*;
+
 /**
+ * 
  * Demonstrate the StockManager and Product classes.
- * The demonstration becomes properly functional as
- * the StockManager class is completed.
  * 
  * @author Andrei Cruceru.
  * @version 15102020
  */
 public class StockDemo
 {
-    // The stock manager.
+    // The stock manager and the items list.
     private StockManager manager;
-
+    private String[] items = new String[]{"Bush Clock Radio ","Google Pixel 4XL ","Samsung QLED TV  ","IKEA Malm Desk   ", "Japanese Storage ",
+                    "Samsung Microwave" , "Monda Table Lamp ","Washing Mashine  ","Bosch S. 4 Dryer ","Beko Elect Cooker","IKEA Ektorp Sofa " ,
+                     "Shower Curtain   ","Krau Kitchen Sink"}; 
+    
+    // A generator of random numbers.
+    private Random generator;
+    
     /**
      * Create a StockManager and populate it with a few
      * sample products.
+     * Demonstrate the program can deliver products and sell products.
      */
     public StockDemo(StockManager manager)
     {
         this.manager = manager;
-        
-        manager.addProduct(new Product(21, "Bush Clock Radio "));
-        manager.addProduct(new Product(22, "Google Pixel 4XL "));
-        manager.addProduct(new Product(23, "Samsung QLED TV  "));
-        manager.addProduct(new Product(24, "IKEA Malm Desk   "));
-        manager.addProduct(new Product(25, "Japanese Storage "));
-        manager.addProduct(new Product(26, "Samsung Microwave"));
-        manager.addProduct(new Product(27, "Monda Table Lamp "));
-        manager.addProduct(new Product(28, "Washing Mashine  "));
-        manager.addProduct(new Product(29, "Bosch S. 4 Dryer "));
-        manager.addProduct(new Product(30, "Beko Elect Cooker"));
-        manager.addProduct(new Product(31, "IKEA Ektorp Sofa "));
-        manager.addProduct(new Product(32, "Shower Curtain   "));
-        manager.addProduct(new Product(33, "Krau Kitchen Sink"));
-        
+            
+        generator = new Random();
+                
+        header();
+        addProducts();
+                            
+        printMessage("delivering products");
         deliverProducts();
+        
+        printMessage("selling products");
+        sellProducts();
     }
     
     /**
-     * Provide a very simple demonstration of how a StockManager
-     * might be used. Details of one product are shown, the
-     * product is restocked, and then the details are shown again.
+     * Demonstrate the deliver products method.
+     */
+    private void addProducts()
+    {
+        int j = 0;
+        
+        for (int i = 21; i <= 33; i++)
+        {
+            manager.addProduct(new Product(i, items[j]));
+            j++;
+        }
+            
+        manager.printAllProductDetails();     
+    }
+    
+    /**
+     * Demonstrate the deliver products method.
      */
     private void deliverProducts()
     {
-        // Take delivery of 5 items of one of the products.
-        manager.deliverProduct(21, 51);
-        manager.deliverProduct(22, 11);
-        manager.deliverProduct(23, 21);
-        manager.deliverProduct(24, 91);
-        manager.deliverProduct(25, 43);
-        manager.deliverProduct(26, 15);
-        manager.deliverProduct(27, 55);
-        manager.deliverProduct(28, 17);
-        manager.deliverProduct(29, 32);
-        manager.deliverProduct(30, 12);
-        manager.deliverProduct(31, 45);
-        manager.deliverProduct(32, 52);
-        manager.deliverProduct(33, 81);
+        // Deliver a random number of products.
+        int amount = 0;
+       
+        for(int i=21; i <= 33; i++)
+        {
+            amount = generator.nextInt(15) + 1;
+            
+            manager.deliverProduct(i, amount);            
+        }
         
-        System.out.println("Products delivered!");
     }
     
     /**
-     * @return The stock manager.
+     * Demonstrate the sell products method.
      */
-    public StockManager getManager()
+    private void sellProducts()
     {
-        return manager;
+        // Deliver a random number of products.
+        int amount = 0;
+       
+        for(int i=21; i <= 33; i++)
+        {
+            amount = generator.nextInt(10) + 1;
+            
+            manager.sellMultiple(i, amount);            
+        }
+    
+    }
+    
+    /**
+     * Print a message for each method on the terminal.
+     */
+    private void printMessage(String method)
+    {
+        System.out.println();
+        System.out.println("Demonstrating " + method);
+        System.out.println();
+        
+    }
+    
+    private void header()
+    {
+        System.out.println();
+        System.out.println("##############");
+        System.out.println("Andrei's stock");
+        System.out.println("**************");
+        System.out.println();
     }
 }
