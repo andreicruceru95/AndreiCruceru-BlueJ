@@ -129,6 +129,8 @@ public class Product
      */
     public void replaceName(String replacement)
     {
+        System.out.println("Product " + id + " " + name + "has been renamed to " +
+                            replacement);
         name = replacement;
     }
 
