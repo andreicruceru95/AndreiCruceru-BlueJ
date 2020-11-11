@@ -263,6 +263,8 @@ public class StockManager
         
         if (product != null)
         {
+            System.out.println("Product " + product.getID() + " " + product.getName() +
+                                "has been removed");
             stock.remove(product);        
         }
         
