@@ -96,9 +96,11 @@ manager.getQuantity(26);
 manager.printDetailsWithID(31);
 | Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 0 |
 
-manager.removeProduct(31);
+manager.removeProduct(29);
+Product 29 Bosch S. 4 Dryer has been removed
 
-manager.renameProduct(23, "Samsung 4k Tv");
+manager.renameProduct(28, "washing machine Beko");
+Product 28 Washing Mashine  has been renamed to washing machine Beko
 
 manager.search("Samsung");
 | Product ID: 23 | Product Name: Samsung 4k Tv | Stock Level: 7 |
