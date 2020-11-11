@@ -11,9 +11,12 @@ public class StockDemo
 {
     // The stock manager and the items list.
     private StockManager manager;
-    private String[] items = new String[]{"Bush Clock Radio ","Google Pixel 4XL ","Samsung QLED TV  ","IKEA Malm Desk   ", "Japanese Storage ",
-                    "Samsung Microwave" , "Monda Table Lamp ","Washing Mashine  ","Bosch S. 4 Dryer ","Beko Elect Cooker","IKEA Ektorp Sofa " ,
-                     "Shower Curtain   ","Krau Kitchen Sink"}; 
+    private String[] items = new String[]
+                    {"Bush Clock Radio ","Google Pixel 4XL ","Samsung QLED TV  ",
+                     "IKEA Malm Desk   ", "Japanese Storage ","Samsung Microwave",
+                     "Monda Table Lamp ","Washing Mashine  ","Bosch S. 4 Dryer ",
+                     "Beko Elect Cooker","IKEA Ektorp Sofa ","Shower Curtain   ","Krau Kitchen Sink"
+                    }; 
     
     // A generator of random numbers.
     private Random generator;
