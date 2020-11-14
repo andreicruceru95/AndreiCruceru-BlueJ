@@ -1,17 +1,14 @@
-import java.util.*;
-
 /**
  * This app provides a user interface to the
  * stock manager so that users can add, edit,
  * print and remove stock products
  *
- * @author Student Name
- * @version 0.1
+ * @author Andrei Cruceru
+ * @version 13112020
  */
 public class StockApp
 {
-    public static final char CLEAR_CODE = '\u000c';
-    
+    // The variety of choices we can use.
     public static final String QUIT = "quit";
     public static final String PRINT_ALL = "printall";
     public static final String ADD = "add";
@@ -25,7 +22,7 @@ public class StockApp
     public static final String RENAME = "rename";
     public static final String CHECK_QUANTITY = "checkquantity";
     public static final String ADD_TO_CART = "addtocart";
-    public static final String DELETE = "removefromcart";
+    public static final String DELETE = "delete";
     public static final String PRINT_CART = "printcart";
     public static final String PROCEED = "proceed";
     public static final String BASKET_MENU = "seebasket";
@@ -34,27 +31,20 @@ public class StockApp
     //Use to get user input
     private InputReader reader = new InputReader();
     
+    // Use of the previous app features.
     private ShoppingCart shoppingCart = new ShoppingCart();
-    
     private StockManager manager = new StockManager(shoppingCart);
-    
     private StockDemo demo = new StockDemo(manager);
            
     /**
-     * Constructor for objects of class StockApp
-     */
-    public StockApp()
-    {
-    }
-
-    /**
-     * 
+     * Run the program for the main menu.
      */
     public void run()
     {
         boolean finished = false;
         
         printHeading();
+        
                
         while(!finished)
         {
@@ -74,7 +64,7 @@ public class StockApp
     }
     
     /**
-     * 
+     * Run the program for the basket menu.
      */
     public void runBasket()
     {
@@ -95,6 +85,9 @@ public class StockApp
         }
     }
     
+    /**
+     * Run the program for the search menu.
+     */
     public void runSearch()
     {
         boolean finished = false;
@@ -115,83 +108,113 @@ public class StockApp
     }
     
     /**
-     * 
+     * This is a form of validation when we are looking for product based on an id. 
+     * It will make sure that id we need exists. 
+     * @param id is the id of the product. 
+     * @return the id when found.
      */
-    private void addProduct()
+    private Integer findUsedID(int id)
     {
-        System.out.println("    Adding a new product...\n");
-         
-        System.out.println("    Please enter the product ID\n");
-        
-        int value = reader.getInteger();
-        
-        validateNewProduct(value);               
-    }
-    
-    private void validateNewProduct(int id)
-    {
-        String attempt = null;
-        
-        while (manager.findProduct(id) != null)
-        {
-            System.out.println("\n The product id entered already exists! Please try using a different id!");
-                
-            id = reader.getInteger();
-        }
-        
-        System.out.println("    Please enter the product name\n");
-        
-        String name = reader.getString();
-       
-        while (name.length() == 0)
-        { 
-            System.out.println("    Cannot leave blank!\n");
-                    
-            name = reader.getString();
-        }
-            
-        System.out.println("\n Product  with ID " + id + ",Name " + name + " added\n");
-        
-        Product product = new Product(id, name);
-        manager.addProduct(product);
-        manager.getProductByID(id);
-    }
-                
-    /**    
-    *    
-    *
-    */
-    private void rename(String value)
-    {
-        int id = Integer.parseInt(value);
-                    
         while (manager.findProduct(id) == null)
         {
             System.out.println("\n The product id doesn't exist! Please try using a different id!");
                 
             id = reader.getInteger();
         }
+        System.out.println("One product found");
         
-        System.out.println("\n One product found:\n");
+        manager.printDetailsWithID(id);
         
-        manager.getProductByID(id);
-        
-        System.out.println("\n    Please enter the new product name\n");
-        
-        String name = reader.getString();
-        
+        return id;
+    }
+    
+    /**
+     * This is a form of validation for a new product. 
+     * This method will check an id is available to use. 
+     * @param id is the id of the product. 
+     * @return the id when found.
+     */
+    private Integer findNewID(int id)
+    {
+        while (manager.findProduct(id) != null)
+        {
+            System.out.println("\n The product id entered already exists! Please try using a different id!");
+                
+            id = reader.getInteger();
+        }
+        System.out.println("ID available");
+                
+        return id;
+    }
+    
+    /**
+     * This is a form of validation for a string. 
+     * We use this to make sure we are not leaving a blank space where required. 
+     * @param name is the name we verify. 
+     * @return the name when verified.
+     */
+    private String validateName(String name)
+    {
         while (name.length() == 0)
         { 
             System.out.println("\n    Cannot leave blank!\n");
                     
             name = reader.getString();
         }
+        System.out.println("Name accepted");
+        
+        return name;
+    }
+    
+    /**
+     * Create and add a new product after validating the id and name of it.
+     */
+    private void addProduct()
+    {
+        System.out.println("\n    Adding a new product...\n");
+         
+        System.out.println("\n    Please enter the product ID\n");
+        
+        int id = reader.getInteger();
+        
+        id = findNewID(id);               
+    
+        System.out.println("\n    Please enter the product name\n");
+        
+        String name = reader.getString();
+        
+        // in case we need local validation.
+        // if (name.length() == 0)
+        // {
+            // name = validateName(name);
+        // }           
+        
+        System.out.println("\n Product  with ID " + id + ",Name " + name + " added\n");
+        
+        Product product = new Product(id, name);
+        manager.addProduct(product);
+        manager.getProductByID(id);
+        
+    } 
+                
+    /**    
+    * Rename a product based on an id. 
+    * @param id is the id of the product we are renaming. 
+    */
+    private void rename(int id)
+    {
+        id = findUsedID(id);
+               
+        System.out.println("\n    Please enter the new product name\n");
+        
+        String name = reader.getString();
         
         manager.renameProduct(id, name);
     }
         
     /**
-     * 
+     * The main menu of the program. 
+     * @param choice is the choice we input.
      */
     public void executeMenuChoice(String choice)
     {
@@ -208,19 +231,22 @@ public class StockApp
             System.out.println("    Please enter the product ID\n");
         
             int value = reader.getInteger();
+            value = findUsedID(value);
             
             manager.removeProduct(value);
         }
         else if (choice.equals(SELL))
         {
+            System.out.println("    Please enter the product ID\n");
+        
+            int id = reader.getInteger();
+            
+            id = findUsedID(id);
+            
             System.out.println("    Please enter the amount\n");
         
             int amount = reader.getInteger();
             
-            System.out.println("    Please enter the product ID\n");
-        
-            int id = reader.getInteger();
-                        
             manager.sellMultiple(id, amount);
         }
         else if (choice.equals(PRINT_LOW))
@@ -236,6 +262,7 @@ public class StockApp
             System.out.println("    Please enter the product ID\n");
         
             int id = reader.getInteger();
+            id = findUsedID(id);
             
             System.out.println("    Please enter the amount\n");
         
@@ -247,17 +274,16 @@ public class StockApp
         {
             System.out.println("    Please enter the product ID\n");
         
-            String value = reader.getString();
+            int id = reader.getInteger();
             
-            rename(value);
+            rename(id);
         }
         else if (choice.equals(CHECK_QUANTITY))
         {
             System.out.println("    Please enter the product ID\n");
         
             int id = reader.getInteger();
-            
-            manager.getProductByID(id);
+            id = findUsedID(id);
         }
         else if (choice.equals(BASKET_MENU))
         {
@@ -266,7 +292,8 @@ public class StockApp
     }
     
     /**
-     * 
+     * The menu for the basket methods. 
+     * @param choice is the choice we input.
      */
     private void executeSubMenu(String choice)
     {
@@ -275,6 +302,7 @@ public class StockApp
             System.out.println("    Please enter the product ID\n");
         
             int id = reader.getInteger();
+            id = findUsedID(id);
             
             System.out.println("    Please enter the amount\n");
         
@@ -299,12 +327,13 @@ public class StockApp
             manager.proceedWithCart();
         }
         else
-            System.out.println("Please select something from the menu");
+            System.out.println("\n    Please select something from the menu\n");
             
     }
     
     /**
-     * 
+     * The search menu. 
+     * @param choice is the choice we input.
      */
     private void executeSearchMenu(String choice)
     {
@@ -313,9 +342,10 @@ public class StockApp
             System.out.println("    Please enter the product ID\n");
         
             int id = reader.getInteger();
+            id = findUsedID(id);
             
             manager.printDetailsWithID(id);
-            }
+        }
         else if (choice.equals(SEARCH_NAME))
         {
             System.out.println("    Please enter the product name\n");
@@ -328,7 +358,7 @@ public class StockApp
     }
     
     /**
-     * 
+     * The options for the search menu.
      */
     private void printSearchMenu()
     {
@@ -340,7 +370,7 @@ public class StockApp
     }
     
     /**
-     * 
+     * The options for the basket menu.
      */
     private void printSubMenu()
     {
@@ -355,7 +385,7 @@ public class StockApp
     }
     
     /**
-     * Print out a menu of operation choices
+     * The options for the main menu.
      */
     private void printMenuChoices()
     {
@@ -376,7 +406,7 @@ public class StockApp
     }
     
     /**
-     * Print the title of the program and the authors name
+     * Print the title of the program and the authors name. 
      */
     private void printHeading()
     {
@@ -387,17 +417,17 @@ public class StockApp
     }
     
     /**
-     * 
+     * Print a heading for the basket menu.
      */
     private void printCartHeading()
     {
         System.out.println("\n******************************");
-        System.out.println("        Shopping cart         ");
+        System.out.println("         Shopping  Cart         ");
         System.out.println("******************************\n");
     }
     
     /**
-     * 
+     * Print a heading for the search menu.
      */
     private void printSearchHeading()
     {
@@ -405,4 +435,5 @@ public class StockApp
         System.out.println("            Search            ");
         System.out.println("******************************\n");
     }
+     
 }
