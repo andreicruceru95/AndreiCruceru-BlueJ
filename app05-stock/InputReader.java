@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class InputReader
 {
     private Scanner reader;
-
+    
     /**
      * Create a new InputReader that reads text from the text terminal.
      */
@@ -29,9 +29,28 @@ public class InputReader
     public String getString()
     {
         System.out.print("> ");         // print prompt
-        String inputLine = reader.nextLine();
+        String string = reader.nextLine();
 
-        return inputLine;
+        string = validateString(string);
+        
+        return string;
+    }
+    
+    /**
+     * Validate the user input.
+     * @param string is the input type string. 
+     * @return the string after validation.
+     */
+    private String validateString(String string)
+    {
+        while (string.length() == 0)
+        { 
+            System.out.println("\n    Cannot leave blank!\n");
+                    
+            string = getString();
+        }
+               
+        return string;
     }
     
     /**
@@ -43,23 +62,17 @@ public class InputReader
     public Integer getInteger()
     {
         System.out.print("> ");
-        int inputLine = reader.nextInt();
-        
-        return inputLine;
+                
+        while (!reader.hasNextInt()) 
+        {
+            System.out.println("ID not accepted");
+            
+            reader.next();
+        }
+        int id = reader.nextInt();
+                
+        return id;
     }
-    
-    // public int scan()
-    // {
-        // Scanner sc = new Scanner(System.in);
-        // System.out.println("Please enter product id!");
-        // while (!sc.hasNextInt()) {
-            // System.out.println("Cannot leave blank");
-            // sc.next();
-        // }
-        // int id = sc.nextInt();
-        // System.out.println("id accepted");
-        // return id;
-    // }
 }
     
 
