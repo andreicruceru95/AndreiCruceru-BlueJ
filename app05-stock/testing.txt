@@ -1,0 +1,219 @@
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 8 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 6 |
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> checkquantity
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 13 |
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+> search
+
+******************************
+            Search            
+******************************
+
+
+        SearchId            :   Add a new product to cart
+        SearchName          :   Delete product from cart
+        Quit                :   Exit the Search menu
+
+> searchid
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 13
+
+ The product id doesn't exist! Please try using a different id!
+> 22
+One product found
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 10 |
+        SearchId            :   Add a new product to cart
+        SearchName          :   Delete product from cart
+        Quit                :   Exit the Search menu
+
+> 
+    Cannot leave blank!
+
+> searchname
+    Please enter the product name
+
+> Sams
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 14 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 8 |
+
+        SearchId            :   Add a new product to cart
+        SearchName          :   Delete product from cart
+        Quit                :   Exit the Search menu
+
+> quit
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> seebasket
+
+******************************
+         Shopping  Cart         
+******************************
+
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> addtocart
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 13
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 13 |
+    Please enter the amount
+
+> 2
+2 Bush Clock Radio  added to cart
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> 
+    Cannot leave blank!
+
+> addtocart
+    Please enter the product ID
+
+> 23
+One product found
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 5 |
+    Please enter the amount
+
+> 2
+2 Samsung QLED TV   added to cart
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> 
+    Cannot leave blank!
+
+> printcart
+| ID: 21 | Product: Bush Clock Radio  | Amount: 2 |
+| ID: 23 | Product: Samsung QLED TV   | Amount: 2 |
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> delete
+    Please enter the product ID
+
+> 21
+Product Bush Clock Radio  removed from cart
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> 
+    Cannot leave blank!
+
+> printcart
+| ID: 23 | Product: Samsung QLED TV   | Amount: 2 |
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> proceed
+2 of Samsung QLED TV  sold!
+###############################
+Thank you for shopping with us!
+*******************************
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> quit
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> quit
