@@ -75,4 +75,19 @@ public class ShoppingCart
         System.out.println("Thank you for shopping with us!");
         System.out.println("*******************************");
     }
+    
+    /**
+     * Find a product in the cart
+     */
+    public Product findProduct(int id)
+    {
+        for (Product product : cart)
+        {
+            if (product.getID() == id)
+            {
+                return product;
+            }
+        }
+        return null;
+    }
 }
