@@ -1,3 +1,6 @@
+import java.awt.Color; 
+import enigma.console.*; 
+import enigma.core.Enigma;
 
 /**
  * Write a description of class Program here.
@@ -7,6 +10,7 @@
  */
 public class Program
 {
+    private static final char CLEAR = '\u000c';
     private static StockApp app;
 
     /**
@@ -15,6 +19,8 @@ public class Program
      */
     public static void main()
     {
+        System.out.println(CLEAR);
+        
         app = new StockApp();
         app.run();
     }
