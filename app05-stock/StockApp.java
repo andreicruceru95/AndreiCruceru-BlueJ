@@ -190,21 +190,6 @@ public class StockApp
         manager.renameProduct(id, name);
     }
         
-    private void validateId(String value)
-    {
-        if (value != null)
-        {
-            int id = Integer.parseInt(value);
-            
-            Product test = manager.findProduct(id);
-            if (test == null)
-            {
-                System.out.println("");
-            }
-        }
-        
-    }
-        
     /**
      * 
      */
