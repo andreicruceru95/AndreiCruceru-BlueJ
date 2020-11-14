@@ -1,0 +1,138 @@
+ShoppingCart andreiCart = new ShoppingCart();
+StockManager manager = new StockManager(andreiCart);
+StockDemo demo = new StockDemo(manager);
+
+##############
+Andrei's stock
+**************
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 0 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 0 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 0 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 0 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 0 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 0 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 0 |
+| Product ID: 28 | Product Name: Washing Mashine   | Stock Level: 0 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 0 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 0 |
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 0 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 0 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 0 |
+
+Demonstrating delivering products
+
+Delivered 2 Bush Clock Radio 
+Delivered 9 Google Pixel 4XL 
+Delivered 13 Samsung QLED TV  
+Delivered 15 IKEA Malm Desk   
+Delivered 3 Japanese Storage 
+Delivered 3 Samsung Microwave
+Delivered 12 Monda Table Lamp 
+Delivered 4 Washing Mashine  
+Delivered 7 Bosch S. 4 Dryer 
+Delivered 12 Beko Elect Cooker
+Delivered 1 IKEA Ektorp Sofa 
+Delivered 1 Shower Curtain   
+Delivered 9 Krau Kitchen Sink
+
+Demonstrating selling products
+
+1 of Bush Clock Radio sold!
+The quantity of the product Google Pixel 4XL  is lower than the required amount!
+9 of Google Pixel 4XL sold!
+8 of Samsung QLED TV  sold!
+6 of IKEA Malm Desk   sold!
+The quantity of the product Japanese Storage  is lower than the required amount!
+3 of Japanese Storage sold!
+The quantity of the product Samsung Microwave is lower than the required amount!
+3 of Samsung Microwavesold!
+6 of Monda Table Lamp sold!
+3 of Washing Mashine  sold!
+3 of Bosch S. 4 Dryer sold!
+5 of Beko Elect Cookersold!
+The quantity of the product IKEA Ektorp Sofa  is lower than the required amount!
+1 of IKEA Ektorp Sofa sold!
+The quantity of the product Shower Curtain    is lower than the required amount!
+1 of Shower Curtain   sold!
+7 of Krau Kitchen Sinksold!
+
+Demonstrating adding items to cart
+
+Quantity requested is too high for Bush Clock Radio 
+3 Samsung QLED TV   added to cart
+Quantity requested is too high for Japanese Storage 
+1 Monda Table Lamp  added to cart
+4 Bosch S. 4 Dryer  added to cart
+
+Demonstrating print cart before and after removing a product
+
+| ID: 23 | Product: Samsung QLED TV   | Amount: 3 |
+| ID: 27 | Product: Monda Table Lamp  | Amount: 1 |
+| ID: 29 | Product: Bosch S. 4 Dryer  | Amount: 4 |
+Product Samsung QLED TV   removed from cart
+| ID: 27 | Product: Monda Table Lamp  | Amount: 1 |
+| ID: 29 | Product: Bosch S. 4 Dryer  | Amount: 4 |
+
+Demonstrating sell items from cart
+
+1 of Monda Table Lamp sold!
+4 of Bosch S. 4 Dryer sold!
+###############################
+Thank you for shopping with us!
+*******************************
+Shopping cart is empty!
+
+
+manager.findProduct(23)
+    returned Object <object reference>
+
+manager.getProductByID(23);
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 7 |
+
+manager.getQuantity(26);
+4
+
+manager.printDetailsWithID(31);
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 0 |
+
+manager.removeProduct(29);
+Product 29 Bosch S. 4 Dryer has been removed
+
+manager.renameProduct(28, "washing machine Beko");
+Product 28 Washing Mashine  has been renamed to washing machine Beko
+
+manager.search("Samsung");
+| Product ID: 23 | Product Name: Samsung 4k Tv | Stock Level: 7 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 4 |
+
+manager.refillStock();
+The stock of the following products should be refilled
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 2 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 2 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 0 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 2 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 4 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 2 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 0 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 3 |
+
+Delivered 5 Bush Clock Radio 
+Delivered 5 Google Pixel 4XL 
+Delivered 5 IKEA Malm Desk   
+Delivered 5 Japanese Storage 
+Delivered 5 Samsung Microwave
+Delivered 5 Bosch S. 4 Dryer 
+Delivered 5 Beko Elect Cooker
+Delivered 5 Shower Curtain   
+Succsess!
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 7 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 7 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 5 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 7 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 9 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 7 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 5 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 8 |
+
