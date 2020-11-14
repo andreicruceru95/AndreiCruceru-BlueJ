@@ -47,10 +47,15 @@ public class StockManager
      */
     public void deleteFromCart(int id)
     {
-        Product product = findProduct(id);
-        
-        cart.deleteProduct(product);
-    }
+         Product product = findProduct(id);
+         
+         if (cart.findProduct(product.getID()) != null)
+         {
+             cart.deleteProduct(product);
+         }
+         else
+             System.out.println("Product not in cart");
+    } 
     
     /**
      * Print the products from the cart.
