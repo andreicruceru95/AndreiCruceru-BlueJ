@@ -343,8 +343,6 @@ public class StockApp
         
             int id = reader.getInteger();
             id = findUsedID(id);
-            
-            manager.printDetailsWithID(id);
         }
         else if (choice.equals(SEARCH_NAME))
         {
@@ -363,8 +361,8 @@ public class StockApp
     private void printSearchMenu()
     {
         System.out.println();
-        System.out.println("        SearchId            :   Add a new product to cart");
-        System.out.println("        SearchName          :   Delete product from cart");
+        System.out.println("        SearchId            :   Search a product by ID");
+        System.out.println("        SearchName          :   Search a product by name");
         System.out.println("        Quit                :   Exit the Search menu");
         System.out.println();
     }
