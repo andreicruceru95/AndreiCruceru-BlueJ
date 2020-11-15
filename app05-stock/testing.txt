@@ -1,5 +1,350 @@
-| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 8 |
-| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 6 |
+
+
+##############
+Andrei's stock
+**************
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 0 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 0 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 0 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 0 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 0 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 0 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 0 |
+| Product ID: 28 | Product Name: Washing Mashine   | Stock Level: 0 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 0 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 0 |
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 0 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 0 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 0 |
+
+Demonstrating delivering products
+
+Delivered 8 Bush Clock Radio 
+Delivered 15 Google Pixel 4XL 
+Delivered 11 Samsung QLED TV  
+Delivered 14 IKEA Malm Desk   
+Delivered 6 Japanese Storage 
+Delivered 10 Samsung Microwave
+Delivered 4 Monda Table Lamp 
+Delivered 14 Washing Mashine  
+Delivered 10 Bosch S. 4 Dryer 
+Delivered 2 Beko Elect Cooker
+Delivered 8 IKEA Ektorp Sofa 
+Delivered 9 Shower Curtain   
+Delivered 2 Krau Kitchen Sink
+
+******************************
+ Stock Management Application 
+    App05: by Andrei Cruceru  
+******************************
+
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> add
+
+    Adding a new product...
+
+
+    Please enter the product ID
+
+> 21
+
+ The product id entered already exists! Please try using a different id!
+> 12
+ID available
+
+    Please enter the product name
+
+> 
+    Cannot leave blank!
+
+> 
+
+    Cannot leave blank!
+
+> Laptop
+
+ Product  with ID 12,Name Laptop added
+
+| Product ID: 12 | Product Name: Laptop | Stock Level: 0 |
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> rename
+    Please enter the product ID
+
+> 13
+
+ The product id doesn't exist! Please try using a different id!
+> 12
+One product found
+| Product ID: 12 | Product Name: Laptop | Stock Level: 0 |
+
+    Please enter the new product name
+
+> 
+    Cannot leave blank!
+
+> Hp Envy 14
+Product 12 Laptop has been renamed to Hp Envy 14
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> remove
+    Please enter the product ID
+
+> 13
+
+ The product id doesn't exist! Please try using a different id!
+> 12
+One product found
+| Product ID: 12 | Product Name: Hp Envy 14 | Stock Level: 0 |
+Product 12 Hp Envy 14 has been removed
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+> sell
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 8 |
+    Please enter the amount
+
+> 4
+4 of Bush Clock Radio sold!
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+> sell
+    Please enter the product ID
+
+> 22
+One product found
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 15 |
+    Please enter the amount
+
+> -3
+
+The amount must be higher then 0
+
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+> sell
+    Please enter the product ID
+
+> 23
+One product found
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 11 |
+    Please enter the amount
+
+> 7
+7 of Samsung QLED TV  sold!
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+>  deliverproducts
+    Please enter the product ID
+
+> 25
+One product found
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 6 |
+    Please enter the amount
+
+> -4
+Attempt to restock Japanese Storage  with a non-positive amount: -4
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+> sell
+    Please enter the product ID
+
+> 25
+One product found
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 6 |
+    Please enter the amount
+
+> 10
+The quantity of the product Japanese Storage  is lower than the required amount!
+6 of Japanese Storage  sold!
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> 
+    Cannot leave blank!
+
+>  printlow
+
+The stock of the following products should be refilled
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 4 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 4 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 0 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 4 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 2 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 2 |
+
+    Add             :   Add a new product
+    Remove          :   Remove an old product
+    PrintAll        :   Print all products
+    Sell            :   Sell an amount of products
+    DeliverProducts :   Deliver products
+    PrintLow        :   Print products with low stock
+    Re-stock        :   Deliver products with low stock
+    Rename          :   Rename a product
+    CheckQuantity   :   Check quantity of a product
+    Search          :   Search for a product
+    SeeBasket       :   Move to basket
+    Quit            :   Quit the program
+
+> re-stock
+
+The stock of the following products should be refilled
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 4 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 4 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 0 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 4 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 2 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 2 |
+
+Delivering products..
+
+Delivered 5 Bush Clock Radio 
+Delivered 5 Samsung QLED TV  
+Delivered 5 Japanese Storage 
+Delivered 5 Monda Table Lamp 
+Delivered 5 Beko Elect Cooker
+Delivered 5 Krau Kitchen Sink
+
+Success!
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 9 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 9 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 5 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 9 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 7 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 7 |
 
     Add             :   Add a new product
     Remove          :   Remove an old product
@@ -17,12 +362,9 @@
 > checkquantity
     Please enter the product ID
 
-> 12
-
- The product id doesn't exist! Please try using a different id!
-> 21
+> 22
 One product found
-| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 13 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 15 |
 
     Add             :   Add a new product
     Remove          :   Remove an old product
@@ -47,8 +389,8 @@ One product found
 ******************************
 
 
-        SearchId            :   Add a new product to cart
-        SearchName          :   Delete product from cart
+        SearchId            :   Search a product by ID
+        SearchName          :   Search a product by name
         Quit                :   Exit the Search menu
 
 > searchid
@@ -57,14 +399,12 @@ One product found
 > 12
 
  The product id doesn't exist! Please try using a different id!
-> 13
-
- The product id doesn't exist! Please try using a different id!
 > 22
 One product found
-| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 10 |
-        SearchId            :   Add a new product to cart
-        SearchName          :   Delete product from cart
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 15 |
+
+        SearchId            :   Search a product by ID
+        SearchName          :   Search a product by name
         Quit                :   Exit the Search menu
 
 > 
@@ -74,11 +414,11 @@ One product found
     Please enter the product name
 
 > Sams
-| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 14 |
-| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 8 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 9 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 10 |
 
-        SearchId            :   Add a new product to cart
-        SearchName          :   Delete product from cart
+        SearchId            :   Search a product by ID
+        SearchName          :   Search a product by name
         Quit                :   Exit the Search menu
 
 > quit
@@ -115,16 +455,33 @@ One product found
 > 12
 
  The product id doesn't exist! Please try using a different id!
-> 13
-
- The product id doesn't exist! Please try using a different id!
 > 21
 One product found
-| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 13 |
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 9 |
+    Please enter the amount
+
+> 3
+3 Bush Clock Radio  added to cart
+
+        AddToCart            :   Add a new product to cart
+        Delete               :   Delete product from cart
+        PrintCart            :   See items in cart
+        Proceed              :   Sell items from cart
+        Quit                 :   Exit the basket menu
+
+> 
+    Cannot leave blank!
+
+> addtocart
+    Please enter the product ID
+
+> 22
+One product found
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 15 |
     Please enter the amount
 
 > 2
-2 Bush Clock Radio  added to cart
+2 Google Pixel 4XL  added to cart
 
         AddToCart            :   Add a new product to cart
         Delete               :   Delete product from cart
@@ -140,11 +497,11 @@ One product found
 
 > 23
 One product found
-| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 5 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 9 |
     Please enter the amount
 
-> 2
-2 Samsung QLED TV   added to cart
+> 5
+5 Samsung QLED TV   added to cart
 
         AddToCart            :   Add a new product to cart
         Delete               :   Delete product from cart
@@ -156,8 +513,9 @@ One product found
     Cannot leave blank!
 
 > printcart
-| ID: 21 | Product: Bush Clock Radio  | Amount: 2 |
-| ID: 23 | Product: Samsung QLED TV   | Amount: 2 |
+| ID: 21 | Product: Bush Clock Radio  | Amount: 3 |
+| ID: 22 | Product: Google Pixel 4XL  | Amount: 2 |
+| ID: 23 | Product: Samsung QLED TV   | Amount: 5 |
 
         AddToCart            :   Add a new product to cart
         Delete               :   Delete product from cart
@@ -168,8 +526,8 @@ One product found
 > delete
     Please enter the product ID
 
-> 21
-Product Bush Clock Radio  removed from cart
+> 23
+Product Samsung QLED TV   removed from cart
 
         AddToCart            :   Add a new product to cart
         Delete               :   Delete product from cart
@@ -180,17 +538,9 @@ Product Bush Clock Radio  removed from cart
 > 
     Cannot leave blank!
 
-> printcart
-| ID: 23 | Product: Samsung QLED TV   | Amount: 2 |
-
-        AddToCart            :   Add a new product to cart
-        Delete               :   Delete product from cart
-        PrintCart            :   See items in cart
-        Proceed              :   Sell items from cart
-        Quit                 :   Exit the basket menu
-
 > proceed
-2 of Samsung QLED TV  sold!
+3 of Bush Clock Radio sold!
+2 of Google Pixel 4XL sold!
 ###############################
 Thank you for shopping with us!
 *******************************
