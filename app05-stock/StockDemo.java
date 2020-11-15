@@ -40,24 +40,8 @@ public class StockDemo
         printMessage("delivering products");
         deliverProducts();
         
-        // printMessage("selling products");
-        // sellProducts();
-        
-        // printMessage("adding items to cart");
-        // manager.addToCart(21,5);
-        // manager.addToCart(23,3);
-        // manager.addToCart(25,2);
-        // manager.addToCart(27,1);
-        // manager.addToCart(29,4);
-        
-        // printMessage("print cart before and after removing a product");
-        // manager.printCart();
-        // manager.deleteFromCart(23);
-        // manager.printCart();
-        
-        // printMessage("sell items from cart");
-        // manager.proceedWithCart();
-        // manager.printCart();
+        printMessage("setting prices");
+        setPrice();
     }
     
     /**
@@ -91,6 +75,24 @@ public class StockDemo
             manager.deliverProduct(id, amount);            
         }
         
+    }
+    
+    /**
+     * 
+     */
+    private void setPrice()
+    {
+        // Set prices for products
+        int amount = 0;
+        double price;
+                
+        for(int id=21; id <= 33; id++)
+        {
+            amount = generator.nextInt(350) + 100;
+            price = amount + 0.99;
+            
+            manager.setPrice(id, price);            
+        }
     }
     
     /**
