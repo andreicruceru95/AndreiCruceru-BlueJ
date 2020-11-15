@@ -25,7 +25,7 @@ public class ShoppingCart
     public void addToCart(Product product, int amount)
     {
         cart.add(product);
-        product.amountToCart(amount);
+        product.setAmount(amount);
         
         System.out.println(product.getAmount() + " " + product.getName() + " added to cart");
     }
