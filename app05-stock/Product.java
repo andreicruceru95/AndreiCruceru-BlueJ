@@ -86,7 +86,7 @@ public class Product
      */
     public void sellMultiple(int number)
     {
-        if (quantity >= number)
+        if (quantity >= number && number > 0)
         {
             quantity = quantity - number;
             
@@ -102,7 +102,7 @@ public class Product
         else
         {
             System.out.println();
-            System.out.println("The amount of " + name + " required must be a positive number!");
+            System.out.println("The amount must be higher then 0");
             System.out.println();
         }
     }
