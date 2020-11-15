@@ -15,7 +15,9 @@ public class Product
     private int quantity;
     // The amount of products required.
     private int amount;
-
+    private double price;
+    private String location;
+    
     /**
     * Constructor for objects of class Product.
     * The initial stock quantity is zero.
@@ -58,7 +60,8 @@ public class Product
      */
     public String toString()
     {
-        return "| Product ID: " + id + " | Product Name: " + name + " | Stock Level: " + quantity + " |";
+        return "| Product ID: " + id + " | Product Name: " + name + " | Stock Level: " + quantity + " | " +
+                "Price: " + price + " | Location: " + location + " | ";
     }
 
     /**
@@ -86,6 +89,8 @@ public class Product
      */
     public void sellMultiple(int number)
     {
+        setAmount(number);
+        
         if (quantity >= number && number > 0)
         {
             quantity = quantity - number;
@@ -167,7 +172,7 @@ public class Product
     /**
      * The quantity you want to sell.
      */
-    public void amountToCart(int amount)
+    public void setAmount(int amount)
     {
         this.amount = amount;
     }
@@ -178,5 +183,61 @@ public class Product
     public int getAmount()
     {
         return amount;
+    }
+    
+    /**
+     * 
+     */
+    public void setPrice(double price)
+    {
+        this.price = price;
+    }
+    
+    /**
+     * 
+     */
+    public void changePrice(double price)
+    {
+        this.price = price;
+    }
+    
+    /**
+     * 
+     */
+    public double getPrice()
+    {
+        return + price;
+    }
+    
+    /**
+     * 
+     */
+    public void setLocation(String location)
+    {
+        this.location = location;
+    }
+    
+    /**
+     * 
+     */
+    public void changeLocation(String location)
+    {
+        this.location = location;
+    }
+    
+    /**
+     * 
+     */
+    public String getLocation()
+    {
+        return location;
+    }
+    
+    /**
+     * 
+     */
+    public double getTotal()
+    {
+        return price * amount;
     }
 }
