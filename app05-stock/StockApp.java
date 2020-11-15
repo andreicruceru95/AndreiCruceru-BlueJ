@@ -32,8 +32,9 @@ public class StockApp
     private InputReader reader = new InputReader();
     
     // Use of the previous app features.
+    private Invoice invoice = new Invoice();
     private ShoppingCart shoppingCart = new ShoppingCart();
-    private StockManager manager = new StockManager(shoppingCart);
+    private StockManager manager = new StockManager(shoppingCart, invoice);
     private StockDemo demo = new StockDemo(manager);
            
     /**
@@ -88,7 +89,7 @@ public class StockApp
     /**
      * Run the program for the search menu.
      */
-    public void runSearch()
+    private void runSearch()
     {
         boolean finished = false;
         
@@ -211,12 +212,86 @@ public class StockApp
         
         manager.renameProduct(id, name);
     }
+    
+    /**
+     * 
+     */
+    private void setDetails()
+    {
+        System.out.println("Please enter customer/business name!");
+        
+        String customer = reader.getString();
+        
+        manager.setCustomer(customer);
+        
+        
+        System.out.println("Please enter the type of customer - domestic / commercial");
+        
+        String type = reader.getString();
+        
+        manager.setCustomerType(type);
+        
+        System.out.println("Please enter customer's address");
+        
+        String address = reader.getString();
+        
+        manager.setCustomerAddress(address);
+        
+        sell();
+        
+    }
+    
+    /**
+     * 
+     */
+    private void sell()
+    {
+        System.out.println("\n    Please enter the product ID\n");
+        
+        int id = reader.getInteger();
+          
+        id = findUsedID(id);
+        
+        System.out.println("    Please enter the amount\n");
+        
+        int amount = reader.getInteger();
+        
+        manager.invoiceProduct(id);            
+        manager.sellMultiple(id, amount);
+       
+        System.out.println("\nDo you want to buy more products? Yes/No\n");
+        
+        String add = reader.getString();
+        
+        while (add.equals("yes"))
+        {
+            System.out.println("\n    Please enter the product ID\n");
+        
+            id = reader.getInteger();
+          
+            id = findUsedID(id);
+        
+            System.out.println("    Please enter the amount\n");
+        
+            amount = reader.getInteger();
+        
+            manager.invoiceProduct(id);            
+            manager.sellMultiple(id, amount);
+       
+            System.out.println("\nDo you want to buy more products? Yes/No\n");
+        
+            add = reader.getString();
+        }
+        manager.generateInvoice();
+        
+        System.out.println("Thank you for shopping with us");
+    }
         
     /**
      * The main menu of the program. 
      * @param choice is the choice we input.
      */
-    public void executeMenuChoice(String choice)
+    private void executeMenuChoice(String choice)
     {
         if (choice.equals(ADD))
         {
@@ -237,17 +312,7 @@ public class StockApp
         }
         else if (choice.equals(SELL))
         {
-            System.out.println("    Please enter the product ID\n");
-        
-            int id = reader.getInteger();
-            
-            id = findUsedID(id);
-            
-            System.out.println("    Please enter the amount\n");
-        
-            int amount = reader.getInteger();
-            
-            manager.sellMultiple(id, amount);
+            setDetails();
         }
         else if (choice.equals(PRINT_LOW))
         {
