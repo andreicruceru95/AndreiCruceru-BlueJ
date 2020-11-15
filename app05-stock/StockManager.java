@@ -11,18 +11,22 @@ public class StockManager
 {
     // A list of the products.
     private ArrayList<Product> stock;
-    //HashMap<Integer, Product> stock = new HashMap<Integer, Product>();
+    
+    //Shopping cart and invoice for each transaction;
     private ShoppingCart cart;
+    private Invoice invoice;
+    
     // A list with data type Product used for calculations.
     List <Product> listClone = new ArrayList<Product>();
        
     /**
      * Initialise the stock manager.
      */
-    public StockManager(ShoppingCart cart)
+    public StockManager(ShoppingCart cart, Invoice invoice)
     {
         stock = new ArrayList<>();
         this.cart = cart;
+        this.invoice = invoice;
     }
     
     /**
@@ -34,7 +38,7 @@ public class StockManager
         if (product.getQuantity() >= amount)
         {
             cart.addToCart(product, amount);
-            product.amountToCart(amount);
+            product.setAmount(amount);
         }
         else
         {
@@ -359,5 +363,139 @@ public class StockManager
         {
             System.out.println(product);
         }); 
+    }
+    
+    /**
+     * 
+     */
+    public void setLocation(int id, String location)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            product.setLocation(location);
+            
+            System.out.println("\nProduct " + product.getName() + " set to location " + "<" + location + ">\n");
+        }
+        else 
+            System.out.println("\nProduct not found!\n");
+    }
+    
+    /**
+     * 
+     */
+    public void changeLocation(int id, String location)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            System.out.println("\nProduct " + product.getName() + " moved from location " + product.getLocation() +
+                                " to location " + "<" + location + ">\n");
+                                
+            product.changeLocation(location);
+        }
+        else 
+            System.out.println("\nProduct not found!\n");
+    }
+    
+    /**
+     * 
+     */
+    public void getLocation(int id)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            System.out.println("\nProduct with ID + " + product.getID() + " found at:\n");
+                                
+            product.getLocation();
+        }
+        else 
+            System.out.println("\nProduct not found!\n");
+    }
+    
+    /**
+     * 
+     */
+    public void setPrice(int id, double price)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            product.setPrice(price);
+            
+            System.out.println("\nThe price was set for product " + product.getName() + " to " + price +"£\n");
+        }
+        else 
+            System.out.println("\nProduct not found!\n");
+    }
+    
+    /**
+     * 
+     */
+    public void changePrice(int id, double price)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            System.out.println("\nThe price was changed for product " + product.getName() +
+                                " from " + product.getPrice() + "£ to " + price +"£\n");
+                                
+            product.changePrice(price);
+        }
+        else 
+            System.out.println("\nProduct not found!\n");
+    }
+    
+    /**
+     * 
+     */
+    public void getPrice(int id)
+    {
+        Product product = findProduct(id);
+        if (product != null)
+        {
+            System.out.println("\nThe price for product with ID + " + product.getID() + " is: " + product.getPrice() + "£\n");
+        }
+        else 
+            System.out.println("\nProduct not found!\n");
+    }
+    
+    /**
+     * 
+     */
+    public void setCustomer(String customer)
+    {
+         invoice.setCustomer(customer);
+    }
+    
+    /**
+     * 
+     */
+    public void setCustomerType(String type)
+    {
+         invoice.setCustomerType(type);
+    }
+    
+    /**
+     * 
+     */
+    public void setCustomerAddress(String address)
+    {
+         invoice.setCustomerAddress(address);
+    }
+    
+    /**
+     * 
+     */
+    public void generateInvoice()
+    {
+        invoice.generateInvoice();
+    }
+    
+    public void invoiceProduct(int id)
+    {
+        Product product = findProduct(id);
+        invoice.addProduct(product);
     }
 }
