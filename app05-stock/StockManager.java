@@ -181,31 +181,9 @@ public class StockManager
      */
     public void printAllProductDetails()
     {
-        stock.forEach(product->
-        {
-            System.out.println(product.toString());
-        });
+       printList(stock);
     }
-    
-    /**
-     * Show details of the given product. If found,
-     * its name and stock quantity will be shown.
-     * @param id The ID of the product to look for.
-     */
-    public void printDetailsWithID(int id)
-    {
-        Product product = findProduct(id);
         
-        if(product != null) 
-        {
-            System.out.println(product.toString());
-        }
-        else
-        {
-            System.out.println("Product not found!");
-        }
-    }
-    
     /**
      * Sell one of the given item.
      * Show the before and after status of the product.
@@ -218,7 +196,7 @@ public class StockManager
         if(product != null) 
         {
             product.sellOne();
-            printDetailsWithID(id);
+            getProductByID(id);
         }
     }
     
@@ -258,7 +236,7 @@ public class StockManager
             }
         }
         
-        printClone();
+        printList(listClone);
     }
     
     /**
@@ -321,7 +299,7 @@ public class StockManager
         {
             System.out.println("\nThe stock of the following products should be refilled\n");
         
-            printClone();
+            printList(listClone);
         }
         else
         {
@@ -346,7 +324,7 @@ public class StockManager
             });
             System.out.println("\nSuccess!\n");
                         
-            printClone();
+            printList(listClone);
         }
         else
         {
@@ -355,11 +333,11 @@ public class StockManager
     }
     
     /**
-     * Print listClone.
+     * Print list.
      */
-    private void printClone()
+    private void printList(List<Product> list)
     {
-        listClone.forEach(product ->
+        list.forEach(product ->
         {
             System.out.println(product);
         }); 
@@ -368,47 +346,30 @@ public class StockManager
     /**
      * 
      */
-    public void setLocation(int id, String location)
+    public void setType(int id, String type)
     {
         Product product = findProduct(id);
         if (product != null)
         {
-            product.setLocation(location);
+            product.setType(type);
             
-            System.out.println("\nProduct " + product.getName() + " set to location " + "<" + location + ">\n");
+            System.out.println("\nProduct " + product.getName() + " set to type " + "<" + type + ">\n");
         }
         else 
             System.out.println("\nProduct not found!\n");
     }
-    
+        
     /**
      * 
      */
-    public void changeLocation(int id, String location)
+    public void getType(int id)
     {
         Product product = findProduct(id);
         if (product != null)
         {
-            System.out.println("\nProduct " + product.getName() + " moved from location " + product.getLocation() +
-                                " to location " + "<" + location + ">\n");
+            System.out.println("\nProduct with ID + " + product.getID() + " Type:\n");
                                 
-            product.changeLocation(location);
-        }
-        else 
-            System.out.println("\nProduct not found!\n");
-    }
-    
-    /**
-     * 
-     */
-    public void getLocation(int id)
-    {
-        Product product = findProduct(id);
-        if (product != null)
-        {
-            System.out.println("\nProduct with ID + " + product.getID() + " found at:\n");
-                                
-            product.getLocation();
+            product.getType();
         }
         else 
             System.out.println("\nProduct not found!\n");
@@ -426,7 +387,7 @@ public class StockManager
             
             System.out.println("\nThe price was set for product " + product.getName() + " to " + price +"£\n");
         }
-        else 
+        else  
             System.out.println("\nProduct not found!\n");
     }
     

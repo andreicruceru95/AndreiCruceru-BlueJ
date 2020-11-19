@@ -29,13 +29,13 @@ public class StockApp
     public static final String SEARCH = "search";
     
     //Use to get user input
-    private InputReader reader = new InputReader();
+    private final InputReader reader = new InputReader();
     
     // Use of the previous app features.
-    private Invoice invoice = new Invoice();
-    private ShoppingCart shoppingCart = new ShoppingCart();
-    private StockManager manager = new StockManager(shoppingCart, invoice);
-    private StockDemo demo = new StockDemo(manager);
+    private final Invoice invoice = new Invoice();
+    private final ShoppingCart shoppingCart = new ShoppingCart();
+    private final StockManager manager = new StockManager(shoppingCart, invoice);
+    private final StockDemo demo = new StockDemo(manager);
            
     /**
      * Run the program for the main menu.
@@ -124,7 +124,7 @@ public class StockApp
         }
         System.out.println("One product found");
         
-        manager.printDetailsWithID(id);
+        manager.getProductByID(id);
         
         return id;
     }
@@ -184,14 +184,19 @@ public class StockApp
         
         String name = reader.getString();
         
-        // in case we need local validation.
-        // if (name.length() == 0)
-        // {
-            // name = validateName(name);
-        // }           
+        System.out.println("\n    Please enter the product price\n");
         
+        double price = reader.getDouble();
+        
+        System.out.println("\n    Please enter the product type");
+        
+        String type = reader.getString();
+        
+        manager.setType(id, type);
+                
         System.out.println("\n Product  with ID " + id + ",Name " + name + " added\n");
         
+        manager.findSuplier();
         Product product = new Product(id, name);
         manager.addProduct(product);
         manager.getProductByID(id);

@@ -7,17 +7,23 @@
 public class Product
 {
     public static final int LOW = 5;
+    public static final String HOME = "home";
+    public static final String ELECTRONICS ="electronics";
+    public static final String GARDEN = "garden";
     
-    //Name and id of the product.
+    private Suplier suplier = new Suplier();
+    
+    //Name, id, price and the location in store.
     private int id;
     private String name;
+    private double price;
+    private Type type;
     // The quantity of this product in stock.
     private int quantity;
     // The amount of products required.
     private int amount;
-    private double price;
-    private String location;
-    
+    //Type of product
+        
     /**
     * Constructor for objects of class Product.
     * The initial stock quantity is zero.
@@ -28,7 +34,9 @@ public class Product
     {
         this.id = id;
         this.name = name;
+        this.price = price;
         quantity = 0;
+        amount = 0;
     }
 
     /**
@@ -61,7 +69,7 @@ public class Product
     public String toString()
     {
         return "| Product ID: " + id + " | Product Name: " + name + " | Stock Level: " + quantity + " | " +
-                "Price: " + price + " | Location: " + location + " | ";
+                "Price: " + price + "£ | Type: " + type + " | ";
     }
 
     /**
@@ -77,6 +85,10 @@ public class Product
             quantity += amount;
             
             System.out.println("Delivered " + amount + " " + name);
+            
+            price = suplier.getPrice();
+            
+            suplier.generateInvoice(id,amount, price);
         }
         else
         {
@@ -170,6 +182,19 @@ public class Product
     }
     
     /**
+     * 
+     */
+    public void restockLevels()
+    {
+        if(checkLow() == true)
+        {
+            System.out.println("\n Product " + name  + " ordered");
+            
+            quantity = quantity + LOW;
+        }
+    }
+    
+    /**
      * The quantity you want to sell.
      */
     public void setAmount(int amount)
@@ -212,25 +237,25 @@ public class Product
     /**
      * 
      */
-    public void setLocation(String location)
+    public void setType(String type)
     {
-        this.location = location;
+        if(type.equals(ELECTRONICS))
+        
+            this.type = Type.ELECTRONICS;
+        else if(type.equals(HOME))
+            this.type = Type.HOME;
+        else if(type.equals(GARDEN))
+            this.type = Type.GARDEN;
+        else
+            System.out.println("Product type not found");
     }
-    
+        
     /**
      * 
      */
-    public void changeLocation(String location)
+    public Type getType()
     {
-        this.location = location;
-    }
-    
-    /**
-     * 
-     */
-    public String getLocation()
-    {
-        return location;
+        return type;
     }
     
     /**

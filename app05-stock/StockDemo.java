@@ -9,17 +9,22 @@ import java.util.*;
  */
 public class StockDemo
 {
+    public static final double COUNTER = 0.99;
+       
     // The stock manager and the items list.
     private StockManager manager;
-    private String[] items = new String[]
-                    {"Bush Clock Radio ","Google Pixel 4XL ","Samsung QLED TV  ",
-                     "IKEA Malm Desk   ", "Japanese Storage ","Samsung Microwave",
-                     "Monda Table Lamp ","Washing Mashine  ","Bosch S. 4 Dryer ",
-                     "Beko Elect Cooker","IKEA Ektorp Sofa ","Shower Curtain   ","Krau Kitchen Sink"
-                    }; 
+    // private String[] items = new String[]
+                    // {"Bush Clock Radio ","Google Pixel 4XL ","Samsung QLED TV  ",
+                     // "IKEA Malm Desk   ", "Japanese Storage ","Samsung Microwave",
+                     // "Monda Table Lamp ","Washing Mashine  ","Bosch S. 4 Dryer ",
+                     // "Beko Elect Cooker","IKEA Ektorp Sofa ","Shower Curtain   ","Krau Kitchen Sink"
+                    // }; 
+                        
+    private Suplier items = new Suplier();
     
     // A generator of random numbers.
     private Random generator;
+    private String type;
     
     /**
      * Create a StockManager and populate it with a few
@@ -39,9 +44,7 @@ public class StockDemo
                             
         printMessage("delivering products");
         deliverProducts();
-        
-        printMessage("setting prices");
-        setPrice();
+                
     }
     
     /**
@@ -49,15 +52,18 @@ public class StockDemo
      */
     private void addProducts()
     {
+        double price = 0;
         int j = 0;
         
-        for (int id = 21; id <= 33; id++)
+        for (int id = 0; id <= items.getSize(); id++)
         {
-            manager.addProduct (new Product(id, items[j]));
-            j++;
+            price = setPrice();
+            
+            manager.addProduct (new Product(id, items.getNames(j)));
+            
+            j++; 
         }
             
-        manager.printAllProductDetails();     
     }
     
     /**
@@ -80,37 +86,34 @@ public class StockDemo
     /**
      * 
      */
-    private void setPrice()
+    private double setPrice()
     {
         // Set prices for products
-        int amount = 0;
-        double price;
-                
-        for(int id=21; id <= 33; id++)
-        {
-            amount = generator.nextInt(350) + 100;
-            price = amount + 0.99;
-            
-            manager.setPrice(id, price);            
-        }
+        int price = 0;
+        
+        price = generator.nextInt(400) + 100;
+        
+        return price + COUNTER;
+                    
     }
     
-    /**
-     * Demonstrate the sell products method.
-     */
-    private void sellProducts()
-    {
-        // Deliver a random number of products.
-        int amount = 0;
+    
+    // /**
+     // * Demonstrate the sell products method.
+     // */
+    // private void sellProducts()
+    // {
+        // // Deliver a random number of products.
+        // int amount = 0;
        
-        for(int i=21; i <= 33; i++)
-        {
-            amount = generator.nextInt(10) + 1;
+        // for(int i=21; i <= 33; i++)
+        // {
+            // amount = generator.nextInt(10) + 1;
             
-            manager.sellMultiple(i, amount);            
-        }
+            // manager.sellMultiple(i, amount);            
+        // }
     
-    }
+    // }
     
     /**
      * Print a message for each method on the terminal.

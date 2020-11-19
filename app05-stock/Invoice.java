@@ -5,17 +5,18 @@ import java.text.DecimalFormat;
 /**
  * Write a description of class Invoice here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Andrei Cruceru)
+ * @version (18112020)
  */
 public class Invoice
 {
+    private final Date date;
     public static final double VAT = 0.2;
-    private static DecimalFormat df = new DecimalFormat("0.00");
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     
     List <Product> products = new ArrayList<Product>();
     
-    private Random generator;
+    private final Random generator;
     private int invoiceNo;
     private String customer;
     private String customerType;
@@ -31,6 +32,7 @@ public class Invoice
         invoiceNo = 0;
         customer = null;
         customerType = null;
+        date = new Date();
     }
     
     /**
@@ -133,7 +135,8 @@ public class Invoice
         System.out.println("Invoice No: ");
         
         setInvoiceNo();
-                
+
+        System.out.println("\n Date: " + date + "\n");
         System.out.println("\nCustomerName: " + customer);
         System.out.println("\nCustomer type: " + customerType);
         System.out.println("\nAddress: " + address);

@@ -1,5 +1,5 @@
-import java.util.HashSet;
 import java.util.Scanner;
+import java.lang.*;
 
 /**
  * InputReader reads typed text input from the standard text terminal. 
@@ -10,8 +10,8 @@ import java.util.Scanner;
  */
 public class InputReader
 {
-    private Scanner reader;
-    
+    private final Scanner reader;
+
     /**
      * Create a new InputReader that reads text from the text terminal.
      */
@@ -28,50 +28,68 @@ public class InputReader
      */
     public String getString()
     {
-        System.out.print("> ");         // print prompt
-        String string = reader.nextLine();
+        String string ="";
+        while(string.length() == 0)
+        {
+            
+            System.out.print("> ");         // print prompt
+            string = reader.nextLine();
 
-        string = validateString(string);
-        
-        return string;
-    }
-    
-    /**
-     * Validate the user input.
-     * @param string is the input type string. 
-     * @return the string after validation.
-     */
-    private String validateString(String string)
-    {
-        while (string.length() == 0)
-        { 
-            System.out.println("\n    Cannot leave blank!\n");
-                    
-            string = getString();
+            if(string.length() == 0)
+                System.out.println("\n        Cannot leave blank!\n");
         }
-               
+
         return string;
     }
-    
+      
     /**
      * Read a line from standard input (the text terminal),
      * and return it as a Integer.
      *
      * @return  A Integer typed by the user. 
      */
-    public Integer getInteger()
+    public int getInteger()
     {
-        System.out.print("> ");
-                
-        while (!reader.hasNextInt()) 
+        int number = 0;
+        boolean valid = false;
+
+        while(!valid)
         {
-            System.out.println("ID not accepted");
-            
-            reader.next();
+            String string = getString();
+            try
+            {
+                number = Integer.parseInt(string);
+                valid = true;
+            }
+            catch(Exception e)
+            {
+                System.out.println("\n        Not a valid number!\n");
+            }
         }
-        int id = reader.nextInt();
-                
-        return id;
+        
+        return number;
+    }
+    
+    public double getDouble()
+    {
+        double number = 0;
+        boolean valid = false;
+
+        while(!valid)
+        {
+            String string = getString();
+            try
+            {
+                number = Double.parseDouble(string);
+                valid = true;
+            }
+            catch(Exception e)
+            {
+                System.out.println("\n        Not a valid price!\n");
+            }
+        }
+        
+        return number;
     }
 }
     
