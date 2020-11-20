@@ -1,0 +1,32 @@
+> re-stock
+
+    The stock of the following products should be refilled
+
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 0 |
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 1 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 1 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 2 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 3 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 3 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 5 |
+
+    Delivering products..
+
+    Delivered: 5 Apple Watch Series 6
+    Delivered: 5 Samsung 4k UHD
+    Delivered: 5 Samsung QLED TV  
+    Delivered: 5 IKEA Malm Desk   
+    Delivered: 5 Beko Elect Cooker
+    Delivered: 5 Monda Table Lamp 
+    Delivered: 5 Krau Kitchen Sink
+
+    Success!
+
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 5 |
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 6 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 6 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 7 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 8 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 8 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 10 |
+       -add             Add new product

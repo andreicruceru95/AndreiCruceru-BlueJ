@@ -1,0 +1,34 @@
+> remove
+    Please enter the product ID
+
+> 12
+One product found
+
+| Product ID: 12 | Product Name: Galaxy S20 mini | Stock Level: 0 |
+    Product 12 Galaxy S20 mini has been removed
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> remove
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 13
+
+ The product id doesn't exist! Please try using a different id!
+> 10
+One product found
+
+| Product ID: 10 | Product Name: Galaxy S20 Ultra | Stock Level: 12 |
+    Product 10 Galaxy S20 Ultra has been removed

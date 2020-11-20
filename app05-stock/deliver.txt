@@ -1,0 +1,70 @@
+> deliver
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Radio | Stock Level: 6 |
+    Please enter the amount
+
+> 2
+    Delivered: 2 Bush Radio
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> quantity
+    Please enter the product ID
+
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Radio | Stock Level: 8 |
+
+> deliver
+    Please enter the product ID
+
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Radio | Stock Level: 8 |
+    Please enter the amount
+
+> -1
+    Attempt to restock Bush Radio with a non-positive amount: -1
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+           
+> deliver
+    Please enter the product ID
+
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Radio | Stock Level: 8 |
+    Please enter the amount
+
+> a
+
+        Not a valid number!

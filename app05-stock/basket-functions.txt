@@ -1,0 +1,110 @@
+> basket
+
+******************************
+ Stock Management Application 
+    App05: by Andrei Cruceru  
+******************************
+*       Shopping Cart        *
+******************************
+
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> add
+    Please enter the product ID
+
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 4 |
+
+    Please enter the amount
+
+> 2
+2 Bush Clock Radio  added to cart
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> add
+    Please enter the product ID
+
+> 22
+One product found
+
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 12 |
+
+    Please enter the amount
+
+> 3
+3 Google Pixel 4XL  added to cart
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> add
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 25
+One product found
+
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 10 |
+
+    Please enter the amount
+
+> 2
+2 Japanese Storage  added to cart
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> delete
+    Please enter the product ID
+
+> 25
+Product Japanese Storage  removed from cart
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> print
+| ID: 21 | Product: Bush Clock Radio  | Amount: 2 |
+| ID: 22 | Product: Google Pixel 4XL  | Amount: 3 |
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> proceed
+    2 of Bush Clock Radio sold!
+    3 of Google Pixel 4XL sold!
+###############################
+Thank you for shopping with us!
+*******************************
+       -add             Add to cart
+       -print           Print cart
+       -proceed         Proceed with cart
+       -delete          Delete from cart
+       -quit            Quit
+> quit
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit

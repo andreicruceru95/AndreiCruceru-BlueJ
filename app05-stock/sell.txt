@@ -1,0 +1,56 @@
+> sell
+
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 15 |
+    Please enter the amount
+
+> 2
+    2 of Bush Clock Radio sold!
+
+Do you want to sell more products?
+
+       -yes
+       -no
+> yes
+
+    Please enter the product ID
+
+> 22
+One product found
+
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 5 |
+    Please enter the amount
+
+> 2
+    2 of Google Pixel 4XL sold!
+
+Do you want to sell more products?
+
+       -yes
+       -no
+> yes
+
+    Please enter the product ID
+
+> 23
+One product found
+
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 15 |
+    Please enter the amount
+
+> 1
+    1 of Samsung QLED TV  sold!
+
+Do you want to sell more products?
+
+       -yes
+       -no
+> no
+Thank you for shopping with us

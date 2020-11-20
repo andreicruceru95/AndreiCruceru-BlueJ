@@ -1,0 +1,11 @@
+> printlow
+
+    The stock of the following products should be refilled
+
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 0 |
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 1 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 1 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 2 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 3 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 3 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 5 |

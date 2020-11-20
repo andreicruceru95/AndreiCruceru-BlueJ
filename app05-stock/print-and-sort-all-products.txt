@@ -1,0 +1,258 @@
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> yes
+
+    Please enter the product name
+
+> Samsung Galaxy S20 Ultra
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> yes
+
+    Please enter the amount
+> 10
+    Delivered: 10 Samsung Galaxy S20 Ultra
+
+    Product  with ID 10,Name Samsung Galaxy S20 Ultra added
+
+| Product ID: 10 | Product Name: Samsung Galaxy S20 Ultra | Stock Level: 10 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> yes
+
+    Please enter the product name
+
+> Samsung 4k UHD
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> yes
+
+    Please enter the amount
+> 1
+    Delivered: 1 Samsung 4k UHD
+
+    Product  with ID 11,Name Samsung 4k UHD added
+
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 1 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> no
+
+    Please enter the product ID
+
+> 752
+
+ID available
+
+
+    Please enter the product name
+
+> Apple Watch Series 6
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> no
+
+    Product  with ID 752,Name Apple Watch Series 6 added
+
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 0 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> no
+
+    Please enter the product ID
+
+> 212
+
+ID available
+
+
+    Please enter the product name
+
+> Microsoft surface
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> yes
+
+    Please enter the amount
+> 25
+    Delivered: 25 Microsoft surface
+
+    Product  with ID 212,Name Microsoft surface added
+
+| Product ID: 212 | Product Name: Microsoft surface | Stock Level: 25 |
+
+> printall
+
+How do you want to see the list?
+
+       -sortid          Sort by ID
+       -sortname        Sort by name
+       -sortquantity    Sort by quantity
+> sortid
+| Product ID: 10 | Product Name: Samsung Galaxy S20 Ultra | Stock Level: 10 |
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 1 |
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 6 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 12 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 1 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 2 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 9 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 8 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 3 |
+| Product ID: 28 | Product Name: Washing Mashine   | Stock Level: 10 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 6 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 3 |
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 14 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 11 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 5 |
+| Product ID: 212 | Product Name: Microsoft surface | Stock Level: 25 |
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 0 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> printall
+
+How do you want to see the list?
+
+       -sortid          Sort by ID
+       -sortname        Sort by name
+       -sortquantity    Sort by quantity
+> sortname
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 0 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 3 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 6 |
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 6 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 12 |
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 14 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 2 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 9 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 5 |
+| Product ID: 212 | Product Name: Microsoft surface | Stock Level: 25 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 3 |
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 1 |
+| Product ID: 10 | Product Name: Samsung Galaxy S20 Ultra | Stock Level: 10 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 8 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 1 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 11 |
+| Product ID: 28 | Product Name: Washing Mashine   | Stock Level: 10 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> printall
+
+How do you want to see the list?
+
+       -sortid          Sort by ID
+       -sortname        Sort by name
+       -sortquantity    Sort by quantity
+> sortquantity
+| Product ID: 752 | Product Name: Apple Watch Series 6 | Stock Level: 0 |
+| Product ID: 11 | Product Name: Samsung 4k UHD | Stock Level: 1 |
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 1 |
+| Product ID: 24 | Product Name: IKEA Malm Desk    | Stock Level: 2 |
+| Product ID: 30 | Product Name: Beko Elect Cooker | Stock Level: 3 |
+| Product ID: 27 | Product Name: Monda Table Lamp  | Stock Level: 3 |
+| Product ID: 33 | Product Name: Krau Kitchen Sink | Stock Level: 5 |
+| Product ID: 29 | Product Name: Bosch S. 4 Dryer  | Stock Level: 6 |
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 6 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 8 |
+| Product ID: 25 | Product Name: Japanese Storage  | Stock Level: 9 |
+| Product ID: 10 | Product Name: Samsung Galaxy S20 Ultra | Stock Level: 10 |
+| Product ID: 28 | Product Name: Washing Mashine   | Stock Level: 10 |
+| Product ID: 32 | Product Name: Shower Curtain    | Stock Level: 11 |
+| Product ID: 22 | Product Name: Google Pixel 4XL  | Stock Level: 12 |
+| Product ID: 31 | Product Name: IKEA Ektorp Sofa  | Stock Level: 14 |
+| Product ID: 212 | Product Name: Microsoft surface | Stock Level: 25 |

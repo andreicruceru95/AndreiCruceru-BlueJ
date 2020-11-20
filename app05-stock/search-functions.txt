@@ -1,0 +1,47 @@
+> search
+
+******************************
+ Stock Management Application 
+    App05: by Andrei Cruceru  
+******************************
+*           Search           *
+******************************
+
+       -searchid        Search by id
+       -searchname      Search by name
+       -quit            Quit
+> searchid
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Clock Radio  | Stock Level: 2 |
+       -searchid        Search by id
+       -searchname      Search by name
+       -quit            Quit
+> searchname
+    Please enter the product name
+
+> Sams
+| Product ID: 23 | Product Name: Samsung QLED TV   | Stock Level: 5 |
+| Product ID: 26 | Product Name: Samsung Microwave | Stock Level: 13 |
+       -searchid        Search by id
+       -searchname      Search by name
+       -quit            Quit
+> quit
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit  

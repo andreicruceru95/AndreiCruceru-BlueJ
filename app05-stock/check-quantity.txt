@@ -1,0 +1,10 @@
+> quantity
+    Please enter the product ID
+
+> 12
+
+ The product id doesn't exist! Please try using a different id!
+> 21
+One product found
+
+| Product ID: 21 | Product Name: Bush Radio | Stock Level: 8 |
