@@ -1,0 +1,176 @@
+
+
+##############
+Andrei's stock
+**************
+
+
+Demonstrating delivering products
+
+    Delivered: 15 Bush Clock Radio 
+    Delivered: 5 Google Pixel 4XL 
+    Delivered: 15 Samsung QLED TV  
+    Delivered: 10 IKEA Malm Desk   
+    Delivered: 3 Japanese Storage 
+    Delivered: 10 Samsung Microwave
+    Delivered: 11 Monda Table Lamp 
+    Delivered: 13 Washing Mashine  
+    Delivered: 6 Bosch S. 4 Dryer 
+    Delivered: 12 Beko Elect Cooker
+    Delivered: 2 IKEA Ektorp Sofa 
+    Delivered: 2 Shower Curtain   
+    Delivered: 3 Krau Kitchen Sink
+
+******************************
+ Stock Management Application 
+    App05: by Andrei Cruceru  
+******************************
+*         Main menu          *
+******************************
+
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> yes
+
+    Please enter the product name
+
+> Galaxy S20 Ultra
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> yes
+
+    Please enter the amount
+> 12
+    Delivered: 12 Galaxy S20 Ultra
+
+    Product  with ID 10,Name Galaxy S20 Ultra added
+
+| Product ID: 10 | Product Name: Galaxy S20 Ultra | Stock Level: 12 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> no
+
+    Please enter the product ID
+
+> 10
+
+ The product id entered already exists! Please try using a different id!
+> 21
+
+ The product id entered already exists! Please try using a different id!
+> 12
+
+ID available
+
+
+    Please enter the product name
+
+> Galaxy S20 mini
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> no
+
+    Product  with ID 12,Name Galaxy S20 mini added
+
+| Product ID: 12 | Product Name: Galaxy S20 mini | Stock Level: 0 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> add
+
+    Adding a new product...
+
+
+    Do you want the system to set up a new ID?
+
+       -yes
+       -no
+> yes
+
+    Please enter the product name
+
+> 
+
+        Cannot leave blank!
+
+> Samsung phone
+
+    Do you want to order a delivery now?
+
+       -yes
+       -no
+> yes
+
+    Please enter the amount
+> 5
+    Delivered: 5 Samsung phone
+
+    Product  with ID 11,Name Samsung phone added
+
+| Product ID: 11 | Product Name: Samsung phone | Stock Level: 5 |
+       -add             Add new product
+       -remove          Remove product 
+       -sell            Sell Products  
+       -printall        Print all products
+       -rename          Rename product  
+       -printlow        Print products with low quantity
+       -re-stock        Add new product
+       -deliver         Deliver Products
+       -quantity        Check the quantity of a product
+       -basket          See basket menu
+       -search          See search menu
+       -quit            Quit           
+> 
