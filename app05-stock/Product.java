@@ -7,22 +7,14 @@
 public class Product
 {
     public static final int LOW = 5;
-    public static final String HOME = "home";
-    public static final String ELECTRONICS ="electronics";
-    public static final String GARDEN = "garden";
-    
-    private Suplier suplier = new Suplier();
-    
-    //Name, id, price and the location in store.
+       
+    //Name, id.
     private int id;
     private String name;
-    private double price;
-    private Type type;
     // The quantity of this product in stock.
     private int quantity;
     // The amount of products required.
     private int amount;
-    //Type of product
         
     /**
     * Constructor for objects of class Product.
@@ -34,7 +26,6 @@ public class Product
     {
         this.id = id;
         this.name = name;
-        this.price = price;
         quantity = 0;
         amount = 0;
     }
@@ -68,8 +59,7 @@ public class Product
      */
     public String toString()
     {
-        return "| Product ID: " + id + " | Product Name: " + name + " | Stock Level: " + quantity + " | " +
-                "Price: " + price + "£ | Type: " + type + " | ";
+        return "| Product ID: " + id + " | Product Name: " + name + " | Stock Level: " + quantity + " |";
     }
 
     /**
@@ -84,15 +74,12 @@ public class Product
         {
             quantity += amount;
             
-            System.out.println("Delivered " + amount + " " + name);
+            System.out.println("    Delivered: " + amount + " " + name);
             
-            price = suplier.getPrice();
-            
-            suplier.generateInvoice(id,amount, price);
         }
         else
         {
-            System.out.println("Attempt to restock " + name + " with a non-positive amount: " + amount);
+            System.out.println("    Attempt to restock " + name + " with a non-positive amount: " + amount);
         }
     }
     
@@ -107,11 +94,11 @@ public class Product
         {
             quantity = quantity - number;
             
-            System.out.println(number + " of " + name + "sold!");
+            System.out.println("    " + number + " of " + name + "sold!");
         }
         else if(quantity < number)
         {
-            System.out.println("The quantity of the product " + name + " is lower than the required amount!");
+            System.out.println("    The quantity of the product " + name + " is lower than the required amount!");
             System.out.println(quantity + " of " + name + " sold!");
             
             quantity = 0;
@@ -119,7 +106,7 @@ public class Product
         else
         {
             System.out.println();
-            System.out.println("The amount must be higher then 0");
+            System.out.println("    The amount must be higher then 0");
             System.out.println();
         }
     }
@@ -149,7 +136,7 @@ public class Product
      */
     public void replaceName(String replacement)
     {
-        System.out.println("Product " + id + " " + name + " has been renamed to " +
+        System.out.println("    Product " + id + " " + name + " has been renamed to " +
                             replacement);
         name = replacement;
     }
@@ -162,7 +149,7 @@ public class Product
     {
         if(checkLow() == true)
         {
-            System.out.println("WARNING: " + getQuantity() + " " + getName() + " in stock. Please order more!");
+            System.out.println("    WARNING: " + getQuantity() + " " + getName() + " in stock. Please order more!");
         }
     }
 
@@ -208,61 +195,5 @@ public class Product
     public int getAmount()
     {
         return amount;
-    }
-    
-    /**
-     * 
-     */
-    public void setPrice(double price)
-    {
-        this.price = price;
-    }
-    
-    /**
-     * 
-     */
-    public void changePrice(double price)
-    {
-        this.price = price;
-    }
-    
-    /**
-     * 
-     */
-    public double getPrice()
-    {
-        return + price;
-    }
-    
-    /**
-     * 
-     */
-    public void setType(String type)
-    {
-        if(type.equals(ELECTRONICS))
-        
-            this.type = Type.ELECTRONICS;
-        else if(type.equals(HOME))
-            this.type = Type.HOME;
-        else if(type.equals(GARDEN))
-            this.type = Type.GARDEN;
-        else
-            System.out.println("Product type not found");
-    }
-        
-    /**
-     * 
-     */
-    public Type getType()
-    {
-        return type;
-    }
-    
-    /**
-     * 
-     */
-    public double getTotal()
-    {
-        return price * amount;
     }
 }
