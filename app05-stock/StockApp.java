@@ -18,25 +18,89 @@ public class StockApp
     public static final String SEARCH_NAME = "searchname";
     public static final String PRINT_LOW = "printlow";
     public static final String RE_STOCK = "re-stock";
-    public static final String DELIVER = "deliverproducts";
+    public static final String DELIVER = "deliver";
     public static final String RENAME = "rename";
-    public static final String CHECK_QUANTITY = "checkquantity";
-    public static final String ADD_TO_CART = "addtocart";
+    public static final String QUANTITY = "quantity";
+    public static final String ADD_TO_CART = "add";
     public static final String DELETE = "delete";
-    public static final String PRINT_CART = "printcart";
+    public static final String PRINT_CART = "print";
     public static final String PROCEED = "proceed";
-    public static final String BASKET_MENU = "seebasket";
+    public static final String BASKET_MENU = "basket";
     public static final String SEARCH = "search";
+    public static final String YES = "yes";
+    public static final String NO = "no";
+    public static final String SORT_ID = "sortid";
+    public static final String SORT_NAME = "sortname";
+    public static final String SORT_QUANTITY = "sortquantity";
+    
     
     //Use to get user input
     private final InputReader reader = new InputReader();
     
     // Use of the previous app features.
-    private final Invoice invoice = new Invoice();
     private final ShoppingCart shoppingCart = new ShoppingCart();
-    private final StockManager manager = new StockManager(shoppingCart, invoice);
+    private final StockManager manager = new StockManager(shoppingCart);
     private final StockDemo demo = new StockDemo(manager);
-           
+    
+    // Different menus we can use.
+    private String[] menuChoices;
+    private String[] basketMenu;
+    private String[] searchMenu;
+    private String[] sortOptions;
+    private String[] binary;
+    
+    public StockApp()
+    {
+        menuChoices = new String[] 
+        {
+            ADD      + "             Add new product",
+            REMOVE      + "          Remove product ",
+            SELL      + "            Sell Products  ",
+            PRINT_ALL     + "        Print all products",
+            RENAME      + "          Rename product  ",
+            PRINT_LOW  +    "        Print products with low quantity",
+            RE_STOCK   +    "        Add new product",
+            DELIVER      + "         Deliver Products",
+            QUANTITY      + "        Check the quantity of a product",
+            BASKET_MENU + "          See basket menu",
+            SEARCH      + "          See search menu",
+            QUIT    +   "            Quit           "            
+        };
+                                    
+        basketMenu = new String[] 
+        {
+            ADD_TO_CART + "             Add to cart",
+            PRINT_CART    + "           Print cart",
+            PROCEED         + "         Proceed with cart",
+            DELETE         + "          Delete from cart",
+            QUIT         + "            Quit"
+        };
+          
+        searchMenu = new String[] 
+        {
+            SEARCH_ID + "        Search by id",
+            SEARCH_NAME + "      Search by name",
+            QUIT  + "            Quit"
+        };
+        
+        sortOptions = new String[] 
+        {
+            SORT_ID + "          Sort by ID",
+            SORT_NAME + "        Sort by name",
+            SORT_QUANTITY + "    Sort by quantity"
+        };
+        
+        binary = new String[] {YES, NO};
+    }
+    
+    /**
+     * Print main menu.
+     */
+    private void printMenu(String [] option)
+    {
+        Menu.display(option);
+    }
+    
     /**
      * Run the program for the main menu.
      */
@@ -44,12 +108,11 @@ public class StockApp
     {
         boolean finished = false;
         
-        printHeading();
-        
+        printHeading("*         Main menu          *");
                
         while(!finished)
         {
-            printMenuChoices();
+            printMenu(menuChoices);
             
             String choice = reader.getString().toLowerCase();
             
@@ -71,18 +134,18 @@ public class StockApp
     {
         boolean finished = false;
         
-        printCartHeading();
+        printHeading("*       Shopping Cart        *");
         
         while(!finished)
         {
-            printSubMenu();
+            printMenu(basketMenu);
             
             String choice = reader.getString().toLowerCase();
             
             if (choice.equals(QUIT))
                 finished = true;
             else
-                executeSubMenu(choice);
+                executeBasketMenu(choice);
         }
     }
     
@@ -93,11 +156,11 @@ public class StockApp
     {
         boolean finished = false;
         
-        printSearchHeading();
+        printHeading("*           Search           *");
         
         while(!finished)
         {
-            printSearchMenu();
+            printMenu(searchMenu);
             
             String choice = reader.getString().toLowerCase();
             
@@ -122,7 +185,7 @@ public class StockApp
                 
             id = reader.getInteger();
         }
-        System.out.println("One product found");
+        System.out.println("One product found\n");
         
         manager.getProductByID(id);
         
@@ -143,7 +206,7 @@ public class StockApp
                 
             id = reader.getInteger();
         }
-        System.out.println("ID available");
+        System.out.println("\nID available\n");
                 
         return id;
     }
@@ -162,7 +225,7 @@ public class StockApp
                     
             name = reader.getString();
         }
-        System.out.println("Name accepted");
+        System.out.println("\nName accepted\n");
         
         return name;
     }
@@ -172,35 +235,54 @@ public class StockApp
      */
     private void addProduct()
     {
+        int id = 0;
+        
         System.out.println("\n    Adding a new product...\n");
-         
-        System.out.println("\n    Please enter the product ID\n");
         
-        int id = reader.getInteger();
+        System.out.println("\n    Do you want the system to set up a new ID?\n");
         
-        id = findNewID(id);               
+        printMenu(binary);
+        
+        String idOption = reader.getString();
+        
+        if(idOption.toLowerCase().equals(YES))
+        {
+            id = manager.getNextId();
+        }
+        else
+        {
+            System.out.println("\n    Please enter the product ID\n");
+        
+            id = reader.getInteger();
+        
+            id = findNewID(id);
+        }
     
         System.out.println("\n    Please enter the product name\n");
         
         String name = reader.getString();
         
-        System.out.println("\n    Please enter the product price\n");
-        
-        double price = reader.getDouble();
-        
-        System.out.println("\n    Please enter the product type");
-        
-        String type = reader.getString();
-        
-        manager.setType(id, type);
-                
-        System.out.println("\n Product  with ID " + id + ",Name " + name + " added\n");
-        
-        manager.findSuplier();
         Product product = new Product(id, name);
         manager.addProduct(product);
-        manager.getProductByID(id);
         
+        System.out.println("\n    Do you want to order a delivery now?\n");
+        
+        printMenu(binary);
+        
+        String deliveryOption = reader.getString();
+        
+        if(deliveryOption.toLowerCase().equals(YES))
+        {
+            System.out.println("\n    Please enter the amount");
+            
+            int amount = reader.getInteger();
+            
+            manager.deliverProduct(id, amount);
+        }
+        
+        System.out.println("\n    Product  with ID " + id + ",Name " + name + " added\n");
+        
+        manager.getProductByID(id);
     } 
                 
     /**    
@@ -217,35 +299,7 @@ public class StockApp
         
         manager.renameProduct(id, name);
     }
-    
-    /**
-     * 
-     */
-    private void setDetails()
-    {
-        System.out.println("Please enter customer/business name!");
         
-        String customer = reader.getString();
-        
-        manager.setCustomer(customer);
-        
-        
-        System.out.println("Please enter the type of customer - domestic / commercial");
-        
-        String type = reader.getString();
-        
-        manager.setCustomerType(type);
-        
-        System.out.println("Please enter customer's address");
-        
-        String address = reader.getString();
-        
-        manager.setCustomerAddress(address);
-        
-        sell();
-        
-    }
-    
     /**
      * 
      */
@@ -260,15 +314,16 @@ public class StockApp
         System.out.println("    Please enter the amount\n");
         
         int amount = reader.getInteger();
-        
-        manager.invoiceProduct(id);            
+                   
         manager.sellMultiple(id, amount);
        
-        System.out.println("\nDo you want to buy more products? Yes/No\n");
+        System.out.println("\nDo you want to buy more products?\n");
+        
+        printMenu(binary);
         
         String add = reader.getString();
         
-        while (add.equals("yes"))
+        while (add.equals(YES))
         {
             System.out.println("\n    Please enter the product ID\n");
         
@@ -280,16 +335,43 @@ public class StockApp
         
             amount = reader.getInteger();
         
-            manager.invoiceProduct(id);            
             manager.sellMultiple(id, amount);
        
-            System.out.println("\nDo you want to buy more products? Yes/No\n");
+            System.out.println("\nDo you want to buy more products?\n");
+            
+            printMenu(binary);
         
             add = reader.getString();
         }
-        manager.generateInvoice();
         
         System.out.println("Thank you for shopping with us");
+    }
+    
+    /**
+     * Print the list in three different ways.
+     */
+    public void getSortOptions()
+    {
+        System.out.println("\nHow do you want to see the list?\n");
+        
+        printMenu(sortOptions);
+        
+        String choice = reader.getString();
+        
+        if (choice.equals(SORT_ID))
+        {
+            manager.sortByID();
+        }
+        else if (choice.equals(SORT_NAME))
+        {
+            manager.sortByName();
+        }
+        else if (choice.equals(SORT_QUANTITY))
+        {
+            manager.sortByQuantity();
+        }
+        else
+            System.out.println("\n    Not an option!\n");
     }
         
     /**
@@ -304,7 +386,7 @@ public class StockApp
         }
         else if (choice.equals(PRINT_ALL))
         {
-            manager.printAllProductDetails();
+            getSortOptions();
         }
         else if (choice.equals(REMOVE))
         {
@@ -317,7 +399,7 @@ public class StockApp
         }
         else if (choice.equals(SELL))
         {
-            setDetails();
+            sell();
         }
         else if (choice.equals(PRINT_LOW))
         {
@@ -348,7 +430,7 @@ public class StockApp
             
             rename(id);
         }
-        else if (choice.equals(CHECK_QUANTITY))
+        else if (choice.equals(QUANTITY))
         {
             System.out.println("    Please enter the product ID\n");
         
@@ -357,7 +439,7 @@ public class StockApp
         }
         else if (choice.equals(BASKET_MENU))
         {
-            printSubMenu();
+            printMenu(basketMenu);
         }
     }
     
@@ -365,7 +447,7 @@ public class StockApp
      * The menu for the basket methods. 
      * @param choice is the choice we input.
      */
-    private void executeSubMenu(String choice)
+    private void executeBasketMenu(String choice)
     {
        if (choice.equals(ADD_TO_CART))
         {
@@ -374,11 +456,28 @@ public class StockApp
             int id = reader.getInteger();
             id = findUsedID(id);
             
-            System.out.println("    Please enter the amount\n");
+            System.out.println("\n    Please enter the amount\n");
         
             int amount = reader.getInteger();
+                        
+            while (manager.addToCart(id, amount) == false)
+            {
+                System.out.println("\nDo you want to add a lesser amount?\n");
+                
+                printMenu(binary);
+        
+                String add = reader.getString();
+                if (add.equals(YES))
+                {
+                    System.out.println("    Please enter the amount\n");
+        
+                    amount = reader.getInteger();
+                                                        
+                }
+                else
+                    break;
+            }
             
-            manager.addToCart(id, amount);
         }
         else if (choice.equals(DELETE))
         {
@@ -424,84 +523,18 @@ public class StockApp
         }
         
     }
-    
-    /**
-     * The options for the search menu.
-     */
-    private void printSearchMenu()
-    {
-        System.out.println();
-        System.out.println("        SearchId            :   Search a product by ID");
-        System.out.println("        SearchName          :   Search a product by name");
-        System.out.println("        Quit                :   Exit the Search menu");
-        System.out.println();
-    }
-    
-    /**
-     * The options for the basket menu.
-     */
-    private void printSubMenu()
-    {
-        System.out.println();
-        System.out.println("        AddToCart            :   Add a new product to cart");
-        System.out.println("        Delete               :   Delete product from cart");
-        System.out.println("        PrintCart            :   See items in cart");
-        System.out.println("        Proceed              :   Sell items from cart");
-        System.out.println("        Quit                 :   Exit the basket menu");
-        System.out.println();
         
-    }
-    
-    /**
-     * The options for the main menu.
-     */
-    private void printMenuChoices()
-    {
-        System.out.println();
-        System.out.println("    Add             :   Add a new product");
-        System.out.println("    Remove          :   Remove an old product");
-        System.out.println("    PrintAll        :   Print all products");
-        System.out.println("    Sell            :   Sell an amount of products");
-        System.out.println("    DeliverProducts :   Deliver products");
-        System.out.println("    PrintLow        :   Print products with low stock");
-        System.out.println("    Re-stock        :   Deliver products with low stock");
-        System.out.println("    Rename          :   Rename a product");
-        System.out.println("    CheckQuantity   :   Check quantity of a product");
-        System.out.println("    Search          :   Search for a product");
-        System.out.println("    SeeBasket       :   Move to basket");
-        System.out.println("    Quit            :   Quit the program");
-        System.out.println();        
-    }
-    
     /**
      * Print the title of the program and the authors name. 
      */
-    private void printHeading()
+    private void printHeading(String menu)
     {
         System.out.println("\n******************************");
         System.out.println(" Stock Management Application ");
         System.out.println("    App05: by Andrei Cruceru  ");
+        System.out.println("******************************");
+        System.out.println(menu);
         System.out.println("******************************\n");
     }
-    
-    /**
-     * Print a heading for the basket menu.
-     */
-    private void printCartHeading()
-    {
-        System.out.println("\n******************************");
-        System.out.println("         Shopping  Cart         ");
-        System.out.println("******************************\n");
-    }
-    
-    /**
-     * Print a heading for the search menu.
-     */
-    private void printSearchHeading()
-    {
-        System.out.println("\n******************************");
-        System.out.println("            Search            ");
-        System.out.println("******************************\n");
-    }
-     
+        
 }
