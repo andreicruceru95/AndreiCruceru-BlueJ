@@ -14,35 +14,38 @@ public class StockManager
     
     //Shopping cart and invoice for each transaction;
     private ShoppingCart cart;
-    private Invoice invoice;
     
     // A list with data type Product used for calculations.
     List <Product> listClone = new ArrayList<Product>();
        
     /**
      * Initialise the stock manager.
+     * @param cart is an object of the ShoppingCart class.
      */
-    public StockManager(ShoppingCart cart, Invoice invoice)
+    public StockManager(ShoppingCart cart)
     {
         stock = new ArrayList<>();
         this.cart = cart;
-        this.invoice = invoice;
     }
     
     /**
      * Add a product and the quantity you want to buy.
      */
-    public void addToCart(int id, int amount)
+    public boolean addToCart(int id, int amount)
     {
         Product product = findProduct(id);
         if (product.getQuantity() >= amount)
         {
             cart.addToCart(product, amount);
             product.setAmount(amount);
+            
+            return true;
         }
         else
         {
-            System.out.println("Quantity requested is too high for " + product.getName());
+            System.out.println("    Quantity requested is too high for " + product.getName());
+            
+            return false;
         }
     }
     
@@ -58,7 +61,7 @@ public class StockManager
              cart.deleteProduct(product);
          }
          else
-             System.out.println("Product not in cart");
+             System.out.println("    Product not in cart");
     } 
     
     /**
@@ -87,7 +90,25 @@ public class StockManager
     }
     
     /**
+     * @return the next available ID starting from 10.
+     * @return the id found.
+     */
+    public int getNextId()
+    {
+        int id = 10;
+        
+        while(findProduct(id) != null)
+        {
+            id++;
+        }
+        
+        return id;
+    }
+    
+    /**
      * Rename a product based on it's id.
+     * @param id is the id of the product we want to modify.
+     * @param replacement is the new name of the product.
      */
     public void renameProduct(int id, String replacement)
     {
@@ -117,12 +138,15 @@ public class StockManager
         }
         else
         {
-            System.out.println("Product not found!");
+            System.out.println("    Product not found!");
         }
     }
     
     /**
-     * Sell a quantity of a product based on the product's id
+     * Sell a quantity of a product based on the product's id.
+     * @param id is the id of the product about to be sold.
+     * @param amount is the amount about to be sold.
+     * Print an error if no product is found.
      */
     public void sellMultiple(int id,int amount)
     {
@@ -134,7 +158,7 @@ public class StockManager
         }
         else
         {
-            System.out.println("Product with id " + id + " not found");
+            System.out.println("    Product with id " + id + " not found");
         }
     }
     
@@ -160,7 +184,7 @@ public class StockManager
      * many of this item are in stock. If the ID does not
      * match any product, return zero.
      * @param id The ID of the product.
-     * @return The quantity of the given product in stock.
+     * Print he quantity of the given product in stock.
      */
     public void getQuantity(int id)
     {
@@ -172,7 +196,7 @@ public class StockManager
         }
         else
         {
-            System.out.println("Product not found!");
+            System.out.println("    Product not found!");
         }
     }
  
@@ -196,6 +220,7 @@ public class StockManager
         if(product != null) 
         {
             product.sellOne();
+            
             getProductByID(id);
         }
     }
@@ -204,7 +229,7 @@ public class StockManager
      * Get the product with the given id from the manager.
      * An error message is printed if there is no match.
      * @param id The ID of the product.
-     * @return The Product, or null if no matching one is found.
+     * Print the Product details if one is found.
      */
     public void getProductByID(int id)
     {
@@ -216,13 +241,14 @@ public class StockManager
         }
         else
         {
-            System.out.println("Product with ID: " + id +
-                                " is not recognised.");
+            System.out.println("    Product with ID: " + id +
+                               " is not recognised.");
         }
     }
     
     /**
-     * Search for a product
+     * Search for a product.
+     * @param word is the keyword we are looking for.
      */
     public void search(String word)
     {
@@ -241,6 +267,7 @@ public class StockManager
     
     /**
      * Remove a product out of the stock
+     * @param id is the id of the product we want to remove.
      */
     public void removeProduct(int id)
     {
@@ -248,14 +275,14 @@ public class StockManager
         
         if (product != null)
         {
-            System.out.println("Product " + product.getID() + " " + product.getName() +
-                                " has been removed");
+            System.out.println("    Product " + product.getID() + " " + product.getName() +
+                               " has been removed");
             stock.remove(product);        
         }
         
         else
         {
-            System.out.println("Product not found!");
+            System.out.println("    Product not found!");
         }
     } 
     
@@ -278,6 +305,11 @@ public class StockManager
         verifyLow();
     }
     
+    /**
+     * Check if the list is empty or not.
+     * @return true if not empty.
+     * @return false if empty.
+     */
     private boolean validate()
     {
         if (listClone.size() > 0)
@@ -297,13 +329,13 @@ public class StockManager
     {
         if (validate() == true)
         {
-            System.out.println("\nThe stock of the following products should be refilled\n");
+            System.out.println("\n    The stock of the following products should be refilled\n");
         
             printList(listClone);
         }
         else
         {
-            System.out.println("\nThe quantity of each product is at least 5\n");
+            System.out.println("\n    The quantity of each product is at least 5\n");
         }
     }
     
@@ -314,7 +346,7 @@ public class StockManager
     {
         checkLowStock();
         
-        System.out.println("\nDelivering products..\n");
+        System.out.println("\n    Delivering products..\n");
         
         if(validate() == true)
         {
@@ -322,18 +354,49 @@ public class StockManager
             {
                 product.increaseQuantity(5);    
             });
-            System.out.println("\nSuccess!\n");
+            System.out.println("\n    Success!\n");
                         
             printList(listClone);
         }
         else
         {
-            System.out.println("The quantity of each product is at least 5");
+            System.out.println("    The quantity of each product is at least 5");
         }
     }
     
     /**
-     * Print list.
+     * Sort a list of products by their quantity.
+     */
+    public void sortByQuantity()
+    {
+        Collections.sort(stock,new QuantitySorter());
+        
+        printList(stock);
+    }
+    
+    /**
+     * Sort a list of products by their name.
+     */
+    public void sortByName()
+    {
+        Collections.sort(stock,new NameSorter());
+        
+        printList(stock);
+    }
+    
+    /**
+     * Sort a list of products by ID.
+     */
+    public void sortByID()
+    {
+        Collections.sort(stock,new IDSorter());
+        
+        printList(stock);
+    }
+    
+    /**
+     * Print any given list.
+     * @param list is a given ArrayList.
      */
     private void printList(List<Product> list)
     {
@@ -341,122 +404,5 @@ public class StockManager
         {
             System.out.println(product);
         }); 
-    }
-    
-    /**
-     * 
-     */
-    public void setType(int id, String type)
-    {
-        Product product = findProduct(id);
-        if (product != null)
-        {
-            product.setType(type);
-            
-            System.out.println("\nProduct " + product.getName() + " set to type " + "<" + type + ">\n");
-        }
-        else 
-            System.out.println("\nProduct not found!\n");
-    }
-        
-    /**
-     * 
-     */
-    public void getType(int id)
-    {
-        Product product = findProduct(id);
-        if (product != null)
-        {
-            System.out.println("\nProduct with ID + " + product.getID() + " Type:\n");
-                                
-            product.getType();
-        }
-        else 
-            System.out.println("\nProduct not found!\n");
-    }
-    
-    /**
-     * 
-     */
-    public void setPrice(int id, double price)
-    {
-        Product product = findProduct(id);
-        if (product != null)
-        {
-            product.setPrice(price);
-            
-            System.out.println("\nThe price was set for product " + product.getName() + " to " + price +"£\n");
-        }
-        else  
-            System.out.println("\nProduct not found!\n");
-    }
-    
-    /**
-     * 
-     */
-    public void changePrice(int id, double price)
-    {
-        Product product = findProduct(id);
-        if (product != null)
-        {
-            System.out.println("\nThe price was changed for product " + product.getName() +
-                                " from " + product.getPrice() + "£ to " + price +"£\n");
-                                
-            product.changePrice(price);
-        }
-        else 
-            System.out.println("\nProduct not found!\n");
-    }
-    
-    /**
-     * 
-     */
-    public void getPrice(int id)
-    {
-        Product product = findProduct(id);
-        if (product != null)
-        {
-            System.out.println("\nThe price for product with ID + " + product.getID() + " is: " + product.getPrice() + "£\n");
-        }
-        else 
-            System.out.println("\nProduct not found!\n");
-    }
-    
-    /**
-     * 
-     */
-    public void setCustomer(String customer)
-    {
-         invoice.setCustomer(customer);
-    }
-    
-    /**
-     * 
-     */
-    public void setCustomerType(String type)
-    {
-         invoice.setCustomerType(type);
-    }
-    
-    /**
-     * 
-     */
-    public void setCustomerAddress(String address)
-    {
-         invoice.setCustomerAddress(address);
-    }
-    
-    /**
-     * 
-     */
-    public void generateInvoice()
-    {
-        invoice.generateInvoice();
-    }
-    
-    public void invoiceProduct(int id)
-    {
-        Product product = findProduct(id);
-        invoice.addProduct(product);
     }
 }
