@@ -11,6 +11,8 @@ public class Room
 {
     private static final String room[][]  = new String[11][11];
     private static final String visualField[][] = new String[3][3];
+    private static final int initialRowPCoord = 2;
+    private static final int initialColPCoord = 2;
     
     //commands and the representation of different items on the map/room.
     private static final String PLAYER = "P";
@@ -39,11 +41,9 @@ public class Room
     private String description;
     private String name;
     private int level;
-    private int playerRowCoord;
-    private int playerColCoord;
+    private int playerRowCoord = 2;
+    private int playerColCoord = 2;
     private int mapLength = 10;
-    private int initialRowPCoord = 2;
-    private int initialColPCoord = 2;
     
     /**
      * Contructor method for the room.
@@ -154,24 +154,6 @@ public class Room
     }
     
     /**
-     * Get the coordinates ot the player.
-     */
-    private void getCoordinates()
-    {
-        for (int i = 0; i < room.length; i++)
-        {
-            for (int j = 0; j < room.length; j++)
-            {
-                if (room[i][j].equals(PLAYER))
-                {
-                    playerRowCoord = i;
-                    playerColCoord = j;
-                }
-            }
-        }
-    }
-    
-    /**
      * Set values in the 2D map.
      */
     public void setObject(int row, int col, String obj)
@@ -200,84 +182,61 @@ public class Room
             System.out.println("");
         }
     }
-    
-    /**
-     * get the column coordinates of the player.
-     */
-    public int getColCoordinate()
-    {
-        getCoordinates();
         
-        return playerColCoord;
-    }
-    
-    /**
-     * get the row coordinates of the player.
-     */ 
-    public int getRowCoordinate()
-    {
-        getCoordinates();
-        
-        return playerRowCoord;
-    }
-    
     /**
      * move player in a direction
      */
     public void movePlayer(String direction)
     {
-        int row = getRowCoordinate();
-        int col = getColCoordinate();
-        
-        
         if(direction.equals(UP))
         {
-            int rowUp = initialRowPCoord -= 1;
-            int check = checkNextSquare(rowUp, col);
+            int nextRowUp = playerRowCoord - 1;
+            int check = checkNextSquare(nextRowUp, playerColCoord);
             
             if(check == 1)
             {
-                setObject(initialRowPCoord,initialColPCoord,"   ");
-                room[rowUp][col] = square;
+                setObject(playerRowCoord ,playerColCoord,"   ");
+                
+                this.playerRowCoord --;
             }
                        
         }
         else if(direction.equals(DOWN))
         {
-            int rowDown = initialRowPCoord += 1;
-            int check = checkNextSquare(rowDown, col);
+            int nextRowDown = playerRowCoord + 1;
+            int check = checkNextSquare(nextRowDown, playerColCoord);
             
             if(check == 1)
             {
-                room[initialRowPCoord][initialColPCoord] = "   ";
-                room[rowDown][col] = square;
+                setObject(playerRowCoord ,playerColCoord,"   ");
                 
+                this.playerRowCoord ++;
             }
-            
+               
         }
         else if(direction.equals(LEFT))
         {
-            int colLeft = initialColPCoord -= 1;
-            int check = checkNextSquare(row, colLeft);
+            int nextColLeft = playerColCoord - 1;
+            int check = checkNextSquare(playerRowCoord, nextColLeft);
             
             if(check == 1)
             {
-                setObject(initialRowPCoord,initialColPCoord,"   ");
-                room[row][colLeft] = square;
+                setObject(playerRowCoord ,playerColCoord,"   ");
                 
+                this.playerColCoord --;
             }
-            
+               
         }
         else if(direction.equals(RIGHT))
         {
-            int colRight = initialColPCoord += 1;
-            int check = checkNextSquare(row, colRight);
+            int nextColRight = playerColCoord + 1;
+            int check = checkNextSquare(playerRowCoord, nextColRight);
             
             if(check == 1)
             {
-                setObject(initialRowPCoord,initialColPCoord,"   ");
-                room[row][colRight] = square;
+                setObject(playerRowCoord ,playerColCoord,"   ");
                 
+                this.playerColCoord ++;
             }
             
         }
@@ -288,6 +247,7 @@ public class Room
         printRoom();
     }
     
+    
     /**
      * check the next square.
      * @return 1 if the next square can be walked uppon/modified,
@@ -295,7 +255,7 @@ public class Room
      */
     public int checkNextSquare(int row, int col)
     {
-        if (room[row][col] == "   ")
+        if (room[row][col].contains(square))
         {
             return 1;
         }
