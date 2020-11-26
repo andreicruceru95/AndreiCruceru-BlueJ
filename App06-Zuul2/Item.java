@@ -9,11 +9,13 @@ public class Item
     //The item attributes
     private int id;
     private String name;
-    private int atk;
-    private int def;
+    private int atackForce;
+    private int shield;
     private int heal;
-    private int hp;
+    private int hitPoints;
     private int quantity;
+    private int level = 1;
+    
 
     /**
      * Initialising attributes.
@@ -25,15 +27,16 @@ public class Item
      * @param hp is the armour health bonus.
      * @param quantity is the item's qunatity.
      */
-    public Item(int id,String name,int atk,int def,int heal,int hp,int quantity)
+    public Item(int id,String name,int atackForce,int shield,int heal,int hitPoints,int quantity, int level)
     {
         this.id = id;
         this.name = name;
-        this.atk = atk;
-        this.def = def;
         this.heal = heal;
-        this.hp = hp;
         this.quantity = quantity;
+        this.level = level;
+        this.atackForce = atackForce * level;
+        this.shield = shield* level;
+        this.hitPoints = hitPoints * level;
     }
     
     /**
@@ -42,26 +45,26 @@ public class Item
     public void seeWeapon()
     {
         System.out.println("\n    " + name + ":\n");
-        System.out.println("Atk: " + atk);
+        System.out.println("Atk: " + atackForce);
     }
     
     /**
      * @return a weapon's attributes.
      */
-    public String returnWeaponAttr()
+    public String returnWeaponAttributes()
     {
-        return "\n    Name +" + name + "\nAtk: " + atk;
+        return "\n    Name +" + name + "\nAtack Force: " + atackForce;
     }
     
     /**
      * Enchance a weapon.
-     * @return the new atk.
+     * @return the new atackForce.
      */
     public int enchanceWeapon()
     {
-        atk += 10;
+        atackForce += 10;
         
-        return atk;
+        return atackForce;
     }
     
     /**
@@ -69,39 +72,39 @@ public class Item
      */
     public void seeArmour()
     {
-        System.out.println("\n    " + name + ":\n");
-        System.out.println("Def :" + def);
-        System.out.println("HP: "+ hp);
+        System.out.println("\n    " + getName() + ":\n");
+        System.out.println("Def :" + shield);
+        System.out.println("HP: "+ hitPoints);
     }
     
     /**
      * @return an armour attributes.
      */
-    public String returnArmourAttr()
+    public String returnArmourAttributes()
     {
-        return "\n    Name +" + name + "\nAtk: " + def + "\nHP: " + hp;
+        return "\n    Name +" + name + getName() + "\nAtack Force: " + shield + "\nHit Points: " + hitPoints;
     }
     
     /**
      * Enchance an armour defense.
      * @return the new defense value;
      */
-    public int enchanceArmourDef()
+    public int enchanceArmourShield()
     {
-        def += 10;
+        shield += 10;
         
-        return def;
+        return shield;
     }
     
     /**
      * Enchance an armour hit points bonus.
      * @return the new hp value.
      */
-    public int enchanceArmourHp()
+    public int enchanceArmourHitPoints()
     {
-        hp += 10;
+        hitPoints += 10;
         
-        return hp ;
+        return hitPoints ;
     }
     
     /**
@@ -109,17 +112,17 @@ public class Item
      */
     public void seePotion()
     {
-        System.out.println("\n    " + name + ":\n");
-        System.out.println("Restore HP: " + heal);
+        System.out.println("\n    " + getName() + ":\n");
+        System.out.println("Restore Hit Points: " + heal);
         System.out.println("Quantity: " + quantity);
     }
     
     /**
      * @return a potion attributes.
      */
-    public String returnPotionAttr()
+    public String returnPotionAttributes()
     {
-        return "\n    Name +" + name + "\nHeal: " + heal + "\n" + quantity;
+        return "\n    Name +" + getName() + "\nHeal: " + heal + "\n" + quantity;
     }
     
     /**
@@ -135,23 +138,23 @@ public class Item
      */
     public String getName()
     {
-        return name;
+        return name + " " + level;
     }
     
     /**
-     * @return the item's def.
+     * @return the item's shield.
      */
-    public int getDef()
+    public int getShield()
     {
-        return def;
+        return shield;
     }
     
     /**
-     * @return the item's hp.
+     * @return the item's hit points.
      */
-    public int getHp()
+    public int getHitPoints()
     {
-        return hp;
+        return hitPoints;
     }
     
     /**
@@ -171,10 +174,10 @@ public class Item
     }
     
     /**
-     * @return an item's atk value.
+     * @return an item's atack value.
      */
-    public int getAtk()
+    public int getAtackForce()
     {
-        return atk;
+        return atackForce;
     }
 }

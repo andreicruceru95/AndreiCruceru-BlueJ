@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.*;
 
 /**
  * Take an input from a user.

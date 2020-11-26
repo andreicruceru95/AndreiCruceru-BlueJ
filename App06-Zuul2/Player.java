@@ -11,41 +11,76 @@ public class Player
 {
     private final static int MIN_HEALTH = 0;
     
-    private int atk;
-    private int def;
-    private int maxHp;
-    private int currentHp;
+    private int atackForce = 0;
+    private int shield = 0;
+    private int maxHitPoints = 100;
+    private int currentHitPoints = 100;
     
     private Random random;
         
     private ArrayList<Item> inventory;
-    
+    private ArrayList<Item> equipment;
+       
     private String name;
     private int score = 0;
-    
+       
     /**
      * Add a name for the player.
      * @param name is the input name.
      */
-    public Player(String name)
+    public Player()
     {
         random = new Random();
-        this.name = name;
+        
         inventory = new ArrayList<Item>();
-        inventory.add(new Item(10,"Steel Sword ", 5, 0,0,0,0));
-        inventory.add(new Item(20,"Steel Armour", 0, 10,0,10,0));
-        inventory.add(new Item(30,"Steel Sword", 5, 0,0,0,5));
+        equipment = new ArrayList<Item>();
+        
+        equipment.add(new Item(10,"Steel Sword ", 5, 0,0,0,0,1));
+        equipment.add(new Item(20,"Steel Armour", 0, 10,0,10,0,1));
+        inventory.add(new Item(30,"HP Potion", 100, 0,0,0,5,1));
     }
     
     /**
-     * Print the inventory.
+     * Set/change a player's name.
+     * @param name is the input name.
      */
-    public void seeInventory()
+    public void setName(String name)
     {
-        for (Item item : inventory)
+        this.name = name;
+    }
+    
+    
+    /**
+     * Print a list of items.
+     * @param list is the given list.
+     */
+    private void seeItems(ArrayList<Item> list)
+    {
+        for (Item item : list)
         {
             System.out.println("\n" + item.getName());
         }
+    }
+    
+    /**
+     * Print inventory.
+     */
+    public void printInventory()
+    {
+        seeItems(inventory);
+    }
+    
+    /**
+     * Print the equiped items.
+     */
+    public void printEquiped()
+    {
+        if (equipment.size() > 0)
+        {
+            seeItems(equipment);
+        }
+        else    
+            System.out.println("\n    Nothing equipped");
     }
     
     /**
@@ -63,14 +98,17 @@ public class Player
             if(id < 20)
             {
                 item.seeWeapon();
+                
             }
             else if(id < 30)
             {
                 item.seeArmour();
+                
             }
             else if(id == 30)
             {
                 item.seePotion();
+                
             }
             else
                 System.out.println("error");
@@ -89,26 +127,50 @@ public class Player
         
         if (item != null)
         {
-            int id = item.getID();
-            
-            if(id < 20)
+            if (item.getID() == 30)
             {
-                atk += item.getAtk();
-            }
-            else if(id < 30)
-            {
-                def += item.getDef();
-                maxHp += item.getHp();
-            }
-            else if(id == 30)
-            {
-                currentHp += item.getHeal();
+                currentHitPoints += item.getHeal();
+                verify(currentHitPoints);
             }
             else
-                System.out.println("error");
-        }
+                swapEquipment(item);
+        }  
         else
             System.out.println("Don't be ridiculous..");
+    }
+    
+    /**
+     * Verify that the curent Hp isn't bigger then max Hp.
+     */
+    private void verify(int hitPoints)
+    {
+        if (hitPoints > maxHitPoints)
+        {
+            currentHitPoints = maxHitPoints;
+        }
+    }
+    
+    /**
+     * Equip an item in a item slot.
+    */
+    private void swapEquipment(Item item)
+    {
+        if (item.getID() < 20)
+        {
+            equipment.add(item);            
+                        
+            atackForce = item.getAtackForce();
+        }
+        else if(item.getID() < 30)
+        {
+            equipment.add(item);
+                     
+            maxHitPoints += item.getHitPoints();
+            shield = item.getShield();
+        }
+        else
+            System.out.println("Error");
+                
     }
     
     /**
@@ -125,12 +187,12 @@ public class Player
             
             if(id < 20)
             {
-                atk -= item.getAtk();
+                atackForce -= item.getAtackForce();
             }
             else if(id < 30)
             {
-                def -= item.getDef();
-                maxHp -= item.getHp();
+                shield -= item.getShield();
+                maxHitPoints -= item.getHitPoints();
             }
             else
                 System.out.println("error");
@@ -147,7 +209,7 @@ public class Player
     {
         for (Item item : inventory)
         {
-            if (item.getName().equals((name)))
+            if (item.getName().contains((name)))
             {
                 return item;
             }
@@ -197,10 +259,10 @@ public class Player
      */
     public int atack()
     {
-        int minAtk = atk - 3;
-        int maxAtk = atk + 3;
+        int minAtackForce = atackForce - 3;
+        int maxAtackForce = atackForce + 3;
         
-        int value = random.nextInt(maxAtk) + minAtk;
+        int value = random.nextInt(maxAtackForce) + minAtackForce;
          
         return value;
     }
@@ -210,19 +272,19 @@ public class Player
      * @param value is the value we recieve.
      * @return the value we recieved.
      */
-    public int getAtacked(int value)
+    public int recieveDamage(int value)
     {
         int recieved = 0;
         
-        if (def >= value)
+        if (shield >= value)
         {
             recieved = -1;
-            currentHp -= 1;
+            currentHitPoints -= 1;
         }
         else
         { 
-            recieved = value - def;
-            currentHp -= (value - def);
+            recieved = value - shield;
+            currentHitPoints -= (value - shield);
         }
         
         return recieved;   
@@ -235,12 +297,27 @@ public class Player
      */
     public boolean checkHealth()
     {
-        if (currentHp <= 0)
+        if (currentHitPoints <= 0)
         {
+            System.out.println("\t\t\t\tYou Lost!");
+            
             return false;
         }
         else
             return true;
     }
     
+    public int getHitPoints()
+    {
+        return currentHitPoints;
+    }
+    
+    public void getPlayerAttributes()
+    {
+        System.out.println("\nName: " + name);
+        System.out.println("Score: " + score);
+        System.out.println("Attack: " + atackForce);
+        System.out.println("Defense" + shield);
+        System.out.println("Current HP: " + currentHitPoints + "/" + maxHitPoints);
+    }
 }
