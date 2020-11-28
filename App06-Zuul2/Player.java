@@ -23,13 +23,16 @@ public class Player
        
     private String name;
     private int score = 0;
-       
+    private int playerRowCoord = 2;
+    private int playerColCoord = 2;
+    
     /**
      * Add a name for the player.
      * @param name is the input name.
      */
-    public Player()
+    public Player(String name)
     {
+        this.name = name;
         random = new Random();
         
         inventory = new ArrayList<Item>();
@@ -140,7 +143,7 @@ public class Player
     }
     
     /**
-     * Verify that the curent Hp isn't bigger then max Hp.
+     * Verify that the curent Hp isn't bigger then max Hit points.
      */
     private void verify(int hitPoints)
     {
@@ -320,4 +323,30 @@ public class Player
         System.out.println("Defense" + shield);
         System.out.println("Current HP: " + currentHitPoints + "/" + maxHitPoints);
     }
+    
+    /**
+     * Set player coordinates.
+     */
+    public void setCoordinates(int rowCoord, int colCoord)
+    {
+        this.playerRowCoord = rowCoord;
+        this.playerColCoord = colCoord;
+    }
+    
+    /**
+     * Get player row coordinates.
+     */
+    public int getRowCoord()
+    {
+        return playerRowCoord;
+    }
+    
+    /**
+     * Get player column coordinates.
+     */
+    public int getColCoord()
+    {
+        return playerColCoord;
+    }
+    
 }
