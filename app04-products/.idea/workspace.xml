@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4eb11a6-2a54-4bc6-a3bc-3c234c8e76d2" name="Default Changelist" comment="" />
+    <list default="true" id="b4eb11a6-2a54-4bc6-a3bc-3c234c8e76d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../App06-Zuul2/package.bluej" beforeDir="false" afterPath="$PROJECT_DIR$/../App06-Zuul2/package.bluej" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,21 +53,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../App06-Zuul2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -76,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606215032955</updated>
       <workItem from="1606215034020" duration="178000" />
+      <workItem from="1606492448344" duration="20000" />
     </task>
     <servers />
   </component>
@@ -92,11 +82,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="139" key="FileChooserDialogImpl" timestamp="1606215145455">
+    <state x="549" y="139" key="FileChooserDialogImpl" timestamp="1606492466519">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="139" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606215145455" />
+    <state x="549" y="139" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606492466519" />
   </component>
 </project>
