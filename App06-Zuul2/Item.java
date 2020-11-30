@@ -7,7 +7,7 @@
 public class Item
 {
     //The item attributes
-    private int id;
+    private final int id;
     private String name;
     private int atack;
     private int shield;
